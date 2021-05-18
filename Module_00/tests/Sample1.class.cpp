@@ -1,7 +1,7 @@
 #include "main.hpp"
 
 Sample1::Sample1(void) {
-	cout << "Constructor called" << endl;
+	cout << "Constructor Sample1 called" << endl;
 
 	this->foo = 42;
 	cout << "this->foo: " << this->foo << endl;
@@ -12,11 +12,11 @@ Sample1::Sample1(void) {
 }
 
 Sample1::~Sample1(void) {
-	cout << "Desstructor called" << endl;
+	cout << "Desstructor Sample1 called" << endl;
 	return;
 }
 
 void	Sample1::bar(void) {
-	cout << "Member function called" << endl;
+	cout << "Member function Sample1 called" << endl;
 	return;
 }
