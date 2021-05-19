@@ -5,12 +5,13 @@ class Sample1 {
 
 public:
 
-	int	foo;
+	float const	pi;
+	int			qd;
 
-	Sample1(void);
+	Sample1(float const f);
 	~Sample1(void); 
 
-	void bar(void);
+	void bar(void) const;
 };
 
 

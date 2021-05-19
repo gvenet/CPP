@@ -1,6 +1,7 @@
-#include "main.hpp"
+#include "../inc/main.hpp"
 
-Sample2::Sample2(char p1, int p2, float p3) : a1(p1), a2(p2), a3(p3) {
+Sample2::Sample2(char p1, int p2, float p3) : a1(p1), a2(p2), a3(p3) 
+{
 	cout << "Constructor Sample2 called" << endl;
 	cout <<"a1 = " << this->a1 << endl;
 	cout <<"a2 = " << this->a2 << endl;
@@ -8,7 +9,8 @@ Sample2::Sample2(char p1, int p2, float p3) : a1(p1), a2(p2), a3(p3) {
 	return;
 }
 
-Sample2::~Sample2(void) {
+Sample2::~Sample2(void) 
+{
 	cout << "Desstructor Sample2 called" << endl;
 	return;
 }

@@ -1,24 +1,53 @@
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
-EXEC_NAME = cours
-INCLUDES =
-LIBS =
-OBJ_FILES = main.o Sample1.class.o Sample2.class.o 
+SRC_DIR	:= srcs/
+INC_DIR	:= inc/
+OBJ_DIR	:= obj/
+BIN_DIR	:= bin/
 
-all : $(EXEC_NAME)
+NAME	:= $(BIN_DIR)exec
+SRC		:= $(wildcard $(SRC_DIR)*.cpp) $(wildcard $(SRC_DIR)*/*.cpp)
 
-%.o: %.cpp
-	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
+OBJ		:= $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 
-$(EXEC_NAME) : $(OBJ_FILES)
-	@$(CC) -o $(EXEC_NAME) $(OBJ_FILES) $(LIBS)
+INC		:= $(wildcard $(INC_DIR)*.hpp)
+C++		:= clang++
+FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
-clean :
-	@rm $(OBJ_FILES)
+all: $(NAME)
+	echo "./bin/exec \033[32mrdy 2 use\033[0m"
+	echo "--------------------------------------------"
+	echo ""
 
-fclean : clean
-	@rm $(EXEC_NAME)
+$(NAME):  $(OBJ) | $(BIN_DIR)
+	$(C++) $^ -o $@
+	echo "$@ (exec) \033[32mcreated\033[0m"
+	echo "--------------------------------------------"
 
-re : fclean all
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(INC)| $(OBJ_DIR)
+	mkdir -p $(dir $@)
+	$(C++) $(FLAGS) -c $< -o $@
+	echo "$@ \033[32mcreated\033[0m"
+
+$(BIN_DIR) $(OBJ_DIR):
+	mkdir -p $@
+	echo "$(OBJ_DIR) \033[32mdir created\033[0m"
+
+clean:
+	$(RM) -rf $(OBJ_DIR)
+	echo "$(OBJ_DIR) \033[31mdir deleted\033[0m"
+
+fclean:
+	$(RM) -rf $(OBJ_DIR)
+	echo "$(OBJ_DIR) \033[31mdir deleted\033[0m"
+	$(RM) -rf $(BIN_DIR)
+	echo "$(BIN_DIR) \033[31mdir deleted\033[0m"
+
+fclean_re:
+	$(RM) -rf $(OBJ_DIR)/*.o
+	echo "$(OBJ_DIR)*.o \033[31mdir deleted\033[0m"
+	$(RM) -rf $(BIN_DIR)
+	echo "$(BIN_DIR) \033[31mdir deleted\033[0m"
+
+re: fclean_re all
 
 .PHONY: all clean fclean re
+.SILENT:
