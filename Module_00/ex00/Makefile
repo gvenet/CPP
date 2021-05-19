@@ -4,11 +4,6 @@ OBJ_DIR	:= obj/
 BIN_DIR	:= bin/
 NAME	:= $(BIN_DIR)megaphone
 
-
-
-
-
-
 SRC		:= $(wildcard $(SRC_DIR)*.cpp) $(wildcard $(SRC_DIR)*/*.cpp)
 OBJ		:= $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 INC		:= $(wildcard $(INC_DIR)*.hpp)

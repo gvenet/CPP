@@ -4,13 +4,17 @@ int main() {
 	Sample1 S1(3.14);
 	cout << endl;
 	Sample2 S2_0('A',25, 1.42);
-	// Sample2 S2_1('B',42, 4.25);
-
-	// instance.foo = 42;
-	// std::cout << "instance.foo: " << instance.foo << std::endl;
-
-	// instance.bar();
 	cout << endl;
+	Sample3 S3_0;
+	S3_0.publicFoo = 42;
+	cout << "S3_0.publicFoo: " << S3_0.publicFoo << endl;
+	S3_0.publicBar();
+	cout << endl;
+	Sample4 S4_0(24);
+	S4_0.setFoo (42);
+	cout << "S4_0.getFoo(): " << S4_0.getFoo() << endl;
+	S4_0.setFoo (-42);
+	cout << "S4_0.getFoo(): " << S4_0.getFoo() << endl;
 	return (0);
 }
 

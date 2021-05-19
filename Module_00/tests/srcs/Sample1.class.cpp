@@ -2,14 +2,14 @@
 
 Sample1::Sample1(float const f) : pi(f), qd(42)
 {
-	cout << "Constructor Sample1 called" << endl;
+	cout << "Constructor \e[1;31mSample1\e[0m called" << endl;
 	this->bar();
 	return;
 }
 
 Sample1::~Sample1(void)
 {
-	cout << "Desstructor Sample1 called" << endl;
+	cout << "Desstructor \e[1;31mSample1\e[0m called" << endl;
 	return;
 }
 
