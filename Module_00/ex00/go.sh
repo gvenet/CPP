@@ -1,5 +1,5 @@
 #!/bin/bash
 make
-./megaphone "shhhhh... I think the students are asleep..."
-./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
-./megaphone
+./bin/megaphone "shhhhh... I think the students are asleep..."
+./bin/megaphone Damnit " ! " "Sorry students, I thought this thing was off."
+./bin/megaphone

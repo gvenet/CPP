@@ -13,7 +13,7 @@ C++		:= clang++
 FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
-	echo "./bin/exec \033[32mrdy 2 use\033[0m"
+	echo "$^ \033[32mrdy 2 use\033[0m"
 	echo "--------------------------------------------"
 	echo ""
 
