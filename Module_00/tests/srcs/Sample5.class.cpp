@@ -2,14 +2,14 @@
 
 Sample5::Sample5(int a1) : _Foo(a1)
 {
-	cout << "Constructor \e[1;35mSample5\e[0m called" << endl;
-	cout << "_Foo = " << this->_Foo << endl;
+	cout << "\e[0;32mConstructor \e[1;35mSample5\e[0m called" << endl;
+	cout << "\t_Foo = " << this->_Foo << endl;
 	return;
 }
 
 Sample5::~Sample5(void)
 {
-	cout << "Destructor \e[1;35mSample5\e[0m called" << endl;
+	cout << "\e[0;31mDestructor \e[1;35mSample5\e[0m called" << endl;
 	return;
 }
 
