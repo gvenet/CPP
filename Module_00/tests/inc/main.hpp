@@ -5,6 +5,7 @@
 #include "Sample2.class.hpp"
 #include "Sample3.class.hpp"
 #include "Sample4.class.hpp"
+#include "Sample5.class.hpp"
 
 #include <iostream>
 using namespace std;

@@ -15,6 +15,13 @@ int main() {
 	cout << "S4_0.getFoo(): " << S4_0.getFoo() << endl;
 	S4_0.setFoo (-42);
 	cout << "S4_0.getFoo(): " << S4_0.getFoo() << endl;
+	cout << "S5_0.";
+	Sample5 S5_0(2);
+	cout << "S5_1.";
+	Sample5 S5_1(1);
+	cout << "return compar _Foo = " << S5_0.compare(&S5_1) << endl;
 	return (0);
+
+	
 }
 
