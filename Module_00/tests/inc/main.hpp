@@ -7,6 +7,7 @@
 #include "Sample4.class.hpp"
 #include "Sample5.class.hpp"
 #include "Sample6.class.hpp"
+#include "Sample7.class.hpp"
 
 #include <iostream>
 using namespace std;

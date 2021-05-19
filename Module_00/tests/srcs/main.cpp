@@ -54,6 +54,26 @@ int main() {
 	cout << "\tnbInst: " << Sample6::getnbInst() << endl;
 	cout << endl;
 	cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl << endl;
+
+	Sample7 inst;
+	Sample7 *inst_ptr = &inst;
+	int Sample7::*p = NULL;
+	void (Sample7::*f)(void)const;
+
+	p = &Sample7::foo;
+	cout << "\tVal member foo: " << inst.foo << endl;
+	inst.*p = 21;
+	cout << "\tVal member foo: " << inst.foo << endl;
+	inst_ptr->*p = 42;
+	cout << "\tVal member foo: " << inst.foo << endl << endl;
+
+	f = &Sample7::bar;
+	(inst.*f)();
+	(inst_ptr->*f)();
+
+	cout << endl;
+	cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl << endl;
+
 	return (0);
 
 	
