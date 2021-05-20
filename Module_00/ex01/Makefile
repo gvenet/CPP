@@ -1,24 +1,51 @@
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 
-EXEC_NAME = phonebook
-INCLUDES =
-LIBS =
-OBJ_FILES = phonebook.o
+SRC_DIR	:= srcs/
+INC_DIR	:= inc/
+OBJ_DIR	:= obj/
+BIN_DIR	:= bin/
+NAME	:= $(BIN_DIR)phonebook
 
-all : $(EXEC_NAME)
+SRC		:= $(wildcard $(SRC_DIR)*.cpp) $(wildcard $(SRC_DIR)*/*.cpp)
+OBJ		:= $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
+INC		:= $(wildcard $(INC_DIR)*.hpp)
+C++		:= clang++
+FLAGS	:= -Wall -Wextra -Werror -std=c++98
 
-%.o: %.cpp
-	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
+all: $(NAME)
+	echo "$^ \033[32mrdy 2 use\033[0m"
+	echo "--------------------------------------------"
+	echo ""
 
-$(EXEC_NAME) : $(OBJ_FILES)
-	@$(CC) -o $(EXEC_NAME) $(OBJ_FILES) $(LIBS)
+$(NAME):  $(OBJ) | $(BIN_DIR)
+	$(C++) $^ -o $@
+	echo "$@ (exec) \033[32mcreated\033[0m"
+	echo "--------------------------------------------"
 
-clean :
-	@rm $(OBJ_FILES)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(INC)| $(OBJ_DIR)
+	mkdir -p $(dir $@)
+	$(C++) $(FLAGS) -c $< -o $@
+	echo "$@ \033[32mcreated\033[0m"
 
-fclean : clean
-	@rm $(EXEC_NAME)
+$(BIN_DIR) $(OBJ_DIR):
+	mkdir -p $@
+	echo "$(OBJ_DIR) \033[32mdir created\033[0m"
 
-re : fclean all
+clean:
+	$(RM) -rf $(OBJ_DIR)
+	echo "$(OBJ_DIR) \033[31mdir deleted\033[0m"
+
+fclean:
+	$(RM) -rf $(OBJ_DIR)
+	echo "$(OBJ_DIR) \033[31mdir deleted\033[0m"
+	$(RM) -rf $(BIN_DIR)
+	echo "$(BIN_DIR) \033[31mdir deleted\033[0m"
+
+fclean_re:
+	$(RM) -rf $(OBJ_DIR)/*.o
+	echo "$(OBJ_DIR)*.o \033[31mdir deleted\033[0m"
+	$(RM) -rf $(BIN_DIR)
+	echo "$(BIN_DIR) \033[31mdir deleted\033[0m"
+
+re: fclean_re all
 
 .PHONY: all clean fclean re
+.SILENT:
