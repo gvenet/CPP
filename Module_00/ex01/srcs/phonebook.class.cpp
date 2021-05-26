@@ -51,7 +51,7 @@ void set_params_regex(std::string *var, std::string s, std::string ex)
 		std::cout << s;
 		std::getline(std::cin, tmp);
 	}
-	tmp = *var;
+	*var = tmp;
 }
 
 void Phonebook::contact_add(void)
