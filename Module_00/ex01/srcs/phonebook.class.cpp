@@ -56,11 +56,10 @@ void set_params_regex(std::string *var, std::string s, std::string ex)
 
 void Phonebook::contact_add(void)
 {
-	std::cin.ignore();
 	set_params(&this->_firstname, "firstname : ");
 	set_params(&this->_lastname, "lastname : ");
 	set_params(&this->_nickname, "nickname : ");
-	set_params_regex(&this->_login, "login : ", "\\w{6}");
+	set_params(&this->_login, "login : ");
 	set_params(&this->_postal_address, "postal_address : ");
 	set_params_regex(&this->_email_address, "email_address : ", "(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
 	set_params_regex(&this->_phone_number, "phone_number : ", "(\\d{2})[- ](\\d{2})[- ](\\d{2})[- ](\\d{2})[- ](\\d{2})");
