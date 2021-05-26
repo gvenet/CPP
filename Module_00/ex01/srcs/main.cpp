@@ -28,14 +28,12 @@ static int	cin_read(int i, Phonebook *infos)
 	std::cout << "\e[1;36mSelect the index to display : \e[0m";
 	while (!(std::cin >> i) || i < 0 || i > 7 || infos[i].get_firstname() == "")
 	{
+		std::cout << "\e[1;36mWrong input : \e[0m";
 		if (std::cin.fail())
 		{
-			std::cout << "\e[1;36mWrong input : \e[0m";
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
-		else
-			std::cout << "\e[1;36mWrong input : \e[0m";
 	}
 	return (i);
 }

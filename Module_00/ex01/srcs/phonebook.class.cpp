@@ -2,12 +2,10 @@
 
 Phonebook::Phonebook(void)
 {
-	return;
 }
 
 Phonebook::~Phonebook(void)
 {
-	return;
 }
 
 //===================================GETTERS=====================
@@ -43,9 +41,17 @@ void set_params(std::string *var, std::string s)
 	*var = tmp;
 }
 
-void set_login(std::string *var, std::string s)
+void set_params_regex(std::string *var, std::string s, std::string ex)
 {
+	std::string tmp;
+	const std::regex pattern(ex);
 
+	while (!(std::regex_match(tmp, pattern)))
+	{
+		std::cout << s;
+		std::getline(std::cin, tmp);
+	}
+	tmp = *var;
 }
 
 void Phonebook::contact_add(void)
@@ -54,11 +60,11 @@ void Phonebook::contact_add(void)
 	set_params(&this->_firstname, "firstname : ");
 	set_params(&this->_lastname, "lastname : ");
 	set_params(&this->_nickname, "nickname : ");
-	set_params(&this->_login, "login : ");
+	set_params_regex(&this->_login, "login : ", "\\w{6}");
 	set_params(&this->_postal_address, "postal_address : ");
-	set_params(&this->_email_address, "email_address : ");
-	set_params(&this->_phone_number, "phone_number : ");
-	set_params(&this->_birthday_date, "birthday_date : ");
+	set_params_regex(&this->_email_address, "email_address : ", "(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+	set_params_regex(&this->_phone_number, "phone_number : ", "(\\d{2})[- ](\\d{2})[- ](\\d{2})[- ](\\d{2})[- ](\\d{2})");
+	set_params_regex(&this->_birthday_date, "birthday_date : ", "(\\d{2})[- \\/](\\d{2})[- \\/](\\d{4})");
 	set_params(&this->_favorite_meal, "favorite_meal : ");
 	set_params(&this->_underwear_color, "underwear_color : ");
 	set_params(&this->_darkest_secret, "darkest_secret : ");
