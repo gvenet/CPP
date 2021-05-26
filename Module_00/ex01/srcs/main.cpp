@@ -1,6 +1,6 @@
 #include "../inc/phonebook.class.hpp"
 
-static int ft_add(Phonebook *infos, int i)
+static int	ft_add(Phonebook *infos, int i)
 {
 	if (++i < 8)
 		infos[i].contact_add();
@@ -9,7 +9,7 @@ static int ft_add(Phonebook *infos, int i)
 	return (i);
 }
 
-static int ft_exit(void)
+static int	ft_exit(void)
 {
 	std::string valid;
 
@@ -23,9 +23,26 @@ static int ft_exit(void)
 	return (0);
 }
 
-static void ft_search(Phonebook *infos)
+static int	cin_read(int i, Phonebook *infos)
 {
-	int i;
+	std::cout << "\e[1;36mSelect the index to display : \e[0m";
+	while (!(std::cin >> i) || i < 0 || i > 7 || infos[i].get_firstname() == "")
+	{
+		if (std::cin.fail())
+		{
+			std::cout << "\e[1;36mWrong input : \e[0m";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else
+			std::cout << "\e[1;36mWrong input : \e[0m";
+	}
+	return (i);
+}
+
+static void	ft_search(Phonebook *infos)
+{
+	int	i;
 
 	i = -1;
 	std::cout << "|     index| firstname|  lastname|  nickname|\n";
@@ -37,24 +54,16 @@ static void ft_search(Phonebook *infos)
 		}
 	if (infos[0].get_firstname() != "")
 	{
-		while (1)
-		{
-			std::cout << "\e[1;36mSelect the index to display : \e[0m";
-			while (!(std::cin >> i))
-				std::cerr << "Erreur de saisie.\n";
-			std::cout << "i = " << i << std::endl;
-			if (!isdigit(i) && i >= 0 && i <= 8 && infos[i].get_firstname() != "")
-				break;
-		}
+		i = cin_read(i, infos);
 		infos[i].get_obj();
 	}
 }
 
-int main(void)
+int	main(void)
 {
-	int i;
-	std::string cmd;
-	Phonebook infos[8];
+	int			i;
+	std::string	cmd;
+	Phonebook	infos[8];
 
 	i = -1;
 	std::cout << "\e[7;1;36m______WELCOME TO THE\e[1;33m PHONEBOOK \e[1;36mPROJECT______\e[0m\n\n";

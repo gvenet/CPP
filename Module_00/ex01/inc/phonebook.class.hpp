@@ -27,13 +27,15 @@ public:
 	Phonebook(void);
 	~Phonebook(void);
 
-// GETERS
+// GETTERS
 	std::string get_firstname(void) const;
 	void get_obj(void) const;
 
-//METHODES
+// SETTERS
+
 	void contact_add(void);
 	void contact_search(void) const;
+
 };
 
 #endif
