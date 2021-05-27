@@ -19,5 +19,5 @@ std::string Zombie::get_name(void) const
 
 void Zombie::advert(void) const
 {
-	std::cout << "<" << get_name() << " (" << get_type() << ")> Braiiiiinnssss ...." << std::endl;
+	std::cout << "<" << get_name() << " (" << get_type() << ")> Braiiiiiiiinnnnnnns Ma bite !" << std::endl;
 }
