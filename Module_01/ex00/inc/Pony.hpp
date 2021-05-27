@@ -12,9 +12,14 @@ private:
 	std::string _power;
 
 public:
-	Pony(std::string name); 
+	Pony(std::string name, std::string color, std::string power); 
 	~Pony(void);
 
+	std::string get_power(void) const;
+	std::string get_color(void) const;
+	std::string get_name(void) const;
+
+	std::string set_color(std::string color);
 };
 
 

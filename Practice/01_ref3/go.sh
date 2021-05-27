@@ -1,3 +1,3 @@
 #!/bin/bash
 make
-./bin/exec
+./bin/ref3

@@ -2,12 +2,10 @@ SRC_DIR	:= srcs/
 INC_DIR	:= inc/
 OBJ_DIR	:= obj/
 BIN_DIR	:= bin/
+NAME	:= $(BIN_DIR)ref3
 
-NAME	:= $(BIN_DIR)exec
 SRC		:= $(wildcard $(SRC_DIR)*.cpp) $(wildcard $(SRC_DIR)*/*.cpp)
-
 OBJ		:= $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
-
 INC		:= $(wildcard $(INC_DIR)*.hpp)
 C++		:= clang++
 FLAGS	:= -Wall -Wextra -Werror -std=c++98
