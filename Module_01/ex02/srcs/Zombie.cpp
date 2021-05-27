@@ -8,10 +8,6 @@ Zombie::~Zombie(void)
 {
 }
 
-std::string Zombie::get_type(void) const
-{
-	return this->_type;
-}
 std::string Zombie::get_name(void) const
 {
 	return this->_name;

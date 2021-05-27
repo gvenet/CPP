@@ -3,13 +3,14 @@
 #include <iostream>
 #include <cstdio>
 
+
 class Zombie
 {
 
 private:
-
 	std::string _type;
 	std::string _name;
+
 public:
 
 	Zombie(std::string name); 
