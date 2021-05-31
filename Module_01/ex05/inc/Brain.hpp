@@ -1,21 +1,21 @@
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <iostream>
 #include <string>
 #include <random>
 #include <fstream>
 
-class Zombie
+class Brain
 {
 private:
 	std::string _type;
 	std::string _name;
 
 public:
-	Zombie();
-	Zombie(std::string const &type, std::string const &name);
-	~Zombie();
+	Brain();
+	Brain(std::string const &type, std::string const &name);
+	~Brain();
 
 	static std::string randomName(void);
 	void advert(void);

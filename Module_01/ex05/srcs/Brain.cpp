@@ -1,23 +1,23 @@
-#include "Zombie.hpp"
+#include "Brain.hpp"
 #include <iostream>
 #include <fstream>
 
-Zombie::Zombie()
+Brain::Brain()
 {
-	this->_name = Zombie::randomName();
+	this->_name = Brain::randomName();
 	this->_type = "Flying";
 }
 
-Zombie::Zombie(std::string const &type, std::string const &name) : _type(type), _name(name)
+Brain::Brain(std::string const &type, std::string const &name) : _type(type), _name(name)
 {
 }
 
-Zombie::~Zombie()
+Brain::~Brain()
 {
 	std::cout << "<" << this->_name << " (" << this->_type << ")> Died" << std::endl;
 }
 
-std::string Zombie::randomName(void)
+std::string Brain::randomName(void)
 {
 	std::string word;
 	std::ifstream ifs("ZombieNames");
@@ -30,7 +30,7 @@ std::string Zombie::randomName(void)
 	return (word);
 }
 
-void Zombie::advert(void)
+void Brain::advert(void)
 {
 	std::cout << "<" << this->_name << " (" << this->_type << ")> ";
 	std::cout << "Braiiiiiiinnnssss ..." << std::endl;
