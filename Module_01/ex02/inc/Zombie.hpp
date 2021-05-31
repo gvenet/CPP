@@ -28,7 +28,6 @@ public:
 	~Zombie();
 
 	static std::string randomName(void);
-	void setCharacteristics(std::string const &_type, std::string const &_name);
 	void advert(void);
 };
 

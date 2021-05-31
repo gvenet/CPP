@@ -25,23 +25,15 @@ Zombie::~Zombie()
 	std::cout << "<" << this->_name << " (" << this->_type << ")> Died" << std::endl;
 }
 
-void Zombie::setCharacteristics(std::string const &type, std::string const &name)
-{
-	this->_type = type;
-	this->_name = name;
-}
-
 std::string Zombie::randomName(void)
 {
-	int i;
-	int randNb;
 	std::string word;
 	std::ifstream ifs("ZombieNames");
+	int randNb;
 
 	randNb = ((rand() % 100) + 1);
-	i = 0;
-	while (ifs >> word && i < randNb)
-		i++;
+	for(int i = 0; i < randNb; i++) 
+		ifs >> word;
 	ifs.close();
 	return (word);
 }

@@ -35,7 +35,7 @@ Zombie *ZombieEvent::randomChump(void)
 {
 	Zombie *zombie;
 
-	zombie = new Zombie(this->_type, Zombie::randomName());
+	zombie = newZombie(Zombie::randomName());
 	zombie->advert();
 	return (zombie);
 }

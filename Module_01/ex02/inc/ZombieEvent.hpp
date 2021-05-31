@@ -20,8 +20,10 @@
 class ZombieEvent
 {
 private:
+
 	std::string	_type;
 public:
+
 	ZombieEvent();
 	~ZombieEvent();
 
