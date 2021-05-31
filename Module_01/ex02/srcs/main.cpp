@@ -1,21 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/14 18:46:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 17:55:19 by ncolomer         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
 #include <cstdlib>
 #include <ctime>
-
-
 #define COUNT 5
 
 int main(void)
@@ -25,7 +11,7 @@ int main(void)
 	Zombie *flyingZombies[COUNT];
 	Zombie *runnerZombies[COUNT];
 
-	srand((unsigned)time(0));
+	srand((unsigned)time(NULL));
 	flying.setZombieType("flying");
 	std::cout << "# Creating " << COUNT << " Flying Zombie" << std::endl;
 	for (int i = 0; i < COUNT; i++)

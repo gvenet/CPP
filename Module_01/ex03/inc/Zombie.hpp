@@ -19,6 +19,9 @@ public:
 
 	static std::string randomName(void);
 	void advert(void);
+	// void setName(std::string name);
+	// void setType(std::string type);
+
 };
 
 #endif

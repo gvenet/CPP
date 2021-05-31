@@ -4,8 +4,8 @@
 
 Zombie::Zombie()
 {
-	this->_name = "";
-	this->_type = "";
+	this->_name = Zombie::randomName();
+	this->_type = "Default";
 }
 
 Zombie::Zombie(std::string const &type, std::string const &name) : _type(type), _name(name)
