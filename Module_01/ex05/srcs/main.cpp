@@ -1,13 +1,10 @@
 #include "Brain.hpp"
 #include "Human.hpp"
-#include <cstdlib>
-#include <ctime>
 
-int main(void)
+int main()
 {
-	srand((unsigned int)time(NULL));
-	Human Horde(5);
+	Human bob;
 
-	std::cout << std::endl;
-	return (0);
+	std::cout << bob.identify() << std::endl;
+	std::cout << bob.getBrain().identify() << std::endl;
 }

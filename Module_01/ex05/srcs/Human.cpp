@@ -1,13 +1,20 @@
 #include "Human.hpp"
 
-Human::Human(int nZ) : _nZ(nZ)
+Human::Human()
 {
-	this->_Horde = new Brain[_nZ];
-	for (int i = 0; i < _nZ; i++)
-		_Horde[i].advert();
 }
 
 Human::~Human()
 {
-	delete [] this->_Horde;
 }
+
+const Brain& Human::getBrain(void) const
+{
+	return (this->_brain);
+}
+
+std::string Human::identify() const
+{
+	return (this->_brain.identify());
+}
+
