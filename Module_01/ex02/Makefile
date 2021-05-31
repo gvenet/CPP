@@ -6,9 +6,9 @@ NAME	:= $(BIN_DIR)Zombie
 
 SRC		:= $(wildcard $(SRC_DIR)*.cpp) $(wildcard $(SRC_DIR)*/*.cpp)
 OBJ		:= $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
-INC		:= $(wildcard $(INC_DIR)*.hpp)
-C++		:= clang++
-FLAGS	:= -Wall -Wextra -Werror -std=c++98
+INC		:= -I./$(INC_DIR)
+CC		:= clang++
+CFLAGS	:= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 	echo "$^ \033[32mrdy 2 use\033[0m"
@@ -16,13 +16,13 @@ all: $(NAME)
 	echo ""
 
 $(NAME):  $(OBJ) | $(BIN_DIR)
-	$(C++) $^ -o $@
+	$(CC) $^ -o $@
 	echo "$@ (exec) \033[32mcreated\033[0m"
 	echo "--------------------------------------------"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(INC)| $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
 	mkdir -p $(dir $@)
-	$(C++) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	echo "$@ \033[32mcreated\033[0m"
 
 $(BIN_DIR) $(OBJ_DIR):

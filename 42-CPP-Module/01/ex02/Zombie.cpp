@@ -39,7 +39,7 @@ std::string	Zombie::randomName(void)
     std::ifstream ifs("ZombieNames");
 
 	srand((unsigned)time(0));
-	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	// std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	randNb = ((rand() % 100) + 1);
 	i = 0;
     while (ifs >> word && i < randNb)
