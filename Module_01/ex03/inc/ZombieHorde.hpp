@@ -16,6 +16,7 @@ public:
 	ZombieHorde(int nZ);
 	~ZombieHorde();
 
+	void advert(void) const;
 };
 
 #endif

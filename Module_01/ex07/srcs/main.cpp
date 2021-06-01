@@ -26,7 +26,17 @@ static void init(t_data &d, char **av)
 	d.replace += ".replace";
 }
 
-static void routine(t_data &d)
+static int file_does_not_exist(t_data &d)
+{
+	std::ifstream ifs(d.filename, std::ios::binary);
+
+	if (ifs.fail())
+		return (1);
+	ifs.close();
+	return (0);
+}
+
+static int routine(t_data &d)
 {
 
 	std::ifstream ifs(d.filename, std::ios::binary);
@@ -34,6 +44,8 @@ static void routine(t_data &d)
 	std::string line;
 	std::size_t n;
 
+	if (ifs.fail())
+		return (1);
 	while (getline(ifs, line))
 	{
 		n = line.find(d.s1);
@@ -47,6 +59,7 @@ static void routine(t_data &d)
 	}
 	ifs.close();
 	ofs.close();
+	return (0);
 }
 
 int main(int ac, char **av)
@@ -58,6 +71,8 @@ int main(int ac, char **av)
 	init(d, av);
 	if (d.s1.empty() || d.s2.empty())
 		return (error("Empty args"));
+	if (file_does_not_exist(d))
+		return (error("The file does not exist"));
 	routine(d);
 	return (0);
 }
