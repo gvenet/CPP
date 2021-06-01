@@ -8,10 +8,6 @@ Zombie::Zombie()
 	this->_type = "Flying";
 }
 
-Zombie::Zombie(std::string const &type, std::string const &name) : _type(type), _name(name)
-{
-}
-
 Zombie::~Zombie()
 {
 	std::cout << "<" << this->_name << " (" << this->_type << ")> Died" << std::endl;
