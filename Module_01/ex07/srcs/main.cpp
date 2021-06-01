@@ -26,30 +26,24 @@ static void init(t_data &d, char **av)
 	d.replace += ".replace";
 }
 
-static void cpy_file(t_data &d)
+static void routine(t_data &d)
 {
 
 	std::ifstream ifs(d.filename, std::ios::binary);
 	std::ofstream ofs(d.replace, std::ios::binary);
-	ofs << ifs.rdbuf();
-	ifs.close();
-	ofs.close();
-}
+	std::string line;
+	std::size_t n;
 
-static void replace(t_data &d)
-{
-	std::ifstream ifs(d.filename, std::ios::binary);
-	std::ofstream ofs(d.replace, std::ios::binary);
-	std::string strTemp;
-
-	while (ifs.eof())
+	while (getline(ifs, line))
 	{
-		if (strTemp == d.s1)
+		n = line.find(d.s1);
+		while (n != std::string::npos)
 		{
-			strTemp = d.s1;
+			line.replace(n, d.s1.size(), d.s2);
+			n = line.find(d.s1, n + d.s2.size());
 		}
-		strTemp += " ";
-		ofs << strTemp;
+		ofs << line;
+		ofs << std::endl;
 	}
 	ifs.close();
 	ofs.close();
@@ -62,10 +56,8 @@ int main(int ac, char **av)
 	if (ac != 4)
 		return (error("Wrong number of args"));
 	init(d, av);
-	if (d.s1 == "" || d.s2 == "")
+	if (d.s1.empty() || d.s2.empty())
 		return (error("Empty args"));
-	cpy_file(d);
-	replace(d);
-
+	routine(d);
 	return (0);
 }
