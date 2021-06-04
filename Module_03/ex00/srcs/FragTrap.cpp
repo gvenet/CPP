@@ -2,8 +2,14 @@
 
 //=============================================CONSTRUCTORS/DESTRUCTOR================================
 
+fragTrap::fragTrap()
+{
+	srand((unsigned)time(NULL));
+}
+
 fragTrap::fragTrap(std::string const name) : _hp(100), _maxHp(100), _energy(100), _maxEnergy(100), _level(1), _name(name), _meleeAttDamage(30), _rangedAttDamage(20), _armorDamageReduction(5)
 {
+	srand((unsigned)time(NULL));
 	std::cout << "<" << this->_name << "> has born !! : HELLO PUSSYZ" << std::endl
 			  << std::endl;
 }
@@ -134,6 +140,21 @@ void fragTrap::beRepaired(int amount)
 	}
 }
 
+std::string fragTrap::randAttack(void)
+{
+	int randNb;
+	std::string attacks[5];
+
+	attacks[0] = "role over <";
+	attacks[1] = "1";
+	attacks[2] = "2";
+	attacks[3] = "3";
+	attacks[4] = "4";
+	randNb = ((rand() % 4));
+
+	return attacks[randNb];
+}
+
 void fragTrap::vaulthunter_dot_exe(std::string const &target)
 {
 	int energyCost = 25;
@@ -142,6 +163,6 @@ void fragTrap::vaulthunter_dot_exe(std::string const &target)
 	{
 		this->setEnergy(this->_energy - energyCost);
 		this->caractere();
-		std::cout << "melee attacks <" << target << "> , causing <" << this->_meleeAttDamage << "> point of damage" << std::endl;
+		std::cout << this->randAttack() << target << "> , causing <" << this->_meleeAttDamage << "> point of damage" << std::endl;
 	}
 }

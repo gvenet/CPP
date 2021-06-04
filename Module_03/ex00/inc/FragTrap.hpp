@@ -17,12 +17,10 @@ private:
 	int _rangedAttDamage;
 	int _armorDamageReduction;
 
-public:
-	//=============================================CONSTRUCTORS/DESTRUCTOR================================
-	fragTrap() {}
-	fragTrap(fragTrap const &tp);
-	fragTrap(std::string const name);
-	~fragTrap();
+	//==========================PRIVATE MEMBER FONCTION===========================================================
+	int energyChecker(int energyCost);
+	void caractere(void) const;
+	std::string randAttack(void);
 
 	//============================GETTERS================================================================
 	std::string getName(void) const;
@@ -34,15 +32,20 @@ public:
 	int setEnergy(int hp);
 	int setArmorDamageReduction(int ArmDmgRed);
 
-	//==========================MEMBER FONCTION===========================================================
+public:
+	//=============================================CONSTRUCTORS/DESTRUCTOR================================
+	fragTrap();
+	fragTrap(fragTrap const &tp);
+	fragTrap(std::string const name);
+	~fragTrap();
+
+	//==========================PUBLIC MEMBER FONCTION===========================================================
 	void rangedAttack(std::string const &target);
 	void meleeAttack(std::string const &target);
 	void armorUpUp(void);
 	void takeDamage(int amount);
 	void beRepaired(int amount);
-	void caractere(void) const;
 	void vaulthunter_dot_exe(std::string const &target);
-	int energyChecker(int energyCost);
 };
 
 static int armorDefLimiter = 0;
