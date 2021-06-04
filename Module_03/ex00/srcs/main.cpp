@@ -4,34 +4,24 @@
 
 int main(void)
 {
+	std::string ennemy = "ArmorManiac";
 	fragTrap fragtrap("FR4G-TP");
 
-	srand((unsigned)time(NULL));
 	std::cout << "<|NAME   \t|EP\t|HP\t|>" << std::endl;
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-	fragtrap.vaulthunter_dot_exe("ArmorManiac");
-
-
+	fragtrap.rangedAttack(ennemy);
+	fragtrap.meleeAttack(ennemy);
+	fragtrap.takeDamage(20);
+	fragtrap.armorUpUp();
+	fragtrap.takeDamage(20);
+	fragtrap.rangedAttack(ennemy);
+	fragtrap.takeDamage(40);
+	fragtrap.beRepaired(80);
+	fragtrap.vaulthunter_dot_exe(ennemy);
+	fragtrap.vaulthunter_dot_exe(ennemy);
+	fragtrap.vaulthunter_dot_exe(ennemy);
+	fragtrap.vaulthunter_dot_exe(ennemy);
+	fragtrap.vaulthunter_dot_exe(ennemy);
+	fragtrap.vaulthunter_dot_exe(ennemy);
+	fragtrap.takeDamage(130);
 	return (0);
 }

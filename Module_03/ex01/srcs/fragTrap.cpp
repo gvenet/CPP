@@ -1,4 +1,4 @@
-#include "../inc/FragTrap.hpp"
+#include "../inc/fragTrap.hpp"
 
 //=============================================CONSTRUCTORS/DESTRUCTOR================================
 
@@ -10,13 +10,12 @@ fragTrap::fragTrap()
 fragTrap::fragTrap(std::string const name) : _hp(100), _maxHp(100), _energy(100), _maxEnergy(100), _level(1), _name(name), _meleeAttDamage(30), _rangedAttDamage(20), _armorDamageReduction(5)
 {
 	srand((unsigned)time(NULL));
-	std::cout << "<" << this->_name << "> is back !! : HELLO PUSSIZ" << std::endl
-			  << std::endl;
+	std::cout << "FR4G-TP <" << this->_name << "> is back !! : HELLO PUSSIZ" << std::endl;
 }
 
 fragTrap::~fragTrap()
 {
-	std::cout << std::endl << " end of fight " << std::endl;
+	std::cout << " end of FR4G-TP <" << this->_name << ">" << std::endl;
 }
 
 //=============================================GETTERS================================
@@ -65,7 +64,7 @@ int fragTrap::setArmorDamageReduction(int ArmDmgRed)
 
 void fragTrap::caractere(void) const
 {
-	std::cout << "<|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
+	std::cout << "<|FR4G-TP\t|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
 }
 
 int fragTrap::energyChecker(int energyCost)
@@ -74,7 +73,7 @@ int fragTrap::energyChecker(int energyCost)
 	{
 		this->setEnergy(this->_energy + 5);
 		this->caractere();
-		std::cout << "not enought energy pts, fragtrap hide and gain 5 energy pts" << std::endl;
+		std::cout << "not enought energy pts, " << this->_name <<" hide and gain 5 energy pts" << std::endl;
 		return (0);
 	}
 	return (1);
@@ -123,7 +122,7 @@ void fragTrap::takeDamage(int amount)
 		dmg += amount - this->_armorDamageReduction;
 	this->setHp(this->_hp - dmg);
 	this->caractere();
-		std::cout << "Ennemy gives <" << amount << "> dmg; " << this->_name << " takes <" << dmg << "> damage ";
+	std::cout << "Ennemy gives <" << amount << "> dmg; " << this->_name << " takes <" << dmg << "> damage ";
 	if (this->_hp == 0)
 		std::cout << this->_name << " DIE";
 	std::cout << std::endl;
