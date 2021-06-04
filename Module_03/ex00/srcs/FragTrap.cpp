@@ -21,19 +21,19 @@ std::string fragTrap::getName(void) const
 	return this->_name;
 }
 
-unsigned int fragTrap::getHp(void) const
+int fragTrap::getHp(void) const
 {
 	return this->_hp;
 }
 
-unsigned int fragTrap::getEnergy(void) const
+int fragTrap::getEnergy(void) const
 {
 	return this->_energy;
 }
 
 //=============================================SETTERS================================
 
-unsigned int fragTrap::setHp(unsigned int hp)
+int fragTrap::setHp(int hp)
 {
 	if (hp < 0)
 		hp = 0;
@@ -42,7 +42,7 @@ unsigned int fragTrap::setHp(unsigned int hp)
 	return this->_hp = hp;
 }
 
-unsigned int fragTrap::setEnergy(unsigned int energy)
+int fragTrap::setEnergy(int energy)
 {
 	if (energy < 0)
 		energy = 0;
@@ -51,81 +51,97 @@ unsigned int fragTrap::setEnergy(unsigned int energy)
 	return this->_energy = energy;
 }
 
+int fragTrap::setArmorDamageReduction(int ArmDmgRed)
+{
+	return this->_armorDamageReduction += ArmDmgRed;
+}
+
 //=============================================MEMBER FONCTION================================
 
-void fragTrap::caractere(void)
+void fragTrap::caractere(void) const
 {
+	std::cout << "<|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
+}
 
-	std::cout << "<|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   ";
+int fragTrap::energyChecker(int energyCost)
+{
+	if (this->_energy < energyCost)
+	{
+		this->setEnergy(this->_energy + 5);
+		this->caractere();
+		std::cout << "not enought energy pts, fragtrap hide and gain 5 energy pts" << std::endl;
+		return (0);
+	}
+	return (1);
+}
+
+void fragTrap::armorUpUp(void)
+{
+	if (armorDefLimiter)
+		return;
+	armorDefLimiter++;
+	this->caractere();
+	this->setArmorDamageReduction(15);
+	std::cout << "Armor Reduction is now <" << this->_armorDamageReduction << ">" << std::endl;
 }
 
 void fragTrap::rangedAttack(std::string const &target)
 {
-	unsigned int enc = 10;
+	int energyCost = 10;
 
-	if (this->_energy >= enc)
+	if (energyChecker(energyCost))
 	{
-		this->setEnergy(this->_energy - enc);
+		this->setEnergy(this->_energy - energyCost);
 		this->caractere();
-		std::cout << "\trange attacks <" << target << "> , causing <" << this->_rangedAttDamage << "> point of damage" << std::endl;
-	}
-	else
-	{
-		this->setEnergy(this->_energy + 5);
-		this->caractere();
-		std::cout << "\tnot enought energy pts, fragtrap hide and gain 5 energy pts" << std::endl;
+		std::cout << "range attacks <" << target << "> , causing <" << this->_rangedAttDamage << "> point of damage" << std::endl;
 	}
 }
 
 void fragTrap::meleeAttack(std::string const &target)
 {
-	unsigned int enc = 15;
+	int energyCost = 15;
 
-	if (this->_energy >= enc)
+	if (energyChecker(energyCost))
 	{
-		this->setEnergy(this->_energy - enc);
+		this->setEnergy(this->_energy - energyCost);
 		this->caractere();
-		std::cout << "\tmelee attacks <" << target << "> , causing <" << this->_meleeAttDamage << "> point of damage" << std::endl;
-	}
-	else
-	{
-		this->setEnergy(this->_energy + 5);
-		this->caractere();
-		std::cout << "\tnot enought energy pts, fragtrap hide and gain 5 energy pts" << std::endl;
+		std::cout << "melee attacks <" << target << "> , causing <" << this->_meleeAttDamage << "> point of damage" << std::endl;
 	}
 }
 
-void fragTrap::takeDamage(unsigned int amount)
+void fragTrap::takeDamage(int amount)
 {
-	unsigned int dmg;
+	int dmg;
 
 	dmg = 0;
 	if (amount > this->_armorDamageReduction)
 		dmg += amount - this->_armorDamageReduction;
 	this->setHp(this->_hp - dmg);
 	this->caractere();
-	std::cout << "\ttakes <" << dmg << "> damage" << std::endl;
+	std::cout << "Ennemy gives <" << amount << "> dmg; " << this->_name << " takes <" << dmg << "> damage" << std::endl;
 }
 
-void fragTrap::beRepaired(unsigned int amount)
+void fragTrap::beRepaired(int amount)
 {
-	unsigned int enc = 30;
+	int energyCost = 30;
 
-	if (this->_energy >= enc)
+	if (energyChecker(energyCost))
 	{
-		this->setEnergy(this->_energy - enc);
+		this->setEnergy(this->_energy - energyCost);
 		this->setHp(this->_hp + amount);
 		this->caractere();
-		std::cout << "\theal <" << amount << "> hp" << std::endl;
-	}
-	else
-	{
-		this->setEnergy(this->_energy + 5);
-		this->caractere();
-		std::cout << "\tnot enought energy pts, fragtrap hide and gain 5 energy pts" << std::endl;
+		std::cout << "heal <" << amount << "> hp" << std::endl;
 	}
 }
 
-// void fragTrap::vaulthunter_dot_exe(std::string const &target)
-// {
-// }
+void fragTrap::vaulthunter_dot_exe(std::string const &target)
+{
+	int energyCost = 25;
+
+	if (energyChecker(energyCost))
+	{
+		this->setEnergy(this->_energy - energyCost);
+		this->caractere();
+		std::cout << "melee attacks <" << target << "> , causing <" << this->_meleeAttDamage << "> point of damage" << std::endl;
+	}
+}

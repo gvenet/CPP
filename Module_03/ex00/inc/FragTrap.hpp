@@ -7,36 +7,43 @@
 class fragTrap
 {
 private:
-	unsigned int _hp;
-	unsigned int _maxHp;
-	unsigned int _energy;
-	unsigned int _maxEnergy;
-	unsigned int _level;
+	int _hp;
+	int _maxHp;
+	int _energy;
+	int _maxEnergy;
+	int _level;
 	std::string _name;
-	unsigned int _meleeAttDamage;
-	unsigned int _rangedAttDamage;
-	unsigned int _armorDamageReduction;
+	int _meleeAttDamage;
+	int _rangedAttDamage;
+	int _armorDamageReduction;
 
 public:
+	//=============================================CONSTRUCTORS/DESTRUCTOR================================
+	fragTrap() {}
+	fragTrap(fragTrap const &tp);
 	fragTrap(std::string const name);
 	~fragTrap();
-	void rangedAttack(std::string const & target); //price 10energy pts
-	void meleeAttack(std::string const & target); //price 15energy pts
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
- 	void caractere(void);
-	void vaulthunter_dot_exe(std::string const & target);
 
-
-//============================GETTERS
+	//============================GETTERS================================================================
 	std::string getName(void) const;
-	unsigned int getHp(void) const;
-	unsigned int getEnergy(void) const;
+	int getHp(void) const;
+	int getEnergy(void) const;
 
-//============================SETTERS
-	unsigned int setHp(unsigned int hp);
-	unsigned int setEnergy(unsigned int hp);
+	//============================SETTERS================================================================
+	int setHp(int hp);
+	int setEnergy(int hp);
+	int setArmorDamageReduction(int ArmDmgRed);
 
+	//==========================MEMBER FONCTION===========================================================
+	void rangedAttack(std::string const &target);
+	void meleeAttack(std::string const &target);
+	void armorUpUp(void);
+	void takeDamage(int amount);
+	void beRepaired(int amount);
+	void caractere(void) const;
+	void vaulthunter_dot_exe(std::string const &target);
+	int energyChecker(int energyCost);
 };
 
+static int armorDefLimiter = 0;
 #endif

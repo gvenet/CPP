@@ -6,7 +6,7 @@ NAME	:= $(BIN_DIR)E00
 
 SRC		:= $(wildcard $(SRC_DIR)*.cpp) $(wildcard $(SRC_DIR)*/*.cpp)
 OBJ		:= $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
-INC		:= -I./$(INC_DIR)
+INC		:= $(wildcard $(INC_DIR)*.hpp)
 CC		:= clang++
 CFLAGS	:= -Wall -Wextra -Werror -std=c++98
 
@@ -20,9 +20,9 @@ $(NAME):  $(OBJ) | $(BIN_DIR)
 	echo "$@ (exec) \033[32mcreated\033[0m"
 	echo "--------------------------------------------"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(INC)| $(OBJ_DIR)
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	echo "$@ \033[32mcreated\033[0m"
 
 $(BIN_DIR) $(OBJ_DIR):
