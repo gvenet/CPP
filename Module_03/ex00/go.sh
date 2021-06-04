@@ -1,3 +1,3 @@
 #!/bin/bash
 make
-./bin/ZombieHorde
+./bin/E00
