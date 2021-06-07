@@ -73,7 +73,7 @@ int fragTrap::energyChecker(int energyCost)
 	{
 		this->setEnergy(this->_energy + 5);
 		this->caractere();
-		std::cout << "not enought energy pts, " << this->_name <<" hide and gain 5 energy pts" << std::endl;
+		std::cout << "not enought energy pts, " << this->_name << " hide and gain 5 energy pts" << std::endl;
 		return (0);
 	}
 	return (1);

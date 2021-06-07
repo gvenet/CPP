@@ -1,5 +1,6 @@
 #include "../inc/fragTrap.hpp"
 #include "../inc/scavTrap.hpp"
+#include "../inc/clapTrap.hpp"
 
 int main(void)
 {
@@ -32,7 +33,8 @@ int main(void)
 	scav.rangedAttack(ennemy);
 	scav.rangedAttack(ennemy);
 	scav.takeDamage(100);
-
 	std::cout << std::endl;
+
+
 	return (0);
 }

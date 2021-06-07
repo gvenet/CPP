@@ -50,5 +50,5 @@ public:
 	void vaulthunter_dot_exe(std::string const &target);
 };
 
-static int armorDefLimiterFrag = 0;
+static int armorDefLimiter = 0;
 #endif

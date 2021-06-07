@@ -7,15 +7,15 @@ clapTrap::clapTrap()
 	srand((unsigned)time(NULL));
 }
 
-clapTrap::clapTrap(std::string const name) : _hp(100), _maxHp(100), _energy(100), _maxEnergy(100), _level(1), _name(name), _meleeAttDamage(30), _rangedAttDamage(20), _armorDamageReduction(5)
+clapTrap::clapTrap(std::string const name, std::string type) : _hp(100), _maxHp(100), _energy(100), _maxEnergy(100), _level(1), _name(name), _meleeAttDamage(30), _rangedAttDamage(20), _armorDamageReduction(5), _type(type)
 {
 	srand((unsigned)time(NULL));
-	std::cout << "FR4G-TP <" << this->_name << "> please to meet you" << std::endl;
+	std::cout << "CL4P-TP <" << this->_name << "> please to meet you" << std::endl;
 }
 
 clapTrap::~clapTrap()
 {
-	std::cout << " end of CLAP-TP <" << this->_name << ">" << std::endl;
+	std::cout << " end of CLAP-TP <" << this->_name << "> pshuuuuhh" << std::endl;
 }
 
 //=============================================GETTERS================================
@@ -59,7 +59,7 @@ int clapTrap::setEnergy(int energy)
 
 void clapTrap::caractere(void) const
 {
-	std::cout << "<|FR4G-TP\t|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
+	std::cout <<  "<|" << this->_type << "\t|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
 }
 
 int clapTrap::energyChecker(int energyCost)
