@@ -37,8 +37,9 @@ private:
 public:
 	//=============================================CONSTRUCTORS/DESTRUCTOR================================
 	fragTrap();
-	fragTrap(fragTrap const &tp);
 	fragTrap(std::string const name);
+	fragTrap(fragTrap const &);
+	fragTrap& operator=(fragTrap const &);
 	~fragTrap();
 
 	//==========================PUBLIC MEMBER FONCTION===========================================================

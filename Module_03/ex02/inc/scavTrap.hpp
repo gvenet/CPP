@@ -13,10 +13,14 @@ private:
 	std::string randChallenge(void);
 
 public:
+	//=============================================CONSTRUCTORS/DESTRUCTOR================================
 	scavTrap();
-	scavTrap(scavTrap const &tp);
 	scavTrap(std::string const name);
+	scavTrap(scavTrap const &);
+	scavTrap& operator=(scavTrap const &);
 	~scavTrap();
+
+	//==========================PUBLIC MEMBER FONCTION===========================================================
 
 	void challengeNewComer(std::string const &target);
 };

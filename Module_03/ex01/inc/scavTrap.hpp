@@ -36,8 +36,9 @@ private:
 public:
 	//=============================================CONSTRUCTORS/DESTRUCTOR================================
 	scavTrap();
-	scavTrap(scavTrap const &tp);
 	scavTrap(std::string const name);
+	scavTrap(scavTrap const &);
+	scavTrap& operator=(scavTrap const &);
 	~scavTrap();
 
 	//==========================PUBLIC MEMBER FONCTION===========================================================
@@ -47,7 +48,5 @@ public:
 	void beRepaired(int amount);
 	void challengeNewComer(std::string const &target);
 };
-
-static int armorDefLimiterScav = 0;
 
 #endif

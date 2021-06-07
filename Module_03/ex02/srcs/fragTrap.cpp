@@ -5,7 +5,7 @@ fragTrap::fragTrap() : clapTrap()
 	srand((unsigned)time(NULL));
 }
 
-fragTrap::fragTrap(std::string const name) : clapTrap(name, "FR4G-TP")
+fragTrap::fragTrap(std::string const name) : clapTrap(100, 100, 100, 100, 1, 30, 20, 5, name, "FR4G-TP")
 {
 	srand((unsigned)time(NULL));
 	std::cout << "FR4G-TP <" << this->_name << "> is back !! : HELLO PUSSIZ" << std::endl;

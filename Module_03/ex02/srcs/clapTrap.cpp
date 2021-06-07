@@ -1,13 +1,14 @@
 #include "../inc/clapTrap.hpp"
 
-//=============================================CONSTRUCTORS/DESTRUCTOR================================
+//=============================================CONSTRUCTORS/DESTRUCTOR/OPERATOR================================
 
 clapTrap::clapTrap()
 {
 	srand((unsigned)time(NULL));
 }
 
-clapTrap::clapTrap(std::string const name, std::string type) : _hp(100), _maxHp(100), _energy(100), _maxEnergy(100), _level(1), _name(name), _meleeAttDamage(30), _rangedAttDamage(20), _armorDamageReduction(5), _type(type)
+clapTrap::clapTrap(int hp, int maxHp, int energy, int maxEnergy, int level, int meleeAtt, int rangeAtt, int armorDmgRed, std::string const name, std::string type) : 
+	_hp(hp), _maxHp(maxHp), _energy(energy), _maxEnergy(maxEnergy), _level(level), _name(name), _meleeAttDamage(meleeAtt), _rangedAttDamage(rangeAtt), _armorDamageReduction(armorDmgRed), _type(type)
 {
 	srand((unsigned)time(NULL));
 	std::cout << "CL4P-TP <" << this->_name << "> please to meet you" << std::endl;
@@ -16,6 +17,10 @@ clapTrap::clapTrap(std::string const name, std::string type) : _hp(100), _maxHp(
 clapTrap::~clapTrap()
 {
 	std::cout << " end of CLAP-TP <" << this->_name << "> pshuuuuhh" << std::endl;
+}
+
+clapTrap& clapTrap::operator=(clapTrap const &)
+{
 }
 
 //=============================================GETTERS================================

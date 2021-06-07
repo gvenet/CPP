@@ -21,11 +21,14 @@ protected:
 	std::string _type;
 
 public:
+	//=============================================CONSTRUCTORS/DESTRUCTOR================================
 	clapTrap();
-	clapTrap(clapTrap const & ClapTp);
-	clapTrap(std::string const name, std::string type);
+	clapTrap(int hp, int maxHp, int energy, int maxEnergy, int level, int meleeAtt, int rangeAtt, int armorDmgRed, std::string const name, std::string type);
+	clapTrap(clapTrap const &);
+	clapTrap& operator=(clapTrap const &);
 	~clapTrap();
 
+	//=========================SETTERS/GETTERS===========================================================
 
 	std::string getName(void) const;
 	int getHp(void) const;
@@ -33,6 +36,8 @@ public:
 
 	int setHp(int hp);
 	int setEnergy(int hp);
+
+	//==========================PUBLIC MEMBER FONCTION===========================================================
 
 	void caractere(void) const;
 	void rangedAttack(std::string const &target);

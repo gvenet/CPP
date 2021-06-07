@@ -5,8 +5,8 @@
 int main(void)
 {
 	std::string ennemy = "ArmorManiac";
-	fragTrap frag("FR4G-TP1");
-	scavTrap scav("SC4V-TP1");
+	fragTrap frag("Garry");
+	scavTrap scav("Banjo");
 
 	std::cout << std::endl
 			  << "<|TYPE     \t|NAME   \t|EP\t|HP\t|>" << std::endl;

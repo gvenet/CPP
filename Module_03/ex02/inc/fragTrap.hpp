@@ -14,11 +14,14 @@ private:
 	int setArmorDamageReduction(int ArmDmgRed);
 
 public:
+	//=============================================CONSTRUCTORS/DESTRUCTOR================================
 	fragTrap();
-	fragTrap(fragTrap const &tp);
 	fragTrap(std::string const name);
+	fragTrap(fragTrap const &);
+	fragTrap& operator=(fragTrap const &);
 	~fragTrap();
 
+	//==========================PUBLIC MEMBER FONCTION===========================================================
 	void armorUpUp(void);
 	void vaulthunter_dot_exe(std::string const &target);
 };

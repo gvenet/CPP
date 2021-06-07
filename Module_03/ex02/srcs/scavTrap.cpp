@@ -5,7 +5,7 @@ scavTrap::scavTrap()
 	srand((unsigned)time(NULL));
 }
 
-scavTrap::scavTrap(std::string const name) : clapTrap(name, "SC4V-TP")
+scavTrap::scavTrap(std::string const name) : clapTrap(100, 100, 50, 50, 1, 20, 15, 3, name, "SC4V-TP")
 {
 	srand((unsigned)time(NULL));
 	std::cout << "SC4V-TP <" << this->_name << "> is here : What i'm doing here ? " << std::endl;
