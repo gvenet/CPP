@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   SuperTrap.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/18 19:36:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/27 14:41:08 by ncolomer         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "SuperTrap.hpp"
 
@@ -23,6 +12,14 @@ SuperTrap::SuperTrap(std::string const &name):
 	this->meleeAttackDamage = this->NinjaTrap::meleeAttackDamage;
 	this->rangedAttackDamage = this->FragTrap::rangedAttackDamage;
 	this->armorDamageReduction = this->FragTrap::armorDamageReduction;
+
+	std::cout << std::endl << "clap : " << this->ClapTrap::hitPoints << std::endl;
+	std::cout << std::endl << "Ninja : " << this->NinjaTrap::hitPoints << std::endl;
+	std::cout << std::endl << "Frag : " << this->FragTrap::hitPoints << std::endl;
+	std::cout << std::endl << "Super : " << this->hitPoints << std::endl;
+	std::cout << std::endl;
+
+
 }
 
 SuperTrap::SuperTrap(SuperTrap const &other):

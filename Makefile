@@ -28,6 +28,7 @@ all :
 	make -C Module_03/ex01
 	make -C Module_03/ex02
 	make -C Module_03/ex03
+	make -C Module_03/ex04
 
 
 fclean :
@@ -60,4 +61,5 @@ fclean :
 	make -C Module_03/ex01 fclean
 	make -C Module_03/ex02 fclean
 	make -C Module_03/ex03 fclean
+	make -C Module_03/ex04 fclean
 	
