@@ -40,7 +40,7 @@ void ninjaTrap::ninjaShoebox(fragTrap & target)
 	{
 		this->setEnergy(this->_energy - energyCost);
 		this->caractere();
-		std::cout << "hit with dagger on back of " << target.getName() << "> , causing < " << dmg << " > point of damage" << std::endl;
+		std::cout << "hit with dagger on back of " << target.getName() << "> , causing <" << dmg << "> point of damage" << std::endl;
 		target.takeDamage(dmg);
 	}
 }
@@ -53,7 +53,7 @@ void ninjaTrap::ninjaShoebox(scavTrap & target)
 	{
 		this->setEnergy(this->_energy - energyCost);
 		this->caractere();
-		std::cout << "kick head of " << target.getName() << "> , causing < " << dmg << " > point of damage" << std::endl;
+		std::cout << "kick head of " << target.getName() << "> , causing <" << dmg << "> point of damage" << std::endl;
 		target.takeDamage(dmg);
 	}
 }
@@ -66,7 +66,7 @@ void ninjaTrap::ninjaShoebox(ninjaTrap & target)
 	{
 		this->setEnergy(this->_energy - energyCost);
 		this->caractere();
-		std::cout << "does a low kick to " << target.getName() << "> , causing < " << dmg << " > point of damage" << std::endl;
+		std::cout << "does a low kick to " << target.getName() << "> , causing <" << dmg << "> point of damage" << std::endl;
 		target.takeDamage(dmg);
 	}
 
