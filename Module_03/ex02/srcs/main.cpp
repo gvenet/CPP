@@ -9,7 +9,7 @@ int main(void)
 	scavTrap scav("Banjo");
 
 	std::cout << std::endl
-			  << "<|TYPE     \t|NAME   \t|EP\t|HP\t|>" << std::endl;
+			  << "<|TYPE     \t|LVL\t|NAME\t|EP\t|HP\t|>" << std::endl;
 	frag.rangedAttack(ennemy);
 	frag.meleeAttack(ennemy);
 	frag.takeDamage(20);

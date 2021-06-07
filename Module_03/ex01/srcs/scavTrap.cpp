@@ -70,7 +70,7 @@ int scavTrap::setEnergy(int energy)
 
 void scavTrap::caractere(void) const
 {
-	std::cout << "<|SC4V-TP\t|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
+	std::cout << "<|SC4V-TP\t|" << this->_level  << "\t|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
 }
 
 int scavTrap::energyChecker(int energyCost)

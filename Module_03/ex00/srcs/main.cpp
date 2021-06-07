@@ -7,7 +7,7 @@ int main(void)
 	std::string ennemy = "ArmorManiac";
 	fragTrap fragtrap("FR4G-TP");
 
-	std::cout << "<|NAME   \t|EP\t|HP\t|>" << std::endl;
+	std::cout << "<|NAME   \t|LVL\t|EP\t|HP\t|>" << std::endl;
 	fragtrap.rangedAttack(ennemy);
 	fragtrap.meleeAttack(ennemy);
 	fragtrap.takeDamage(20);

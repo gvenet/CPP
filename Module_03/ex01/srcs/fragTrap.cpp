@@ -75,7 +75,7 @@ int fragTrap::setArmorDamageReduction(int ArmDmgRed)
 
 void fragTrap::caractere(void) const
 {
-	std::cout << "<|FR4G-TP\t|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
+	std::cout << "<|FR4G-TP\t|" << this->_level  << "\t|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
 }
 
 int fragTrap::energyChecker(int energyCost)

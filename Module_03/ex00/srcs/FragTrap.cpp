@@ -7,28 +7,29 @@ fragTrap::fragTrap()
 	srand((unsigned)time(NULL));
 }
 
-fragTrap::fragTrap(std::string const name) : _hp(100), _maxHp(100), _energy(100), _maxEnergy(100), _level(1), _name(name), _meleeAttDamage(30), _rangedAttDamage(20), _armorDamageReduction(5)
+fragTrap::fragTrap(std::string const name) : 
+_hp(100), _maxHp(100), _energy(100), _maxEnergy(100), _level(1), _name(name), _meleeAttDamage(30), _rangedAttDamage(20), _armorDamageReduction(5)
 {
 	srand((unsigned)time(NULL));
 	std::cout << "<" << this->_name << "> is back !! : HELLO PUSSIZ" << std::endl
 			  << std::endl;
 }
 
-fragTrap::fragTrap(fragTrap const & src)
+fragTrap::fragTrap(fragTrap const &src)
 {
 	std::cout << "copy constructor called" << std::endl;
-	*this=src;
+	*this = src;
 }
 
-fragTrap& fragTrap::operator=(fragTrap const &)
+fragTrap &fragTrap::operator=(fragTrap const &)
 {
 	return *this;
 }
 
-
 fragTrap::~fragTrap()
 {
-	std::cout << std::endl << " end of fight " << std::endl;
+	std::cout << std::endl
+			  << " end of fight " << std::endl;
 }
 
 //=============================================GETTERS================================
@@ -77,7 +78,7 @@ int fragTrap::setArmorDamageReduction(int ArmDmgRed)
 
 void fragTrap::caractere(void) const
 {
-	std::cout << "<|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
+	std::cout << "<|" << this->_name << "\t|" << this->_level << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
 }
 
 int fragTrap::energyChecker(int energyCost)
@@ -135,7 +136,7 @@ void fragTrap::takeDamage(int amount)
 		dmg += amount - this->_armorDamageReduction;
 	this->setHp(this->_hp - dmg);
 	this->caractere();
-		std::cout << "Ennemy gives <" << amount << "> dmg; " << this->_name << " takes <" << dmg << "> damage ";
+	std::cout << "Ennemy gives <" << amount << "> dmg; " << this->_name << " takes <" << dmg << "> damage ";
 	if (this->_hp == 0)
 		std::cout << this->_name << " DIE";
 	std::cout << std::endl;

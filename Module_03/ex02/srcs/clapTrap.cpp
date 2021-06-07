@@ -71,7 +71,7 @@ int clapTrap::setEnergy(int energy)
 
 void clapTrap::caractere(void) const
 {
-	std::cout <<  "<|" << this->_type << "\t|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
+	std::cout <<  "<|" << this->_type << "\t|" << this->_level << "\t|" << this->_name << "\t|" << this->_energy << "\t|" << this->_hp << "\t|>   \t";
 }
 
 int clapTrap::energyChecker(int energyCost)
