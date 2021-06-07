@@ -7,10 +7,10 @@ ninjaTrap::ninjaTrap() : clapTrap()
 	srand((unsigned)time(NULL));
 }
 
-ninjaTrap::ninjaTrap(std::string const name) : clapTrap(100, 100, 50, 50, 1, 20, 15, 3, name, "SC4V-TP")
+ninjaTrap::ninjaTrap(std::string const name) : clapTrap(60, 60, 120, 120, 1, 60, 5, 0, name, "NINJ4-TP")
 {
 	srand((unsigned)time(NULL));
-	std::cout << "SC4V-TP <" << this->_name << "> is here : What i'm doing here ? " << std::endl;
+	std::cout << this->_type << " <" << this->_name << "> look behind if i'm there..." << std::endl;
 }
 
 ninjaTrap::ninjaTrap(ninjaTrap const &src) : clapTrap(src)
@@ -25,28 +25,49 @@ ninjaTrap& ninjaTrap::operator=(ninjaTrap const &)
 
 ninjaTrap::~ninjaTrap()
 {
-	std::cout << " end of SC4V-TP <" << this->_name << ">" << std::endl;
+	std::cout << " end of " << this->_type << " <" << this->_name << ">" << std::endl;
 }
-
 //==========================PRIVATE MEMBER FONCTION===========================================================
-
-void ninjaTrap::challengeNewComer(std::string const &target)
-{
-	this->caractere();
-	std::cout << this->randChallenge() << target << ">" << std::endl;
-}
 
 //==========================PUBLIC MEMBER FONCTION===========================================================
 
-std::string ninjaTrap::randChallenge(void)
+void ninjaTrap::ninjaShoebox(fragTrap & target)
 {
-	std::string challenge[5];
+	int energyCost = 20;
+	int dmg = 30;
 
-	challenge[0] = "challenge 1 <";
-	challenge[1] = "challenge 2 <";
-	challenge[2] = "challenge 3 <";
-	challenge[3] = "challenge 4 <";
-	challenge[4] = "challenge 5 <";
-	return challenge[(rand() % 5)];
+	if (clapTrap::energyChecker(energyCost))
+	{
+		this->setEnergy(this->_energy - energyCost);
+		this->caractere();
+		std::cout << "hit with dagger on back of " << target.getName() << "> , causing < " << dmg << " > point of damage" << std::endl;
+		target.takeDamage(dmg);
+	}
 }
+void ninjaTrap::ninjaShoebox(scavTrap & target)
+{
+	int energyCost = 30;
+	int dmg = 50;
 
+	if (clapTrap::energyChecker(energyCost))
+	{
+		this->setEnergy(this->_energy - energyCost);
+		this->caractere();
+		std::cout << "kick head of " << target.getName() << "> , causing < " << dmg << " > point of damage" << std::endl;
+		target.takeDamage(dmg);
+	}
+}
+void ninjaTrap::ninjaShoebox(ninjaTrap & target)
+{
+	int energyCost = 40;
+	int dmg = 70;
+
+	if (clapTrap::energyChecker(energyCost))
+	{
+		this->setEnergy(this->_energy - energyCost);
+		this->caractere();
+		std::cout << "does a low kick to " << target.getName() << "> , causing < " << dmg << " > point of damage" << std::endl;
+		target.takeDamage(dmg);
+	}
+
+}

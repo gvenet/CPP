@@ -10,7 +10,7 @@ scavTrap::scavTrap() : clapTrap()
 scavTrap::scavTrap(std::string const name) : clapTrap(100, 100, 50, 50, 1, 20, 15, 3, name, "SC4V-TP")
 {
 	srand((unsigned)time(NULL));
-	std::cout << "SC4V-TP <" << this->_name << "> is here : What i'm doing here ? " << std::endl;
+	std::cout << this->_type << " <" << this->_name << "> is here : What i'm doing here ? " << std::endl;
 }
 
 scavTrap::scavTrap(scavTrap const &src) : clapTrap(src)
@@ -18,14 +18,14 @@ scavTrap::scavTrap(scavTrap const &src) : clapTrap(src)
 	std::cout << "copy constructor called" << std::endl;
 }
 
-scavTrap& scavTrap::operator=(scavTrap const &)
+scavTrap &scavTrap::operator=(scavTrap const &)
 {
 	return *this;
 }
 
 scavTrap::~scavTrap()
 {
-	std::cout << " end of SC4V-TP <" << this->_name << ">" << std::endl;
+	std::cout << " end of " << this->_type << " <" << this->_name << ">" << std::endl;
 }
 
 //==========================PRIVATE MEMBER FONCTION===========================================================
@@ -49,4 +49,3 @@ std::string scavTrap::randChallenge(void)
 	challenge[4] = "challenge 5 <";
 	return challenge[(rand() % 5)];
 }
-

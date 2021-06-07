@@ -6,12 +6,11 @@
 #include "ctime"
 #include "cstdlib"
 #include "../inc/clapTrap.hpp"
+#include "../inc/fragTrap.hpp"
+#include "../inc/scavTrap.hpp"
 
 class ninjaTrap : public clapTrap
 {
-private: 
-	std::string randChallenge(void);
-
 public:
 	//=============================================CONSTRUCTORS/DESTRUCTOR================================
 	ninjaTrap();
@@ -22,7 +21,9 @@ public:
 
 	//==========================PUBLIC MEMBER FONCTION===========================================================
 
-	void challengeNewComer(std::string const &target);
+	void ninjaShoebox(fragTrap & traget);
+	void ninjaShoebox(scavTrap & traget);
+	void ninjaShoebox(ninjaTrap & traget);
 };
 
 #endif
