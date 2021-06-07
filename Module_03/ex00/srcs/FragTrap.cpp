@@ -1,6 +1,6 @@
 #include "../inc/FragTrap.hpp"
 
-//=============================================CONSTRUCTORS/DESTRUCTOR================================
+//=============================================CONSTRUCTORS/DESTRUCTOR/OPERATOR================================
 
 fragTrap::fragTrap()
 {
@@ -13,6 +13,18 @@ fragTrap::fragTrap(std::string const name) : _hp(100), _maxHp(100), _energy(100)
 	std::cout << "<" << this->_name << "> is back !! : HELLO PUSSIZ" << std::endl
 			  << std::endl;
 }
+
+fragTrap::fragTrap(fragTrap const & src)
+{
+	std::cout << "copy constructor called" << std::endl;
+	*this=src;
+}
+
+fragTrap& fragTrap::operator=(fragTrap const &)
+{
+	return *this;
+}
+
 
 fragTrap::~fragTrap()
 {

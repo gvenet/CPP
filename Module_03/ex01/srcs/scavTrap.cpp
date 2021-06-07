@@ -13,6 +13,17 @@ scavTrap::scavTrap(std::string const name) : _hp(100), _maxHp(100), _energy(50),
 	std::cout << "SC4V-TP <" << this->_name << "> is here : What i'm doing here ? " << std::endl;
 }
 
+scavTrap::scavTrap(scavTrap const &src)
+{
+	std::cout << "copy constructor called" << std::endl;
+	*this=src;
+}
+
+scavTrap& scavTrap::operator=(scavTrap const &)
+{
+	return *this;
+}
+
 scavTrap::~scavTrap()
 {
 	std::cout << " end of SC4V-TP <" << this->_name << ">" << std::endl;
