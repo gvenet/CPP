@@ -1,5 +1,7 @@
 #include "../inc/fragTrap.hpp"
 
+//=============================================CONSTRUCTORS/DESTRUCTOR/OPERATOR================================
+
 fragTrap::fragTrap() : clapTrap()
 {
 	srand((unsigned)time(NULL));
@@ -16,13 +18,25 @@ fragTrap::~fragTrap()
 	std::cout << " end of FR4G-TP <" << this->_name << ">" << std::endl;
 }
 
-//============================================================================================
+fragTrap::fragTrap::fragTrap(fragTrap const &src) : clapTrap(src)
+{
+	std::cout << "copy constructor called" << std::endl;
+}
+
+fragTrap& fragTrap::operator=(fragTrap const &)
+{
+	return *this;
+}
+
+//==========================PRIVATE MEMBER FONCTION===========================================================
 
 int fragTrap::setArmorDamageReduction(int ArmDmgRed)
 {
 	return this->_armorDamageReduction += ArmDmgRed;
 }
- //===========================================================================================
+
+//==========================PUBLIC MEMBER FONCTION===========================================================
+
 void fragTrap::armorUpUp(void)
 {
 	if (armorDefLimiter)

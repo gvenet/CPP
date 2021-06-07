@@ -14,13 +14,20 @@ clapTrap::clapTrap(int hp, int maxHp, int energy, int maxEnergy, int level, int 
 	std::cout << "CL4P-TP <" << this->_name << "> please to meet you" << std::endl;
 }
 
-clapTrap::~clapTrap()
+clapTrap::clapTrap::clapTrap(clapTrap const &src)
 {
-	std::cout << " end of CLAP-TP <" << this->_name << "> pshuuuuhh" << std::endl;
+	std::cout << "copy constructor called" << std::endl;
+	*this=src;
 }
 
 clapTrap& clapTrap::operator=(clapTrap const &)
 {
+	return *this;
+}
+
+clapTrap::~clapTrap()
+{
+	std::cout << " end of CLAP-TP <" << this->_name << "> pshuuuuhh" << std::endl;
 }
 
 //=============================================GETTERS================================
