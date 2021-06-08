@@ -2,18 +2,28 @@
 #include "../inc/PlasmaRifle.hpp"
 #include "../inc/PowerFist.hpp"
 #include "../inc/SuperMutant.hpp"
+#include "../inc/RadScorpion.hpp"
+#include "../inc/Character.hpp"
 
 int main()
 {
-	SuperMutant a;
-
-	a.display();
-	a.takeDamage(70);
-	a.display();
-	a.takeDamage(103);
-	a.display();
-	a.takeDamage(102);
-
+	Character *me = new Character("toto");
+	std::cout<< *me;
+	Enemy *b = new RadScorpion();
+	AWeapon *pr = new PlasmaRifle();
+	AWeapon *pf = new PowerFist();
+	me->equip(pr);
+	std::cout << *me;
+	me->equip(pf);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
+	me->equip(pr);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
 
 	return 0;
 }

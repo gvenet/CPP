@@ -2,7 +2,7 @@
 
 //=================================COPLIAN================================================================
 
-PlasmaRifle::PlasmaRifle() : AWeapon("Power Fist", 8, 50)
+PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 8, 50)
 {
 }
 

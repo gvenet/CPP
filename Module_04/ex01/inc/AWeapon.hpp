@@ -24,6 +24,4 @@ public:
 	virtual void attack() const = 0;
 };
 
-std::ostream &operator<<(std::ostream &os, const AWeapon &AWeapon);
-
 #endif

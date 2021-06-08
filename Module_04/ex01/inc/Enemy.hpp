@@ -22,6 +22,4 @@ public:
 	virtual void display(void);
 };
 
-std::ostream &operator<<(std::ostream &os, const Enemy &Enemy);
-
 #endif

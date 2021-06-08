@@ -4,7 +4,7 @@
 
 AWeapon::AWeapon(std::string const &name, int apcost, int damage) : _name(name), _apcost(apcost), _damage(damage)
 {
-	std::cout << this->_name << " | apcost : " << this->_apcost << " | damage : " << this->_damage << std::endl;
+	std::cout << this->_name << "\t | apcost : " << this->_apcost << " | damage : " << this->_damage << std::endl;
 }
 
 AWeapon::AWeapon(AWeapon const &)

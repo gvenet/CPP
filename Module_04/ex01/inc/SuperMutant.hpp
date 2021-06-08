@@ -14,6 +14,4 @@ public:
 	virtual void takeDamage(int);
 };
 
-std::ostream &operator<<(std::ostream &os, const SuperMutant &SuperMutant);
-
 #endif

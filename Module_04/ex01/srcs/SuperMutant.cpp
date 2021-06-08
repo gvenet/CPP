@@ -23,8 +23,6 @@ SuperMutant::~SuperMutant()
 
 //==========================================GETTERS=======================================================
 
-//==========================================FONCTIONS MEMBRES=============================================
-
 void SuperMutant::takeDamage(int dmg)
 {
 	std::cout << this->_type << " takes " << dmg << " - 3 points of damage." << std::endl;
@@ -34,5 +32,6 @@ void SuperMutant::takeDamage(int dmg)
 	{
 		this->_hp = 0;
 		std::cout << this->_type << " DIE" << std::endl;
+		delete this;
 	}
 }

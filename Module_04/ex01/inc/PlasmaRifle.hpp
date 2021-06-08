@@ -17,6 +17,4 @@ public:
 	virtual void attack() const;
 };
 
-std::ostream &operator<<(std::ostream &os, const PlasmaRifle &PlasmaRifle);
-
 #endif

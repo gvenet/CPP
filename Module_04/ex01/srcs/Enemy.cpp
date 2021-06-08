@@ -42,7 +42,8 @@ void Enemy::takeDamage(int dmg)
 	else
 	{
 		this->_hp = 0;
-		std::cout << this->_type << " DIE";
+		std::cout << this->_type << " DIE" << std::endl;;
+		delete this;
 	}
 }
 
@@ -50,4 +51,3 @@ void Enemy::display(void)
 {
 	std::cout << this->_type << " has " << this->_hp << " hp." << std::endl;
 }
-//==========================================FONCTIONS MEMBRES=============================================
