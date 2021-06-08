@@ -26,7 +26,7 @@ public:
 	clapTrap(int hp, int maxHp, int energy, int maxEnergy, int level, int meleeAtt, int rangeAtt, int armorDmgRed, std::string const name, std::string type);
 	clapTrap(clapTrap const &);
 	clapTrap& operator=(clapTrap const &);
-	~clapTrap();
+	virtual ~clapTrap();
 
 	//=========================SETTERS/GETTERS===========================================================
 

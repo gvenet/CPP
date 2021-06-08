@@ -18,7 +18,7 @@ public:
 	scavTrap(std::string const name);
 	scavTrap(scavTrap const &);
 	scavTrap& operator=(scavTrap const &);
-	~scavTrap();
+	virtual ~scavTrap();
 
 	//==========================PUBLIC MEMBER FONCTION===========================================================
 

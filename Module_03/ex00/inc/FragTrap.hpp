@@ -38,7 +38,7 @@ public:
 	fragTrap(std::string const name);
 	fragTrap(fragTrap const &);
 	fragTrap& operator=(fragTrap const &);
-	~fragTrap();
+	virtual ~fragTrap();
 
 	//==========================PUBLIC MEMBER FONCTION===========================================================
 	void rangedAttack(std::string const &target);
