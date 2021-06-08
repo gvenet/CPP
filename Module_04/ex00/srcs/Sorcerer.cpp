@@ -1,6 +1,6 @@
 #include "../inc/Sorcerer.hpp"
 
-//=================================CONSTRUCTOR/DESTRUCTOR/OPERATOR=======================
+//=================================COPLIAN=======================
 
 Sorcerer::Sorcerer()
 {
@@ -27,18 +27,32 @@ Sorcerer::~Sorcerer()
 	std::cout << this->_name << ", " << this->_title << ", is dead. Consequences will never be the same !" << std::endl;
 }
 
+std::ostream &operator<<(std::ostream &os, const Sorcerer &Sorcerer)
+{
+	os << "I am " << Sorcerer.getName() << ", " << Sorcerer.getTitle() << ", and I like ponies";
+	return os;
+}
 //==========================================GETTERS=======================================================
 
-//==========================================SETTERS=======================================================
+std::string Sorcerer::getName(void) const
+{
+	return this->_name;
+}
 
-
+std::string Sorcerer::getTitle(void) const
+{
+	return this->_title;
+}
 
 //================================PRIVATE MEMBER FONCTION=================================================
 
 //=================================PRIVATE METHODE========================================================
 
-
-
 //=================================PUBLIC MEMBER FONCTION================================================
+
+void Sorcerer::polymorph(Victim const & victim)
+{
+	victim.getPolymorphed();
+}
 
 //=================================PUBLIC METHODE========================================================
