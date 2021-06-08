@@ -1,32 +1,19 @@
-#include "../inc/Sorcerer.hpp"
-#include "../inc/Victim.hpp"
-#include "../inc/Peon.hpp"
-
-// int main()
-// {
-// 	Sorcerer Robert("Robert", "The Magificient");
-// 	Victim Jean("Jean");
-// 	Peon Garzog("Garzog");
-
-// 	std::cout << std::endl;
-// 	std::cout << Robert << std::endl;
-// 	std::cout << Jean << std::endl;
-
-// 	std::cout << std::endl;
-// 	Robert.polymorph(Jean);
-// 	Robert.polymorph(Garzog);
-
-// 	std::cout << std::endl;
-// 	return 0;
-// }
+#include "../inc/AWeapon.hpp"
+#include "../inc/PlasmaRifle.hpp"
+#include "../inc/PowerFist.hpp"
+#include "../inc/SuperMutant.hpp"
 
 int main()
 {
-	Sorcerer robert("Robert", "the Magnificent");
-	Victim jim("Jimmy");
-	Peon joe("Joe");
-	std::cout << robert << jim << joe;
-	robert.polymorph(jim);
-	robert.polymorph(joe);
+	SuperMutant a;
+
+	a.display();
+	a.takeDamage(70);
+	a.display();
+	a.takeDamage(103);
+	a.display();
+	a.takeDamage(102);
+
+
 	return 0;
 }
