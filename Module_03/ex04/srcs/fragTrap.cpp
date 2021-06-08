@@ -10,7 +10,7 @@ fragTrap::fragTrap() : clapTrap()
 fragTrap::fragTrap(std::string const name) : clapTrap(100, 100, 100, 100, 1, 30, 20, 5, name, "FR4G-TP")
 {
 	srand((unsigned)time(NULL));
-	std::cout << this->_type << " <" << this->_name << "> is back !! : HELLO PUSSIZ" << std::endl;
+	std::cout << "FR4G-TP <" << this->_name << "> is back !! : HELLO PUSSIZ" << std::endl;
 }
 
 fragTrap::fragTrap::fragTrap(fragTrap const &src) : clapTrap(src)
@@ -25,7 +25,7 @@ fragTrap& fragTrap::operator=(fragTrap const &)
 
 fragTrap::~fragTrap()
 {
-	std::cout << " end of " << this->_type << " <" << this->_name << ">" << std::endl;
+	std::cout << " end of FR4G-TP <" << this->_name << ">" << std::endl;
 }
 
 //==========================PRIVATE MEMBER FONCTION===========================================================

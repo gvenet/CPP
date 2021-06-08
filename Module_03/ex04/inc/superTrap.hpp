@@ -10,7 +10,7 @@
 #include "../inc/scavTrap.hpp"
 #include "../inc/ninjaTrap.hpp"
 
-class superTrap : virtual public clapTrap, public fragTrap, public ninjaTrap
+class superTrap : public fragTrap, public ninjaTrap
 {
 public:
 	//=============================================CONSTRUCTORS/DESTRUCTOR================================
@@ -21,6 +21,8 @@ public:
 	virtual ~superTrap();
 
 	//==========================PUBLIC MEMBER FONCTION===========================================================
+
+
 };
 
 #endif

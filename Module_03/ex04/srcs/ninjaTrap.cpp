@@ -10,7 +10,7 @@ ninjaTrap::ninjaTrap() : clapTrap()
 ninjaTrap::ninjaTrap(std::string const name) : clapTrap(60, 60, 120, 120, 1, 60, 5, 0, name, "NINJ4-TP")
 {
 	srand((unsigned)time(NULL));
-	std::cout << this->_type << " <" << this->_name << "> look behind if i'm there..." << std::endl;
+	std::cout << "NINJ4-TP <" << this->_name << "> look behind if i'm there..." << std::endl;
 }
 
 ninjaTrap::ninjaTrap(ninjaTrap const &src) : clapTrap(src)
@@ -25,7 +25,7 @@ ninjaTrap& ninjaTrap::operator=(ninjaTrap const &)
 
 ninjaTrap::~ninjaTrap()
 {
-	std::cout << " end of " << this->_type << " <" << this->_name << ">" << std::endl;
+	std::cout << " end of NINJ4-TP <" << this->_name << ">" << std::endl;
 }
 //==========================PRIVATE MEMBER FONCTION===========================================================
 

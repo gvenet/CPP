@@ -7,12 +7,9 @@ superTrap::superTrap() : clapTrap()
 	srand((unsigned)time(NULL));
 }
 
-superTrap::superTrap(std::string const name) : clapTrap(100, 100, 120, 120, 1, 60, 20, 5, name, "FR4G-TP")
+superTrap::superTrap(std::string const name) : clapTrap(100, 100, 120, 120, 1, 60, 20, 5, name, "SUPER-TP"), fragTrap(name), ninjaTrap(name)
 {
-
-	std::cout << this->_type << " <" << this->_name << "> I'M SUPERTRAMP" << std::endl;
-	this->caractere();
-	std::cout << std::endl << std::endl;
+	std::cout << "SUPER-TP <" << this->_name << "> HI I'M SUPEEEEERTRAMP" << std::endl;
 }
 
 superTrap::superTrap(superTrap const &src) : clapTrap(src)
@@ -27,7 +24,7 @@ superTrap& superTrap::operator=(superTrap const &)
 
 superTrap::~superTrap()
 {
-	std::cout << "end of " << this->_type << " <" << this->_name << ">" << std::endl;
+	std::cout << " end of SUPER-TP <" << this->_name << ">" << std::endl;
 }
 
 //===================================SETTER==================================================================
