@@ -13,7 +13,7 @@ fragTrap::fragTrap(std::string const name) : clapTrap(100, 100, 100, 100, 1, 30,
 	std::cout << "FR4G-TP <" << this->_name << "> is back !! : HELLO PUSSIZ" << std::endl;
 }
 
-fragTrap::fragTrap::fragTrap(fragTrap const &src) : clapTrap(src)
+fragTrap::fragTrap(fragTrap const &src) : clapTrap(src)
 {
 	std::cout << "copy constructor called" << std::endl;
 }
