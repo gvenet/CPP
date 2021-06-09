@@ -2,7 +2,7 @@
 
 //=================================COPLIAN================================================================
 
-PowerFist::PowerFist() : AWeapon("Power Fist", 5, 21)
+PowerFist::PowerFist() : AWeapon("Power Fist", 8, 50)
 {
 }
 

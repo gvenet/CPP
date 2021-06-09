@@ -38,11 +38,14 @@ void Enemy::takeDamage(int dmg)
 
 	std::cout << this->_type << " takes " << dmg << " points of damage." << std::endl;
 	if ((this->getHP() - dmg) > 0)
+	{
 		this->_hp = (this->getHP() - dmg);
+		this->display();
+	}
 	else
 	{
 		this->_hp = 0;
-		std::cout << this->_type << " DIE" << std::endl;;
+		this->display();
 		delete this;
 	}
 }
