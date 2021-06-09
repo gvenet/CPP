@@ -2,7 +2,7 @@ SRC_DIR	:= srcs/
 INC_DIR	:= inc/
 OBJ_DIR	:= obj/
 BIN_DIR	:= bin/
-NAME	:= $(BIN_DIR)E02
+NAME	:= $(BIN_DIR)E03
 
 SRC		:= $(wildcard $(SRC_DIR)*.cpp) $(wildcard $(SRC_DIR)*/*.cpp)
 OBJ		:= $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)

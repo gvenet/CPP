@@ -1,3 +1,3 @@
 #!/bin/bash
 make
-./bin/E02
+./bin/E03
