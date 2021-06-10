@@ -25,9 +25,9 @@ public:
 
 	//============================================================METHODS============================================================
 
-	void equip(AMateria *m);
-	void unequip(int idx);
-	void use(int idx, ICharacter &target);
+	virtual void equip(AMateria *m);
+	virtual void unequip(int idx);
+	virtual void use(int idx, ICharacter &target);
 };
 
 #endif

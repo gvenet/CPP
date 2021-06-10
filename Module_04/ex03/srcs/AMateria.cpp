@@ -62,3 +62,8 @@ void AMateria::displayXp()
 {
 	std::cout << "Materia\t: " << this->_type << " has " << this->_xp << " xp" << std::endl;
 }
+
+AMateria *AMateria::clone() const
+{
+	
+}
