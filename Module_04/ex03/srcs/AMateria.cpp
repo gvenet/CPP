@@ -1,17 +1,15 @@
 #include "../inc/AMateria.hpp"
 
-//=================================COPLIAN================================================================
+//============================================================COPLIAN============================================================
 
-AMateria::AMateria() : _type(std::string()), _xp(0)
+AMateria::AMateria(std::string const &type) : _type(type), _xp(0)
 {
-}
-
-AMateria::AMateria(std::string const &type) : _type(std::string()), _xp(0)
-{
+	std::cout << "Materia " << this->_type << " is created" << std::endl; 
 }
 
 AMateria::AMateria(AMateria const &cpy) : _type(cpy._type), _xp(cpy._xp)
 {
+	*this = cpy;
 }
 
 AMateria &AMateria::operator=(AMateria const &op)
@@ -25,7 +23,7 @@ AMateria::~AMateria()
 {
 }
 
-//==========================================GETTERS=======================================================
+//============================================================GETTERS============================================================
 
 std::string const &AMateria::getType() const
 {
@@ -37,10 +35,16 @@ unsigned int AMateria::getXP() const
 	return this->_xp;
 }
 
-//=========================================METHODES=======================================================
+//============================================================METHODS============================================================
 
-void AMateria::use(ICharacter &target)
+void AMateria::use(ICharacter& target)
 {
-	this->_xp += 10;
 	(void)target;
+	this->_xp += 10;
+	this->displayXp();
+}
+
+void AMateria::displayXp()
+{
+	std::cout << this->_type << " has " << this->_xp << " xp" << std::endl;
 }

@@ -1,24 +1,24 @@
-#include "../inc/Ice.hpp"
+#include "../inc/Cure.hpp"
 
 //============================================================COPLIAN============================================================
 
-Ice::Ice() : AMateria("ice")
+Cure::Cure() : AMateria("cure")
 {
 }
 
-Ice::Ice(Ice const &cpy) : AMateria("ice")
+Cure::Cure(Cure const &cpy) : AMateria("cure")
 {
 	*this = cpy;
 }
 
-Ice &Ice::operator=(Ice const &op)
+Cure &Cure::operator=(Cure const &op)
 {
 	this->_type = op._type;
 	this->_xp = op._xp;
 	return *this;
 }
 
-Ice::~Ice()
+Cure::~Cure()
 {
 }
 
@@ -26,14 +26,14 @@ Ice::~Ice()
 
 //============================================================METHODS============================================================
 
-void Ice::use(ICharacter& target)
+void Cure::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 	AMateria::use(target);
 }
 
-AMateria *Ice::clone() const
+AMateria *Cure::clone() const
 {
-	AMateria *cpy = new Ice;
+	AMateria *cpy = new Cure;
 	return cpy;
 }

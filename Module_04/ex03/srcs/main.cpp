@@ -1,29 +1,24 @@
-#include "../inc/Character.hpp"
 #include "../inc/AMateria.hpp"
-#include "../inc/ICharacter.hpp"
-#include "../inc/IMateriaSource.hpp"
-#include "../inc/MateriaSource.hpp"
+#include "../inc/Character.hpp"
+#include "../inc/Cure.hpp"
 #include "../inc/Ice.hpp"
+#include "../inc/ICharacter.hpp"
 
 int main()
 {
-	IMateriaSource *src = new MateriaSource();
-	src->learnMateria(new Ice());
-	// src->learnMateria(new Cure());
-	
-	ICharacter *me = new Character("me");
-	AMateria *tmp;
-	
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	std::cout << "=============== BOCAL FATASY ===============" << std::endl;
 
-	ICharacter *bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete bob;
-	delete me;
-	delete src;
-	return 0;
+	ICharacter* Cloud = new Character("Cloud");
+	ICharacter* Enemy = new Character("Enemy");
+	AMateria *ice = new Ice;
+	
+	std::cout << std::endl;
+	Cloud->equip(ice);
+	Cloud->use(0, *Enemy);
+	Cloud->use(1, *Enemy);
+	Cloud->unequip(0);
+	Cloud->use(0, *Enemy);
+	Enemy->equip(ice);
+	Enemy->use(0, *Cloud);
+	return (0);
 }

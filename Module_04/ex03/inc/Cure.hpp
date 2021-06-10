@@ -1,33 +1,27 @@
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef CURE_HPP
+#define CURE_HPP
 #include <iostream>
 #include <string>
-#include "ICharacter.hpp"
 #include "AMateria.hpp"
 
-class Character : public ICharacter
+class Cure : public AMateria
 {
-private:
-	std::string _name;
-	AMateria *_inventory[4];
-
 public:
 	//============================================================COPLIAN============================================================
 
-	Character(std::string const &name);
-	Character(Character const &cpy);
-	Character &operator=(Character const &op);
-	virtual ~Character();
-
+	Cure();
+	Cure(Cure const &cpy);
+	Cure &operator=(Cure const &op);
+	virtual ~Cure();
 	//============================================================GETTERS============================================================
 
-	std::string const &getName() const;
+	std::string const &getType() const;
+	unsigned int getXP() const;
 
 	//============================================================METHODS============================================================
 
-	void equip(AMateria *m);
-	void unequip(int idx);
-	void use(int idx, ICharacter &target);
+	AMateria *clone() const;
+	void use(ICharacter &target);
 };
 
 #endif

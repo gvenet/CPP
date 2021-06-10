@@ -1,32 +1,32 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
-#include <string>
 #include <iostream>
+#include <string>
 #include "ICharacter.hpp"
+class ICharacter;
 
 class AMateria
 {
 protected:
-	unsigned int _xp;
 	std::string _type;
+	unsigned int _xp;
+
 public:
+	//============================================================COPLIAN============================================================
 
-//=================================COPLIAN================================================================
-
-	AMateria();
 	AMateria(std::string const &type);
-	AMateria(AMateria const &);
-	AMateria &operator=(AMateria const &);
+	AMateria(AMateria const &cpy);
+	AMateria &operator=(AMateria const &op);
 	virtual ~AMateria();
-
-//==========================================GETTERS=======================================================
+	//============================================================GETTERS============================================================
 
 	std::string const &getType() const;
 	unsigned int getXP() const;
 
-//=========================================METHODES=======================================================
+	//============================================================METHODS============================================================
 
-	virtual AMateria *clone() const = 0;		//no implementation in AMateria.cpp
+	virtual void displayXp();
+	virtual AMateria *clone() const = 0;
 	virtual void use(ICharacter &target);
 };
 
