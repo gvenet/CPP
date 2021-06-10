@@ -8,7 +8,7 @@
 #include "Cure.hpp"
 #include "Ultima.hpp"
 
-class MateriaSource : private IMateriaSource
+class MateriaSource : public IMateriaSource
 {
 private:
 	AMateria *_learned[4];
