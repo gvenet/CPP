@@ -42,6 +42,8 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
+	if (!m)
+		return ;
 	std::cout << this->_name << "\t: ";
 	for (int i = 0; i < 4; i++)
 	{

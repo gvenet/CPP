@@ -6,6 +6,7 @@
 #include "../inc/Cure.hpp"
 #include "../inc/Ice.hpp"
 #include "../inc/Ultima.hpp"
+#include "../inc/KnightsOfTheRound"
 
 int main()
 {
@@ -15,36 +16,39 @@ int main()
 	ICharacter *Tifa = new Character("Tifa");
 	ICharacter *Jenova = new Character("Jenova");
 	IMateriaSource *src = new MateriaSource();
+	std::cout << std::endl;
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+	src->learnMateria(new Ultima());
 
+	std::cout << std::endl;
 	AMateria *tmp;
 	tmp = src->createMateria("ice");
 	Cloud->equip(tmp);
-	Tifa->equip(tmp);
+	tmp = src->createMateria("ice");
+	tmp = src->createMateria("ice");
 	Jenova->equip(tmp);
 	tmp = src->createMateria("cure");
 	Cloud->equip(tmp);
-	Tifa->equip(tmp);
+	tmp = src->createMateria("cure");
+	tmp = src->createMateria("cure");
 	Jenova->equip(tmp);
 	tmp = src->createMateria("ultima");
 	Cloud->equip(tmp);
-	Tifa->equip(tmp);
+	tmp = src->createMateria("ultima");
+	tmp = src->createMateria("ultima");
 	Jenova->equip(tmp);
 
 	std::cout << std::endl;
-	Cloud->unequip(0);
-	Tifa->use(0, *Cloud);
 	Cloud->use(0, *Jenova);
-	Cloud->use(1, *Jenova);
-	Tifa->use(0, *Cloud);
-	Cloud->use(0, *Cloud);
+	Cloud->use(1, *Cloud);
+	Cloud->use(2, *Jenova);
 	Jenova->use(0, *Cloud);
-	Jenova->use(1, *Cloud);
+	Jenova->use(1, *Jenova);
+	Jenova->use(2, *Cloud);
 	std::cout << std::endl;
 
 	delete Cloud;
-	delete Tifa;
 	delete Jenova;
 	return (0);
 }

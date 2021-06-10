@@ -4,7 +4,6 @@
 
 AMateria::AMateria(std::string const &type) : _type(type), _xp(0), _equiped(0)
 {
-	std::cout << "Materia " << this->_type << " is created" << std::endl;
 }
 
 AMateria::AMateria(AMateria const &cpy) : _type(cpy._type), _xp(cpy._xp), _equiped(0)

@@ -6,7 +6,7 @@ MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 		this->_learned[i] = NULL;
-	std::cout << "MateriaSource created" << std::endl;
+	std::cout << "MateriaSource is created" << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &cpy)
@@ -48,8 +48,9 @@ void MateriaSource::learnMateria(AMateria *m)
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
 	for (int i =0; i < 4; i++)
-		if (type == this->_learned[i]->getType())
+		if (this->_learned[i] && type == this->_learned[i]->getType())
 			return this->_learned[i]->clone();
-	std::cout << "MateriaSource does not know this type of Materia" << std::endl;
+
+	std::cout << "MateriaSource does not know Materia " << type << std::endl;
 	return NULL;
 }
