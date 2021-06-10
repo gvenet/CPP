@@ -43,7 +43,7 @@ std::string const &Character::getName() const
 void Character::equip(AMateria *m)
 {
 	if (!m)
-		return ;
+		return;
 	std::cout << this->_name << "\t: ";
 	for (int i = 0; i < 4; i++)
 	{
@@ -64,6 +64,11 @@ void Character::equip(AMateria *m)
 void Character::unequip(int idx)
 {
 	std::cout << this->_name << "\t: ";
+	if (idx < 0 || idx > 4)
+	{
+		std::cout << "No slots at idx " << idx << std::endl;
+		return;
+	}
 	if (this->_inventory[idx])
 	{
 		std::cout << this->_inventory[idx]->getType() << " is unequip at slot " << idx << std::endl;
@@ -76,6 +81,11 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter &target)
 {
 	std::cout << this->_name << "\t: ";
+	if (idx < 0 || idx > 4)
+	{
+		std::cout << "No slots at idx " << idx << std::endl;
+		return;
+	}
 	if (this->_inventory[idx])
 		this->_inventory[idx]->use(target);
 	else

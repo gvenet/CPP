@@ -28,7 +28,7 @@ KnightsOfTheRound::~KnightsOfTheRound()
 
 void KnightsOfTheRound::use(ICharacter& target)
 {
-	std::cout << "Let's go for fifteen minutes of summoning" << std::endl;
+	std::cout << "* Let's go for fifteen minutes of summoning *" << std::endl;
 	AMateria::use(target);
 }
 

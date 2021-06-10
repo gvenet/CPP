@@ -12,6 +12,8 @@ class MateriaSource : public IMateriaSource
 {
 private:
 	AMateria *_learned[4];
+	AMateria **_comInv;
+	int _sizeComInv;
 
 public:
 	//============================================================COPLIAN============================================================
@@ -29,6 +31,9 @@ public:
 
 	virtual void learnMateria(AMateria *m);
 	virtual AMateria *createMateria(std::string const &type);
+	virtual void comInvIn(AMateria *m);
+	virtual void displayComInv(void);
+	virtual AMateria *ComInvOut(std::string const &type);
 };
 
 #endif

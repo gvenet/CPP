@@ -6,7 +6,7 @@ AMateria::AMateria(std::string const &type) : _type(type), _xp(0), _equiped(0)
 {
 }
 
-AMateria::AMateria(AMateria const &cpy) : _type(cpy._type), _xp(cpy._xp), _equiped(0)
+AMateria::AMateria(AMateria const &cpy) : _type(cpy._type), _xp(cpy._xp), _equiped(cpy._equiped)
 {
 	*this = cpy;
 }
@@ -54,10 +54,5 @@ void AMateria::use(ICharacter &target)
 {
 	(void)target;
 	this->_xp += 10;
-	this->displayXp();
-}
-
-void AMateria::displayXp()
-{
 	std::cout << "Materia\t: " << this->_type << " has " << this->_xp << " xp" << std::endl;
 }

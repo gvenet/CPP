@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/21 15:06:36 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 17:10:05 by ncolomer         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Character.hpp"
 
 Character::Character(std::string const &name):
@@ -31,7 +19,10 @@ Character::Character(Character const &other):
 Character::~Character()
 {
 	for (int i = 0; i < this->equipped; i++)
+	{
+		std::cout << this->inventory[i]->getType() << " deleted" << std::endl;
 		delete this->inventory[i];
+	}	
 }
 
 Character &Character::operator=(Character const &other)
