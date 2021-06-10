@@ -23,6 +23,12 @@ Character &Character::operator=(Character const &op)
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+		if (this->_inventory[i])
+		{
+			std::cout << this->_name << "\t: ";
+			delete this->_inventory[i];
+		}
 }
 
 //============================================================GETTERS============================================================
@@ -36,29 +42,40 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	std::cout << this->_name << " : ";
+	std::cout << this->_name << "\t: ";
 	for (int i = 0; i < 4; i++)
 	{
-		if(!this->_inventory[i])
+		if (!this->_inventory[i] && !m->getEquiped())
 		{
-			this->_inventory[i] = m;	
+			this->_inventory[i] = m;
+			m->setEquiped(1);
 			std::cout << "equip " << m->getType() << " at slot " << i << std::endl;
-			return ;
+			return;
 		}
 	}
-	std::cout << "Inventory full !" << std::endl;
+	if (m->getEquiped())
+		std::cout << m->getType() << " already equiped" << std::endl;
+	else
+		std::cout << "Inventory full !" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-	std::cout << this->_name << " : " << this->_inventory[idx]->getType() << " is unequip at slot " << idx << std::endl;
-	this->_inventory[idx] = NULL;
+	std::cout << this->_name << "\t: ";
+	if (this->_inventory[idx])
+	{
+		std::cout << this->_inventory[idx]->getType() << " is unequip at slot " << idx << std::endl;
+		this->_inventory[idx]->setEquiped(0);
+		this->_inventory[idx] = NULL;
+	}
+	else
+		std::cout << "No materia at slot " << idx << std::endl;
 }
 void Character::use(int idx, ICharacter &target)
 {
-	std::cout << this->_name;
+	std::cout << this->_name << "\t: ";
 	if (this->_inventory[idx])
 		this->_inventory[idx]->use(target);
 	else
-		std::cout << " : No Materia at slot " << idx << std::endl;
+		std::cout << "No Materia at slot " << idx << std::endl;
 }

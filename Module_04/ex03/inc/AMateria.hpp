@@ -10,6 +10,7 @@ class AMateria
 protected:
 	std::string _type;
 	unsigned int _xp;
+	int _equiped;
 
 public:
 	//============================================================COPLIAN============================================================
@@ -18,10 +19,16 @@ public:
 	AMateria(AMateria const &cpy);
 	AMateria &operator=(AMateria const &op);
 	virtual ~AMateria();
+	
 	//============================================================GETTERS============================================================
 
 	std::string const &getType() const;
 	unsigned int getXP() const;
+	int getEquiped() const;
+
+	//============================================================SETTERS============================================================
+	
+	void setEquiped(int equiped);
 
 	//============================================================METHODS============================================================
 
