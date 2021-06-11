@@ -1,29 +1,26 @@
 #include "../inc/Bureaucrat.hpp"
 
-int division(int a, int b) // Calcule a divisé par b.
-{
-	if (b == 0)
-		throw Error(1, "Division by zéro", 2);
-	else
-		return a / b;
-}
-
 int main()
 {
-	int a, b;
-	std::cout << "Valeur pour a : ";
-	std::cin >> a;
-	std::cout << "Valeur pour b : ";
-	std::cin >> b;
+	Bureaucrat *b1 = new Bureaucrat("b1", 50);
 
 	try
 	{
-		std::cout << a << " / " << b << " = " << division(a, b) << std::endl;
+		if (b1->getGrade() < 1)
+			throw Bureaucrat::GradeTooHighException("Grade is to high");
+		else if (b1->getGrade() > 150)
+			throw Bureaucrat::GradeTooLowException("Grade is to low");
 	}
 	catch (std::exception const &e)
 	{
-		std::cerr << "ERROR : " << e.what() << std::endl;
+		std::cout << "ERROR : " << e.what() << " => "<<b1->getName() << " : " << b1->getGrade() << std::endl;
+		std::cout << "CORRECTION : " << std::endl; 
+		while(b1->getGrade() > 150)
+			b1->incGrade();
+		while(b1->getGrade() < 1)
+			b1->decGrade();
 	}
-
+	std::cout << b1->getName() << " : " << b1->getGrade() << std::endl;
+	delete b1;
 	return 0;
 }

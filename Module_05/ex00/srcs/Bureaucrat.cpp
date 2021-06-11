@@ -1,32 +1,49 @@
 #include "../inc/Bureaucrat.hpp"
 
-//=========================BASE==============================
+//============================COPLIAN==========================
 
-Error::Error() throw() : _nb(0), _msg(""), _lvl(0)
+Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
 {
 }
 
-Error::Error(int nb, std::string const &msg, int lvl) : _nb(nb), _msg(msg), _lvl(lvl)
+Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
 {
 }
 
-Error::~Error() throw()
+Bureaucrat::Bureaucrat(Bureaucrat const &cpy) : _name(cpy._name), _grade(cpy._grade)
+{
+	*this = cpy;
+}
+
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &op)
+{
+	this->_name = op._name;
+	this->_name = op._grade;
+	return *this;
+}
+
+Bureaucrat::~Bureaucrat()
 {
 }
 
-//=========================GETTERS==============================
+//============================METHODS==========================
 
-int Error::getLvl() const throw()
+int Bureaucrat::getGrade(void)
 {
-	return _lvl;
+	return this->_grade;
 }
 
-int Error::getNb() const throw()
+std::string Bureaucrat::getName(void)
 {
-	return _nb;
+	return this->_name;
 }
 
-const char * Error::what() const throw()
+void Bureaucrat::incGrade(void)
 {
-	return _msg.c_str();
+	this->_grade--;
+}
+
+void Bureaucrat::decGrade(void)
+{
+	this->_grade++;
 }

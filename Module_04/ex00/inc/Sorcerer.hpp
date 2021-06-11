@@ -14,7 +14,7 @@ public:
 	Sorcerer();
 	Sorcerer(std::string name, std::string title);
 	Sorcerer(Sorcerer const &);
-	Sorcerer& operator=(Sorcerer const &);
+	Sorcerer &operator=(Sorcerer const &);
 	virtual ~Sorcerer();
 
 	std::string getName(void) const;
@@ -22,6 +22,6 @@ public:
 	void polymorph(Victim const &);
 };
 
-std::ostream& operator<<(std::ostream& os, const Sorcerer& Sorcerer);
+std::ostream &operator<<(std::ostream &os, const Sorcerer &Sorcerer);
 
 #endif

@@ -1,24 +1,57 @@
-#ifndef TEST_HPP
-#define TEST_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 #include <iostream>
 #include <string>
 #include <stdexcept>
 
-class Error : public std::exception
+class Bureaucrat
 {
 private:
-	int _nb;
-	std::string _msg;
-	int _lvl;
+	std::string _name;
+	int _grade;
 
 public:
-	Error() throw();
-	Error(int nb, std::string const &msg, int lvl);
-	virtual ~Error() throw();
+	//============================COPLIAN==========================
 
-	int getLvl() const throw();
-	int getNb() const throw();
-	virtual const char *what() const throw();
+	Bureaucrat();
+	Bureaucrat(std::string const name, int grade);
+	Bureaucrat(Bureaucrat const &cpy);
+	Bureaucrat &operator=(Bureaucrat const &op);
+	virtual ~Bureaucrat();
+
+	//============================METHODS==========================
+	int getGrade(void);
+	std::string getName(void);
+	void incGrade(void);
+	void decGrade(void);
+
+	class GradeTooHighException : public std::exception
+	{
+		//============================1st_exception==========================
+	private:
+		std::string _msg;
+
+	public:
+		GradeTooHighException() throw() {}
+		GradeTooHighException(std::string const &msg) : _msg(msg) {}
+		virtual ~GradeTooHighException() throw() {}
+
+		virtual const char *what() const throw() { return _msg.c_str(); }
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+		//============================2nd_exception==========================
+	private:
+		std::string _msg;
+
+	public:
+		GradeTooLowException() throw() {}
+		GradeTooLowException(std::string const &msg) : _msg(msg) {}
+		virtual ~GradeTooLowException() throw() {}
+
+		virtual const char *what() const throw() { return _msg.c_str(); }
+	};
 };
 
 #endif
