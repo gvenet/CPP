@@ -23,7 +23,7 @@ int main(int ac, char **av)
 		while(b1->getGrade() < 1)
 			b1->decGrade();
 	}
-	std::cout << *b1 << std::endl;
+	std::cout << b1->getName() << " : " << b1->getGrade() << std::endl;
 	delete b1;
 	return 0;
 }
