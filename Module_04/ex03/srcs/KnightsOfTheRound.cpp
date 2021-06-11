@@ -2,11 +2,11 @@
 
 //============================================================COPLIAN============================================================
 
-KnightsOfTheRound::KnightsOfTheRound() : AMateria("knightsoftheround")
+KnightsOfTheRound::KnightsOfTheRound() : AMateria("knights")
 {
 }
 
-KnightsOfTheRound::KnightsOfTheRound(KnightsOfTheRound const &cpy) : AMateria("knightsoftheround")
+KnightsOfTheRound::KnightsOfTheRound(KnightsOfTheRound const &cpy) : AMateria("knights")
 {
 	*this = cpy;
 }

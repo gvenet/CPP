@@ -32,8 +32,8 @@ int main()
 	Cloud->equip(tmp);
 	tmp = src->createMateria("ultima");
 	Cloud->equip(tmp);
-	// tmp = src->createMateria("knightsoftheround");
-	// Cloud->equip(tmp);
+	tmp = src->createMateria("knights");
+	Cloud->equip(tmp);
 
 	tmp = src->createMateria("ice");
 	Tifa->equip(tmp);
@@ -61,11 +61,17 @@ int main()
 	
 	for (int i = 0; i < 12; i++)
 		Tifa->use(2, *Jenova);
+	
+	Tifa->unequip(2);
+	Tifa->unequip(0);
+	Cloud->use(3, *Jenova);
 	src->displayComInv();
 	std::cout << std::endl;
 
 	delete Cloud;
 	delete Tifa;
 	delete Jenova;
+	delete src;
+
 	return (0);
 }

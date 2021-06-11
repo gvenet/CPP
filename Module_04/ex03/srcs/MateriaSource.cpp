@@ -25,6 +25,13 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &op)
 
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < this->_sizeComInv; i++)
+		if (!this->_comInv[i]->getEquiped())
+		{
+			std::cout << "comInv\t: ";
+			delete this->_comInv[i];
+		}
+	delete this->_comInv;
 }
 
 //============================================================GETTERS============================================================
@@ -82,10 +89,7 @@ AMateria *MateriaSource::ComInvOut(std::string const &type)
 {
 	for (int i = 0; i < this->_sizeComInv; i++)
 		if (this->_comInv[i] && type == this->_comInv[i]->getType() && !this->_comInv[i]->getEquiped())
-		{
-			this->_comInv[i]->setEquiped(1);
 			return this->_comInv[i];
-		}
 	return NULL;
 }
 
