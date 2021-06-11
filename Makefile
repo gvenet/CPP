@@ -35,6 +35,8 @@ all :
 	make -C Module_04/ex02
 	make -C Module_04/ex03
 
+	make -C Module_05/ex00
+
 fclean :
 	make -C Practice/00_bases fclean
 	
@@ -71,3 +73,5 @@ fclean :
 	make -C Module_04/ex01 fclean
 	make -C Module_04/ex02 fclean
 	make -C Module_04/ex03 fclean
+
+	make -C Module_05/ex00 fclean
