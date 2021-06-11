@@ -20,7 +20,7 @@ public:
 	virtual ~Bureaucrat();
 
 	//============================METHODS==========================
-	int getGrade(void) const; 
+	int getGrade(void) const;
 	std::string getName(void) const;
 	void incGrade(void);
 	void decGrade(void);

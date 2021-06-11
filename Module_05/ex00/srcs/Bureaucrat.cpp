@@ -17,8 +17,8 @@ Bureaucrat::Bureaucrat(Bureaucrat const &cpy) : _name(cpy._name), _grade(cpy._gr
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &op)
 {
-	this->_name = op._name;
-	this->_name = op._grade;
+	_name = op._name;
+	_name = op._grade;
 	return *this;
 }
 
@@ -38,20 +38,24 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat const &rhs)
 
 int Bureaucrat::getGrade(void) const
 {
+	if (this->_grade < 1)
+		throw Bureaucrat::GradeTooHighException("Grade is to high");
+	else if (this->_grade > 150)
+		throw Bureaucrat::GradeTooLowException("Grade is to low");
 	return this->_grade;
 }
 
 std::string Bureaucrat::getName(void) const
 {
-	return this->_name;
+	return _name;
 }
 
 void Bureaucrat::incGrade(void)
 {
-	this->_grade--;
+	_grade--;
 }
 
 void Bureaucrat::decGrade(void)
 {
-	this->_grade++;
+	_grade++;
 }

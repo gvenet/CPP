@@ -6,7 +6,7 @@ Form::Form() : _name("default"), _signedStatus(false), _gradeToSign(1), _gradeTo
 {
 }
 
-Form::Form(std::string const name, bool signedForm, int gradeToSign, int gradeToExecut)
+Form::Form(std::string const name, int gradeToSign, int gradeToExecut)
 	: _name(name), _signedStatus(false), _gradeToSign(gradeToSign), _gradeToExecut(gradeToExecut)
 {
 }
@@ -34,11 +34,11 @@ Form::~Form()
 
 std::ostream &operator<<(std::ostream &os, Form const &rhs)
 {
-	os << "Form name " << rhs.getName() << " | signed : " << rhs.getSignedStatus() << " | grade to sign : " << rhs.getGradeToSign() << " | grade to execut : " << rhs.getGradeToExecute();
+	os << "Form name " << rhs.getName() << " | signed : " << rhs.getSignedStatus() << " | grade to sign : " << rhs.getGradeToSign() << " | grade to execut : " << rhs.getGradeToExecute() << std::endl;
 	return os;
 }
 
-//============================METHODS==========================
+//============================GETTERS==========================
 
 bool Form::getSignedStatus(void) const
 {
@@ -58,4 +58,16 @@ int Form::getGradeToSign(void) const
 int Form::getGradeToExecute(void) const
 {
 	return this->_gradeToExecut;
+}
+
+//============================METHODS==========================
+
+void Form::beSigned(const Bureaucrat &b)
+{
+	if (this->_signedStatus == true)
+		return ;
+	if (b.getGrade() > this->_gradeToSign)
+		throw Form::GradeTooLowException("Form can't be signed");
+	else
+		this->_signedStatus = true;
 }

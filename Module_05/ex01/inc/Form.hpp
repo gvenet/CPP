@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form
 {
@@ -14,19 +16,21 @@ private:
 
 public:
 	//============================COPLIAN==========================
-
 	Form();
-	Form(std::string const name, bool signedStatus, int const gradeToSign, int const gradeToExecut);
+	Form(std::string const name, int const gradeToSign, int const gradeToExecut);
 	Form(Form const &cpy);
 	Form &operator=(Form const &op);
 	~Form();
 
-	//============================METHODS==========================
-
+	//============================GETTERS==========================
 	std::string getName(void) const;
 	bool getSignedStatus(void) const;
 	int getGradeToSign(void) const;
 	int getGradeToExecute(void) const;
+
+	//============================METHODS==========================
+
+	void beSigned(const Bureaucrat &b);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -55,7 +59,6 @@ public:
 
 		virtual const char *what() const throw() { return _msg.c_str(); }
 	};
-
 };
 
 std::ostream &operator<<(std::ostream &os, Form const &rhs);

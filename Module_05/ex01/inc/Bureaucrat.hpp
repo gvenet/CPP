@@ -3,6 +3,10 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <sstream>
+#include "../inc/Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -19,11 +23,14 @@ public:
 	Bureaucrat &operator=(Bureaucrat const &op);
 	virtual ~Bureaucrat();
 
+	//============================GETTERS==========================
+	int getGrade(void) const;
+	std::string const &getName(void) const;
+
 	//============================METHODS==========================
-	int getGrade(void) const; 
-	std::string getName(void) const;
 	void incGrade(void);
 	void decGrade(void);
+	void signForm(Form &f) const;
 
 	class GradeTooHighException : public std::exception
 	{
