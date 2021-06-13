@@ -12,9 +12,9 @@ int main(void)
 	f1.beSigned(Jim);
 	std::cout << f1 << std::endl;
 
-	std::cout << "---" << std::endl;
+	std::cout <<  std::endl;
 
-	Form f2("N70", 95, 50);
+	Form f2("N70", 99, 50);
 	std::cout << f2 << std::endl;
 	try
 	{
@@ -22,11 +22,11 @@ int main(void)
 	}
 	catch(std::exception const &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 	std::cout << f2 << std::endl;
 
-	std::cout << "---" << std::endl;
+	std::cout <<  std::endl;
 
 	Form f3("form3", 101, 50);
 	std::cout << f3 << std::endl;
@@ -38,70 +38,70 @@ int main(void)
 	}
 	catch(std::exception const &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 	std::cout << f3 << std::endl;
 
-	std::cout << "---" << std::endl;
+	std::cout <<  std::endl;
 
 	try
 	{
-		Form formException("NDA", 99, 50);
+		Form formException("E27", 99, 50);
 		std::cout << formException << std::endl;
 		formException.beSigned(Jim);
 		std::cout << formException << std::endl;
 	}
 	catch(std::exception const &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
+	std::cout <<  std::endl;
 
 	try
 	{
-		Form formException("Important Form", 1000, 50);
+		Form formException("Form", 1000, 50);
 		std::cout << formException << std::endl;
 	}
 	catch(std::exception const &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
+	std::cout <<  std::endl;
 
 	try
 	{
-		Form formException("Important Form", 0, 50);
+		Form formException("Form", 0, 50);
 		std::cout << formException << std::endl;
 	}
 	catch(std::exception const &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
+	std::cout <<  std::endl;
 
 	try
 	{
-		Form formException("Important Form", 100, 1000);
+		Form formException("Form", 100, 1000);
 		std::cout << formException << std::endl;
 	}
 	catch(std::exception const &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
+	std::cout <<  std::endl;
 
 	try
 	{
-		Form formException("Important Form", 100, 0);
+		Form formException("Form", 100, 0);
 		std::cout << formException << std::endl;
 	}
 	catch(std::exception const &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 
 	return (0);

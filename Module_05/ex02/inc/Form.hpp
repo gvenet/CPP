@@ -8,7 +8,7 @@ class Bureaucrat;
 
 class Form
 {
-private:
+protected:
 	std::string _name;
 	bool _signedStatus;
 	int _gradeToSign;

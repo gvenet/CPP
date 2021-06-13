@@ -2,7 +2,7 @@
 
 //============================COPLIAN==========================
 
-Form::Form() : _name("default"), _signedStatus(false), _gradeToSign(1), _gradeToExecut(1)
+Form::Form() : _name("default"), _gradeToSign(1), _gradeToExecut(1)
 {
 	if (this->getGradeToSign() < 1 || this->getGradeToExecute() < 1)
 		throw Form::GradeTooHighException("Form::GradeTooHighException");

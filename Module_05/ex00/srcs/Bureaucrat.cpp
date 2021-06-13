@@ -50,8 +50,6 @@ void Bureaucrat::incGrade(void)
 	this->_grade--;
 	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException("Bureaucrat::GradeTooHighException");
-	
-
 }
 
 void Bureaucrat::decGrade(void)
