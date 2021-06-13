@@ -2,29 +2,107 @@
 #include "../inc/Form.hpp"
 #include <sstream>
 
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac != 2)
-		return 1;
-	std::stringstream str;
-	str << av[1];
-	int x;
-	str >> x; //char* to int
-	Bureaucrat *Jim = new Bureaucrat("Jim", x);
-	Form *f1 = new Form("E24", 100, 120);
+	Bureaucrat Jim("Jim", 100);
+	std::cout << Jim << std::endl;
+
+	Form f1("E24", 100, 50);
+	std::cout << f1 << std::endl;
+	f1.beSigned(Jim);
+	std::cout << f1 << std::endl;
+
+	std::cout << "---" << std::endl;
+
+	Form f2("N70", 95, 50);
+	std::cout << f2 << std::endl;
 	try
 	{
-		Jim->getGrade();
-		f1->beSigned(*Jim);
+		Jim.signForm(f2);
 	}
-	catch (std::exception const &e)
+	catch(std::exception const &e)
 	{
-		std::cout << "ERROR : " << e.what() << std::endl;
-		delete Jim;
-		delete f1;
-		return 1;
+		std::cerr << e.what() << std::endl;
 	}
-	std::cout << *Jim << *f1;
+	std::cout << f2 << std::endl;
 
-	return 0;
+	std::cout << "---" << std::endl;
+
+	Form f3("form3", 101, 50);
+	std::cout << f3 << std::endl;
+	Jim.signForm(f3);
+	std::cout << f3 << std::endl;
+	try
+	{
+		Jim.signForm(f3);
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << f3 << std::endl;
+
+	std::cout << "---" << std::endl;
+
+	try
+	{
+		Form formException("NDA", 99, 50);
+		std::cout << formException << std::endl;
+		formException.beSigned(Jim);
+		std::cout << formException << std::endl;
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << "---" << std::endl;
+
+	try
+	{
+		Form formException("Important Form", 1000, 50);
+		std::cout << formException << std::endl;
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << "---" << std::endl;
+
+	try
+	{
+		Form formException("Important Form", 0, 50);
+		std::cout << formException << std::endl;
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << "---" << std::endl;
+
+	try
+	{
+		Form formException("Important Form", 100, 1000);
+		std::cout << formException << std::endl;
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << "---" << std::endl;
+
+	try
+	{
+		Form formException("Important Form", 100, 0);
+		std::cout << formException << std::endl;
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	return (0);
 }

@@ -4,7 +4,7 @@
 
 int main(void)
 {
-	Bureaucrat francis("Francis", 100);
+	Bureaucrat francis("Francis", 200);
 	std::cout << francis << std::endl;
 
 	Form form1("Taxes", 100, 50);
@@ -14,7 +14,7 @@ int main(void)
 
 	std::cout << "---" << std::endl;
 
-	Form form2("NDA", 99, 50);
+	Form form2("789", 99, 50);
 	std::cout << form2 << std::endl;
 	try
 	{

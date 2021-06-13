@@ -5,20 +5,47 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 		return 1;
-	std::stringstream str; str << av[1];int x; str >> x; //char* to int
-	Bureaucrat *Jim = new Bureaucrat("Jim", x);
+	std::stringstream str;
+	str << av[1];
+	int x;
+	str >> x; //char* to int
 	try
 	{
-		Jim->getGrade();
+		Bureaucrat Jim("Jim", x);
+		std::cout << Jim << std::endl;
 	}
 	catch (std::exception const &e)
 	{
 		std::cout << "ERROR : " << e.what() << std::endl;
-		delete Jim;
-		return 1;
 	}
-	std::cout << *Jim << std::endl;
-	
-	delete Jim;
+	std::cout << std::endl;
+	try
+	{
+		Bureaucrat Bob("Bob", 149);
+		std::cout << Bob << std::endl;
+		Bob.decGrade();
+		std::cout << Bob << std::endl;
+		Bob.decGrade();
+		std::cout << Bob << std::endl;
+	}
+
+	catch (const std::exception &e)
+	{
+		std::cout << "ERROR : " << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		Bureaucrat Mik("Mik", 2);
+		std::cout << Mik << std::endl;
+		Mik.incGrade();
+		std::cout << Mik << std::endl;
+		Mik.incGrade();
+		std::cout << Mik << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "ERROR : " << e.what() << std::endl;
+	}
 	return 0;
 }

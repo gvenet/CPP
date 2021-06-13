@@ -37,7 +37,7 @@ Bureaucrat::~Bureaucrat()
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &b)
 {
-	os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
+	os << b.getName() << " : [grade <" << b.getGrade() << ">]";
 	return os;
 }
 
@@ -68,18 +68,10 @@ void Bureaucrat::decGrade(void)
 void Bureaucrat::signForm(Form &f) const
 {
 	if (f.getSignedStatus())
-	{
-		std::cout << *this << " cannot sign " << f
-				  << " because the form is already signed." << std::endl;
-	}
+		std::cout << *this << " cannot sign " << f << " because the form is already signed." << std::endl;
 	else if (f.getGradeToSign() < this->_grade)
-	{
-		std::cout << *this << " cannot sign " << f
-				  << " because it's grade is too low." << std::endl;
-	}
+		std::cout << *this << " cannot sign " << f << " because it's grade is too low." << std::endl;
 	else
-	{
 		std::cout << *this << " signs " << f << std::endl;
-	}
 	f.beSigned(*this);
 }

@@ -34,7 +34,7 @@ Form::~Form()
 
 std::ostream &operator<<(std::ostream &os, Form const &rhs)
 {
-	os << "Form name " << rhs.getName() << " | signed : " << rhs.getSignedStatus() << " | grade to sign : " << rhs.getGradeToSign() << " | grade to execut : " << rhs.getGradeToExecute() << std::endl;
+	os << rhs.getName() << " : [signed <" << rhs.getSignedStatus() << ">;gradeToSign <" << rhs.getGradeToSign() << ">;gradeToExecutM <" << rhs.getGradeToExecute() << ">]";
 	return os;
 }
 
