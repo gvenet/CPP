@@ -20,7 +20,7 @@ public:
 	Form(std::string const &name, int const gradeToSign, int const gradeToExecut);
 	Form(Form const &cpy);
 	Form &operator=(Form const &op);
-	~Form();
+	virtual ~Form();
 
 	//============================GETTERS==========================
 	std::string getName(void) const;
