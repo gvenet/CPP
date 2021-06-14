@@ -2,7 +2,7 @@
 
 //============================COPLIAN==========================
 
-Form::Form() : _name("default"), _gradeToSign(1), _gradeToExecut(1)
+Form::Form() : _name("default"), _gradeToSign(150), _gradeToExecut(150)
 {
 	if (this->getGradeToSign() < 1 || this->getGradeToExecute() < 1)
 		throw Form::GradeTooHighException("Form::GradeTooHighException");
@@ -10,7 +10,7 @@ Form::Form() : _name("default"), _gradeToSign(1), _gradeToExecut(1)
 		throw Form::GradeTooLowException("Form::GradeTooLowException");
 }
 
-Form::Form(std::string const name, int gradeToSign, int gradeToExecut)
+Form::Form(std::string const &name, int gradeToSign, int gradeToExecut)
 	: _name(name), _signedStatus(false), _gradeToSign(gradeToSign), _gradeToExecut(gradeToExecut)
 {
 	if (this->getGradeToSign() < 1 || this->getGradeToExecute() < 1)
@@ -27,10 +27,7 @@ Form::Form(Form const &cpy)
 
 Form &Form::operator=(Form const &op)
 {
-	this->_name = op._name;
 	this->_signedStatus = op._signedStatus;
-	this->_gradeToSign = op._gradeToSign;
-	this->_gradeToExecut = op._gradeToExecut;
 	return *this;
 }
 

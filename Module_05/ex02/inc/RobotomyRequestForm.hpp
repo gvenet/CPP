@@ -9,12 +9,12 @@
 class RobotomyRequestForm : public Form
 {
 private:	
-	std::string target;
+	std::string const &_target;
 
 public:
 	//============================COPLIAN==========================
 	RobotomyRequestForm();
-	RobotomyRequestForm(std::string const target);
+	RobotomyRequestForm(std::string const &target);
 	RobotomyRequestForm(RobotomyRequestForm const &cpy);
 	RobotomyRequestForm &operator=(RobotomyRequestForm const &op);
 	~RobotomyRequestForm();
