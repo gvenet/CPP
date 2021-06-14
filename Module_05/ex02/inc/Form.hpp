@@ -13,10 +13,10 @@ private:
 	bool _signedStatus;
 	int const _gradeToSign;
 	int const _gradeToExecut;
+	Form();
 
 public:
 	//============================COPLIAN==========================
-	Form();
 	Form(std::string const &name, int const gradeToSign, int const gradeToExecut);
 	Form(Form const &cpy);
 	Form &operator=(Form const &op);
@@ -29,39 +29,28 @@ public:
 	int getGradeToExecute(void) const;
 
 	//============================METHODS==========================
-
 	void beSigned(const Bureaucrat &b);
+	virtual void execute(Bureaucrat const &executor) const = 0;
 
+	//============================EXCEPTIONS==========================
 	class GradeTooHighException : public std::exception
 	{
-		//============================1st_exception==========================
-	private:
-		std::string _msg;
-	public:
-		GradeTooHighException(std::string const &msg) : _msg(msg) {}
-		virtual ~GradeTooHighException() throw() {}
-		virtual const char *what() const throw() { return _msg.c_str(); }
+		virtual const char *what() const throw() { return "Form:GradeTooHighExeption"; }
 	};
 
 	class GradeTooLowException : public std::exception
 	{
-		//============================2nd_exception==========================
-	private:
-		std::string _msg;
-	public:
-		GradeTooLowException(std::string const &msg) : _msg(msg) {}
-		virtual ~GradeTooLowException() throw() {}
-		virtual const char *what() const throw() { return _msg.c_str(); }
+		virtual const char *what() const throw() { return "Form:GradeTooLowExeption"; }
 	};
 
-	class FormAlreadySigned : public std::exception
+	class ExceptionMsg : public std::exception
 	{
-		//============================3rd_exception==========================
 	private:
 		std::string _msg;
+
 	public:
-		FormAlreadySigned(std::string const &msg) : _msg(msg) {}
-		virtual ~FormAlreadySigned() throw() {}
+		ExceptionMsg(std::string const &msg) : _msg(msg) {}
+		virtual ~ExceptionMsg() throw() {}
 		virtual const char *what() const throw() { return _msg.c_str(); }
 	};
 };

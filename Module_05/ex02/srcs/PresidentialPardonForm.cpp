@@ -1,10 +1,8 @@
 #include "../inc/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("defaultShrubberyForm", 145, 137), _target("defaultTarget")
-{
-}
+std::string const PresidentialPardon = "PresidentialPardon";
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : Form("ShrubberyForm", 145, 137), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : Form(PresidentialPardon, 25, 5), _target(target)
 {
 }
 
@@ -20,4 +18,10 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
+}
+
+
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+{
+	Form::execute(executor);
 }

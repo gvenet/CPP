@@ -1,10 +1,8 @@
 #include "../inc/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("defaultShrubberyForm", 145, 137), _target("defaultTarget")
-{
-}
+std::string const ShrubberyCreation = "ShrubberyCreation";
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("ShrubberyForm", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form(ShrubberyCreation, 145, 137), _target(target)
 {
 }
 
@@ -22,8 +20,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-// std::string trees = "  /\\     /\\\n //\\\\   //\\\\\n///\\\\\\ ///\\\\\\\n  ||     ||\n  ||     ||";
-// std::string const name = (this->_target + "shrubbery");
-// std::ofstream outfile(name);
-// outfile << trees << std::endl;
-// outfile.close();
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+{
+	Form::execute(executor);
+	std::string const name = (this->_target + "_shrubbery");
+	std::ofstream outfile(name);
+	outfile << "         /\\\n  /\\    //\\\\   /\\\n //\\\\  ///\\\\\\ //\\\\  /\\\n///\\\\\\   ||    ||  //\\\\\n  ||     ||    ||   ||\n==SHRUBBERYCREATIONFORM==" << std::endl;
+	outfile.close();
+}

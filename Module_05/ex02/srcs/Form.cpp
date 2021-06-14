@@ -2,21 +2,13 @@
 
 //============================COPLIAN==========================
 
-Form::Form() : _name("default"), _gradeToSign(150), _gradeToExecut(150)
-{
-	if (this->getGradeToSign() < 1 || this->getGradeToExecute() < 1)
-		throw Form::GradeTooHighException("Form::GradeTooHighException");
-	else if (this->getGradeToSign() > 150 || this->getGradeToExecute() > 150)
-		throw Form::GradeTooLowException("Form::GradeTooLowException");
-}
-
 Form::Form(std::string const &name, int gradeToSign, int gradeToExecut)
 	: _name(name), _signedStatus(false), _gradeToSign(gradeToSign), _gradeToExecut(gradeToExecut)
 {
 	if (this->getGradeToSign() < 1 || this->getGradeToExecute() < 1)
-		throw Form::GradeTooHighException("Form::GradeTooHighException");
+		throw Form::GradeTooHighException();
 	else if (this->getGradeToSign() > 150 || this->getGradeToExecute() > 150)
-		throw Form::GradeTooLowException("Form::GradeTooLowException");
+		throw Form::GradeTooLowException();
 }
 
 Form::Form(Form const &cpy)
@@ -62,17 +54,26 @@ int Form::getGradeToExecute(void) const
 void Form::beSigned(const Bureaucrat &b)
 {
 	if (this->_signedStatus == true)
-		throw Form::FormAlreadySigned("Form already signed");
+		throw Form::ExceptionMsg("Form already signed");
 	else if (b.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooLowException("Form can't be signed");
+		throw Form::ExceptionMsg("Form can't be signed : Insufficient grade");
 	else
 		this->_signedStatus = true;
+}
+
+void Form::execute(Bureaucrat const &executor) const
+{
+	if (executor.getGrade() > this->_gradeToExecut)
+		throw Form::ExceptionMsg("Form can't be execute : Insufficient grade");
+	else if (!this->_signedStatus)
+		throw Form::ExceptionMsg("Form can't be execute : Form is unsigned");
+	std::cout << executor << " execute " << *this;
 }
 
 //===========================OVERLOAD<<========================
 
 std::ostream &operator<<(std::ostream &os, Form const &rhs)
 {
-	os << rhs.getName() << " [signed <" << rhs.getSignedStatus() << ">;gradeToSign <" << rhs.getGradeToSign() << ">;gradeToExecutM <" << rhs.getGradeToExecute() << ">]";
+	os << rhs.getName() << " [signed <" << rhs.getSignedStatus() << ">; Sign <" << rhs.getGradeToSign() << ">; Execut <" << rhs.getGradeToExecute() << ">]";
 	return os;
 }

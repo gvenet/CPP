@@ -10,14 +10,16 @@ class RobotomyRequestForm : public Form
 {
 private:	
 	std::string const &_target;
+	RobotomyRequestForm();
 
 public:
 	//============================COPLIAN==========================
-	RobotomyRequestForm();
 	RobotomyRequestForm(std::string const &target);
 	RobotomyRequestForm(RobotomyRequestForm const &cpy);
 	RobotomyRequestForm &operator=(RobotomyRequestForm const &op);
 	~RobotomyRequestForm();
+
+	void execute(Bureaucrat const &executor) const;
 };
 
 #endif
