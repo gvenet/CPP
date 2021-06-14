@@ -24,4 +24,5 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	Form::execute(executor);
+	std::cout << "\e[01;32mTarget <" << this->_target << "> has been pardoned by Zafod Beeblebrox.\e[0m" << std::endl;
 }

@@ -4,6 +4,8 @@
 #include <string>
 #include <exception>
 #include <fstream>
+#include <random>
+#include <ctime>
 #include "Form.hpp"
 
 class RobotomyRequestForm : public Form

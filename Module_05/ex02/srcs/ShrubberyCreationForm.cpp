@@ -24,7 +24,16 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	Form::execute(executor);
 	std::string const name = (this->_target + "_shrubbery");
-	std::ofstream outfile(name);
-	outfile << "         /\\\n  /\\    //\\\\   /\\\n //\\\\  ///\\\\\\ //\\\\  /\\\n///\\\\\\   ||    ||  //\\\\\n  ||     ||    ||   ||\n==SHRUBBERYCREATIONFORM==\nExecutor : " << executor << std::endl;
-	outfile.close();
+	std::string const forest = "         /\\\n  /\\    //\\\\   /\\\n //\\\\  ///\\\\\\ //\\\\  /\\\n///\\\\\\   ||    ||  //\\\\\n  ||     ||    ||   ||\n==SHRUBBERYCREATIONFORM==\nExecutor : ";
+	std::ofstream file(name);
+	if (!file.is_open() || file.bad())
+		throw Form::ExceptionMsg("Shrubbery_file : can't open file");
+	file << forest << executor << std::endl;
+	if (file.bad())
+	{
+		file << std::endl;
+		file.close();
+		throw Form::ExceptionMsg("Shrubbery_file : corrupted file : error during writing");
+	}
+	file.close();
 }

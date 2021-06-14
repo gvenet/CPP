@@ -1,4 +1,4 @@
-#include "ZombieHorde.hpp"
+#include "../inc/ZombieHorde.hpp"
 
 ZombieHorde::ZombieHorde(int nZ) : _nZ(nZ)
 {

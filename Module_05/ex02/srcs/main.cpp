@@ -88,7 +88,7 @@ int main(void)
 	std::cout << std::endl;
 	try
 	{
-		RobotomyRequestForm Robotomy("robot");
+		RobotomyRequestForm Robotomy("Bender");
 		std::cout << Robotomy << std::endl;
 		Mik.signForm(Robotomy);
 		std::cout << Robotomy << std::endl;
@@ -103,8 +103,66 @@ int main(void)
 	std::cout << std::endl
 			  << "\e[01;34m=======================================PARDON===================================\e[0m" << std::endl
 			  << std::endl;
+	try
+	{
+		Bureaucrat Zafod("Zafod", 0);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "\e[01;31mError : " << e.what() << "\e[0m" << std::endl;
+	}
+	std::cout << std::endl;
+	Bureaucrat Zafod("Zafod", 1);
+	Bureaucrat Marvin("Marvin", 20);
+	std::cout << Zafod << std::endl
+			  << Marvin << std::endl;
+	try
+	{
+		PresidentialPardonForm Pardon("Marvin");
+		std::cout << Pardon << std::endl;
+		Jim.signForm(Pardon);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "\e[01;31mError : " << e.what() << "\e[0m" << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		PresidentialPardonForm Pardon("Marvin");
+		std::cout << Pardon << std::endl;
+		Pardon.execute(Zafod);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "\e[01;31mError : " << e.what() << "\e[0m" << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		PresidentialPardonForm Pardon("Marvin");
+		std::cout << Pardon << std::endl;
+		Marvin.signForm(Pardon);
+		std::cout << Pardon << std::endl;
+		Pardon.execute(Marvin);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "\e[01;31mError : " << e.what() << "\e[0m" << std::endl;
+	}
+	std::cout << std::endl;
+	try
+	{
+		PresidentialPardonForm Pardon("Marvin");
+		std::cout << Pardon << std::endl;
+		Marvin.signForm(Pardon);
+		std::cout << Pardon << std::endl;
+		Pardon.execute(Zafod);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "\e[01;31mError : " << e.what() << "\e[0m" << std::endl;
+	}
 
-	// PresidentialPardonForm Pardon("someone");
-	// std::cout << Pardon << std::endl;
 	return (0);
 }

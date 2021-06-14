@@ -1,5 +1,5 @@
-#include "Zombie.hpp"
-#include "ZombieHorde.hpp"
+#include "../inc/Zombie.hpp"
+#include "../inc/ZombieHorde.hpp"
 
 int main(void)
 {
