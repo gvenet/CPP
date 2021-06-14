@@ -35,12 +35,12 @@ public:
 	//============================EXCEPTIONS==========================
 	class GradeTooHighException : public std::exception
 	{
-		virtual const char *what() const throw() { return "Form:GradeTooHighExeption"; }
+		virtual const char *what() const throw() {return "Form:GradeTooHighExeption";}
 	};
 
 	class GradeTooLowException : public std::exception
 	{
-		virtual const char *what() const throw() { return "Form:GradeTooLowExeption"; }
+		virtual const char *what() const throw() {return "Form:GradeTooLowExeption";}
 	};
 
 	class ExceptionMsg : public std::exception

@@ -13,11 +13,11 @@ class Bureaucrat
 private:
 	std::string _name;
 	int _grade;
+	Bureaucrat();
 
 public:
 	//============================COPLIAN==========================
 
-	Bureaucrat();
 	Bureaucrat(std::string const name, int grade);
 	Bureaucrat(Bureaucrat const &cpy);
 	Bureaucrat &operator=(Bureaucrat const &op);
@@ -32,26 +32,13 @@ public:
 	void decGrade(void);
 	void signForm(Form &f) const;
 
-	class GradeTooHighException : public std::exception
-	{
-		//============================1st_exception==========================
-	private:
-		std::string _msg;
-	public:
-		GradeTooHighException(std::string const &msg) : _msg(msg) {}
-		virtual ~GradeTooHighException() throw() {}
-		virtual const char *what() const throw() { return _msg.c_str(); }
+	//============================EXCEPTIONS==========================
+	class GradeTooHighException : public std::exception{
+		virtual const char *what() const throw() {return "Bureaucrate : GradeTooHighException";}
 	};
 
-	class GradeTooLowException : public std::exception
-	{
-		//============================2nd_exception==========================
-	private:
-		std::string _msg;
-	public:
-		GradeTooLowException(std::string const &msg) : _msg(msg) {}
-		virtual ~GradeTooLowException() throw() {}
-		virtual const char *what() const throw() { return _msg.c_str(); }
+	class GradeTooLowException : public std::exception{
+		virtual const char *what() const throw() {return "Bureaucrate : GradeTooLowException";}
 	};
 };
 
