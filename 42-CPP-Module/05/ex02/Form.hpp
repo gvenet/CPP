@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/21 19:07:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:38:36 by ncolomer         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
@@ -30,6 +19,7 @@ private:
 public:
 	Form(std::string const &name, int const signGrade, int const executeGrade);
 	Form(Form const &other);
+	Form &operator=(Form const &other);
 	virtual ~Form();
 
 	class GradeTooHighException: public std::exception {
@@ -45,7 +35,6 @@ public:
 		virtual const char* what() const throw();
 	};
 
-	Form &operator=(Form const &other);
 
 	std::string const &getName(void) const;
 	bool isSigned(void) const;

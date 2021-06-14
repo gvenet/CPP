@@ -8,16 +8,16 @@ class Bureaucrat;
 
 class Form
 {
-protected:
-	std::string _name;
+private:
+	std::string const &_name;
 	bool _signedStatus;
-	int _gradeToSign;
-	int _gradeToExecut;
+	int const _gradeToSign;
+	int const _gradeToExecut;
 
 public:
 	//============================COPLIAN==========================
 	Form();
-	Form(std::string const name, int const gradeToSign, int const gradeToExecut);
+	Form(std::string const &name, int const gradeToSign, int const gradeToExecut);
 	Form(Form const &cpy);
 	Form &operator=(Form const &op);
 	~Form();
