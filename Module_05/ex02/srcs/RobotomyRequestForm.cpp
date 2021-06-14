@@ -23,4 +23,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	Form::execute(executor);
+	std::cout << std::endl
+			  << "\e[01;33mRobotomy makes some drilling noises\e[0m" << std::endl;
+
 }

@@ -25,6 +25,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	Form::execute(executor);
 	std::string const name = (this->_target + "_shrubbery");
 	std::ofstream outfile(name);
-	outfile << "         /\\\n  /\\    //\\\\   /\\\n //\\\\  ///\\\\\\ //\\\\  /\\\n///\\\\\\   ||    ||  //\\\\\n  ||     ||    ||   ||\n==SHRUBBERYCREATIONFORM==" << std::endl;
+	outfile << "         /\\\n  /\\    //\\\\   /\\\n //\\\\  ///\\\\\\ //\\\\  /\\\n///\\\\\\   ||    ||  //\\\\\n  ||     ||    ||   ||\n==SHRUBBERYCREATIONFORM==\nExecutor : " << executor << std::endl;
 	outfile.close();
 }

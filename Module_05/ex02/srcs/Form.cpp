@@ -67,7 +67,7 @@ void Form::execute(Bureaucrat const &executor) const
 		throw Form::ExceptionMsg("Form can't be execute : Insufficient grade");
 	else if (!this->_signedStatus)
 		throw Form::ExceptionMsg("Form can't be execute : Form is unsigned");
-	std::cout << executor << " execute " << *this;
+	std::cout << executor << " execute " << *this << std::endl;
 }
 
 //===========================OVERLOAD<<========================
