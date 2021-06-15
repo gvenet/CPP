@@ -24,7 +24,7 @@ int main(void)
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "\e[01;31mError : " << e.what() << "\e[0m" << std::endl;
 	}
 
 	return 0;
