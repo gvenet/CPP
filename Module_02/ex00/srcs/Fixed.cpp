@@ -1,8 +1,20 @@
-#include "Fixed.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/15 10:42:40 by gvenet            #+#    #+#             */
+/*   Updated: 2021/06/15 10:42:44 by gvenet           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/Fixed.hpp"
 
 Fixed::Fixed() : _fixPt(0)
 {
-	std::cout << this->identify() <<" default constructor called " << std::endl;
+	std::cout << this->identify() << " default constructor called " << std::endl;
 }
 
 Fixed::Fixed(Fixed const &i)

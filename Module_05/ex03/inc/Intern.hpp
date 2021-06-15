@@ -10,6 +10,21 @@
 
 class Intern
 {
+private:
+	class ClassFct
+	{
+	private:
+		std::string const _name;
+		Form *(*_fct)(std::string const _name);
+
+	public:
+		ClassFct();
+		ClassFct((*fct)(std::string const &target));
+		ClassFct(ClassFct const &cpy);
+		ClassFct &operator=(ClassFct const &op);
+		~ClassFct();
+	};
+
 public:
 	Intern();
 	Intern(Intern const &cpy);
@@ -20,13 +35,7 @@ public:
 
 	class ExceptionMsg : public std::exception
 	{
-	private:
-		std::string _msg;
-
-	public:
-		ExceptionMsg(std::string const &msg) : _msg(msg) {}
-		virtual ~ExceptionMsg() throw() {}
-		virtual const char *what() const throw() {return _msg.c_str();}
+		virtual const char *what() const throw() {return "Form does not exist";}
 	};
 };
 
