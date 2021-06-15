@@ -15,12 +15,16 @@ int main(void)
 		Form *rrf;
 		rrf = someRandomIntern.makeForm("RobotomyRequest", "Bender");
 		delete rrf;
+		std::cout << std::endl;
 		rrf = someRandomIntern.makeForm("ShrubberyCreation", "Home");
 		delete rrf;
+		std::cout << std::endl;
 		rrf = someRandomIntern.makeForm("PresidentialPardon", "Home");
 		delete rrf;
+		std::cout << std::endl;
 		rrf = someRandomIntern.makeForm("kldskldaka", "Home");
 		delete rrf;
+		std::cout << std::endl;
 	}
 	catch (const std::exception &e)
 	{
