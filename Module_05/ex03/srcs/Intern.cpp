@@ -1,19 +1,13 @@
 #include "../inc/Intern.hpp"
 
-// ClassFct::ClassFct((*fct)(std::string const target)) : _fct(fct)  
-// {
-// }
-
 //============================================CLASS INTERN==================================
 
 Intern::Intern()
 {
-
 }
 
 Intern::~Intern()
 {
-	
 }
 
 Intern::Intern(Intern const &cpy)
@@ -27,30 +21,36 @@ Intern &Intern::operator=(Intern const &op)
 	return *this;
 }
 
-Form *Intern::makeForm(std::string const &name, std::string const &target)
+Form *shrubb(std::string const &target)
 {
-
+	return new ShrubberyCreationForm(target);
 }
 
+Form *robot(std::string const &target)
+{
+	return new RobotomyRequestForm(target);
+}
 
+Form *pardon(std::string const &target)
+{
+	return new PresidentialPardonForm(target);
+}
 
+Form *Intern::makeForm(std::string const &name, std::string const &target)
+{
+	Form *form = NULL;
+	std::string input[3] = {"ShrubberyCreation", "RobotomyRequest", "PresidentialPardon"};
+	Form *fct[3] = {shrubb(target), robot(target), pardon(target)};
 
-
-
-
-
-
-
-
-
-	// Form *form = NULL;
-	// if (name == "ShrubberyCreation")
-	// 	form = new ShrubberyCreationForm(target);
-	// else if (name == "RobotomyRequest")
-	// 	form = new RobotomyRequestForm(target);
-	// else if (name == "PresidentialPardon")
-	// 	form = new PresidentialPardonForm(target);
-	// else
-	// 	throw Intern::ExceptionMsg();
-	// std::cout << "Intern made " << *form << std::endl;
-	// return form;
+	for (int i = 0; i < 3; i++)
+	{	if (name == input[i])
+		{
+			form = fct[i];
+			break;
+		}
+		if (i == 2)
+			throw Intern::ExceptionMsg();
+	}
+	std::cout << "Intern made " << *form << std::endl;
+	return form;
+}
