@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/15 14:21:46 by gvenet            #+#    #+#             */
+/*   Updated: 2021/06/15 14:32:55 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 #include <iostream>
@@ -13,11 +25,11 @@ class Bureaucrat
 private:
 	std::string _name;
 	int _grade;
+	Bureaucrat();
 
 public:
 	//============================COPLIAN==========================
 
-	Bureaucrat();
 	Bureaucrat(std::string const name, int grade);
 	Bureaucrat(Bureaucrat const &cpy);
 	Bureaucrat &operator=(Bureaucrat const &op);
@@ -32,26 +44,15 @@ public:
 	void decGrade(void);
 	void signForm(Form &f) const;
 
+	//============================EXCEPTIONS=======================
 	class GradeTooHighException : public std::exception
 	{
-		//============================1st_exception==========================
-	private:
-		std::string _msg;
-	public:
-		GradeTooHighException(std::string const &msg) : _msg(msg) {}
-		virtual ~GradeTooHighException() throw() {}
-		virtual const char *what() const throw() { return _msg.c_str(); }
+		virtual const char *what() const throw() { return "Bureaucrate : GradeTooHighException"; }
 	};
 
 	class GradeTooLowException : public std::exception
 	{
-		//============================2nd_exception==========================
-	private:
-		std::string _msg;
-	public:
-		GradeTooLowException(std::string const &msg) : _msg(msg) {}
-		virtual ~GradeTooLowException() throw() {}
-		virtual const char *what() const throw() { return _msg.c_str(); }
+		virtual const char *what() const throw() { return "Bureaucrate : GradeTooLowException"; }
 	};
 };
 

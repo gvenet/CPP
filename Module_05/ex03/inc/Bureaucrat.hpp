@@ -32,7 +32,7 @@ public:
 	void decGrade(void);
 	void signForm(Form &f) const;
 
-	//============================EXCEPTIONS==========================
+	//============================EXCEPTIONS=======================
 	class GradeTooHighException : public std::exception{
 		virtual const char *what() const throw() {return "Bureaucrate : GradeTooHighException";}
 	};

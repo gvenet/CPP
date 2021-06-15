@@ -1,22 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/15 14:26:21 by gvenet            #+#    #+#             */
+/*   Updated: 2021/06/15 14:28:07 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/Form.hpp"
 
 //============================COPLIAN==========================
 
-Form::Form() : _name("default"), _signedStatus(false), _gradeToSign(1), _gradeToExecut(1)
-{
-	if (this->getGradeToSign() < 1 || this->getGradeToExecute() < 1)
-		throw Form::GradeTooHighException("Form::GradeTooHighException");
-	else if (this->getGradeToSign() > 150 || this->getGradeToExecute() > 150)
-		throw Form::GradeTooLowException("Form::GradeTooLowException");
-}
-
-Form::Form(std::string const name, int gradeToSign, int gradeToExecut)
+Form::Form(std::string const &name, int gradeToSign, int gradeToExecut)
 	: _name(name), _signedStatus(false), _gradeToSign(gradeToSign), _gradeToExecut(gradeToExecut)
 {
 	if (this->getGradeToSign() < 1 || this->getGradeToExecute() < 1)
-		throw Form::GradeTooHighException("Form::GradeTooHighException");
+		throw Form::GradeTooHighException();
 	else if (this->getGradeToSign() > 150 || this->getGradeToExecute() > 150)
-		throw Form::GradeTooLowException("Form::GradeTooLowException");
+		throw Form::GradeTooLowException();
 }
 
 Form::Form(Form const &cpy)
@@ -27,10 +31,7 @@ Form::Form(Form const &cpy)
 
 Form &Form::operator=(Form const &op)
 {
-	this->_name = op._name;
 	this->_signedStatus = op._signedStatus;
-	this->_gradeToSign = op._gradeToSign;
-	this->_gradeToExecut = op._gradeToExecut;
 	return *this;
 }
 
@@ -65,9 +66,9 @@ int Form::getGradeToExecute(void) const
 void Form::beSigned(const Bureaucrat &b)
 {
 	if (this->_signedStatus == true)
-		throw Form::FormAlreadySigned("Form already signed");
+		throw Form::ExceptionMsg("Form already signed");
 	else if (b.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooLowException("Form can't be signed");
+		throw Form::ExceptionMsg("Form can't be signed : Insufficient grade");
 	else
 		this->_signedStatus = true;
 }

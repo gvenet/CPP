@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/15 14:35:51 by gvenet            #+#    #+#             */
+/*   Updated: 2021/06/15 14:35:51 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FORM_HPP
 #define FORM_HPP
 #include <iostream>
@@ -20,7 +32,7 @@ public:
 	Form(std::string const &name, int const gradeToSign, int const gradeToExecut);
 	Form(Form const &cpy);
 	Form &operator=(Form const &op);
-	~Form();
+	virtual ~Form();
 
 	//============================GETTERS==========================
 	std::string getName(void) const;

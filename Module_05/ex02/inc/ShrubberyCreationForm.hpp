@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/15 14:38:27 by gvenet            #+#    #+#             */
+/*   Updated: 2021/06/15 14:38:28 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 #include <iostream>
@@ -17,7 +29,7 @@ public:
 	ShrubberyCreationForm(std::string const &target);
 	ShrubberyCreationForm(ShrubberyCreationForm const &cpy);
 	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &op);
-	~ShrubberyCreationForm();
+	virtual ~ShrubberyCreationForm();
 
 	void execute(Bureaucrat const &executor) const;
 };

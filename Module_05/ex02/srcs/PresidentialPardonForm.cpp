@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/15 14:38:48 by gvenet            #+#    #+#             */
+/*   Updated: 2021/06/15 14:38:50 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/PresidentialPardonForm.hpp"
 
 std::string const PresidentialPardon = "PresidentialPardon";

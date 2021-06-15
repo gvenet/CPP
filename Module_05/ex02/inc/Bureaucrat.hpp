@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/15 14:33:00 by gvenet            #+#    #+#             */
+/*   Updated: 2021/06/15 14:33:01 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 #include <iostream>
@@ -32,13 +44,15 @@ public:
 	void decGrade(void);
 	void signForm(Form &f) const;
 
-	//============================EXCEPTIONS==========================
-	class GradeTooHighException : public std::exception{
-		virtual const char *what() const throw() {return "Bureaucrate : GradeTooHighException";}
+	//============================EXCEPTIONS=======================
+	class GradeTooHighException : public std::exception
+	{
+		virtual const char *what() const throw() { return "Bureaucrate : GradeTooHighException"; }
 	};
 
-	class GradeTooLowException : public std::exception{
-		virtual const char *what() const throw() {return "Bureaucrate : GradeTooLowException";}
+	class GradeTooLowException : public std::exception
+	{
+		virtual const char *what() const throw() { return "Bureaucrate : GradeTooLowException"; }
 	};
 };
 
