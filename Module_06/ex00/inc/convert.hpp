@@ -5,19 +5,16 @@
 #include <cstdlib>
 #include <cctype>
 #include <exception>
-#include <cmath>
-#include <limits>
 
 class Convert
 {
 private:
-	float	_input;
-	float	_fVal;
-	int		_iVal;
-	double	_dVal;
-	char	_cVal;
-	int		_precisionFlag;
-	int		_cFlag;
+	float		_fVal;
+	int			_iVal;
+	double		_dVal;
+	char		_cVal;
+	int			_precisionFlag;
+	int			_cFlag;
 	std::string _str;
 	Convert();
 

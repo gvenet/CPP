@@ -1,7 +1,7 @@
 #include "../inc/convert.hpp"
 
 Convert::Convert(char const *cc)
-	: _input(std::strtof(cc, NULL)), _precisionFlag(PRECISIONINACTIV), _cFlag(DISPLAYABLE)
+	: _fVal(std::strtof(cc, NULL)), _precisionFlag(PRECISIONINACTIV), _cFlag(DISPLAYABLE)
 {
 	_str = cc;
 	if (_str == "-inff" || _str == "inff")
@@ -15,8 +15,21 @@ Convert::Convert(char const *cc)
 	fillVar();
 }
 
-Convert::Convert(Convert const &cpy) : _input(cpy._input)
+Convert::Convert(Convert const &cpy)
 {
+	*this = cpy;
+}
+
+Convert &Convert::operator=(Convert const &op)
+{
+	_fVal = op._fVal;
+	_iVal = op._iVal;
+	_dVal = op._dVal;
+	_cVal = op._cVal;
+	_precisionFlag = op._precisionFlag;
+	_cFlag = op._cFlag;
+	_str = op._str;
+	return *this;
 }
 
 Convert::~Convert()
@@ -30,7 +43,7 @@ std::string Convert::getStr(void) const
 
 float Convert::getF(void) const
 {
-	return (_input);
+	return (_fVal);
 }
 
 int Convert::getI(void) const
@@ -58,8 +71,6 @@ int Convert::getPrecisionFlag(void) const
 
 void Convert::fillVar(void)
 {
-
-	_fVal = _input;
 	_iVal = static_cast<int>(_fVal);
 	_dVal = static_cast<double>(_fVal);
 	if (_cFlag == DISPLAYABLE)
@@ -92,7 +103,7 @@ void Convert::parse(void)
 			}
 	}
 	else if (!std::isdigit(_str.front()))
-		_input = static_cast<int>(_str.front());
+		_fVal = static_cast<int>(_str.front());
 }
 
 std::ostream &operator<<(std::ostream &os, Convert const &rhs)
@@ -112,7 +123,7 @@ std::ostream &operator<<(std::ostream &os, Convert const &rhs)
 	else
 		os << rhs.getI() << std::endl;
 	//===========================FLOAT/DOUBLE================================
-	if (rhs.getPrecisionFlag() == Convert::PRECISIONINACTIV || rhs.getF() == 0)
+	if (rhs.getPrecisionFlag() == Convert::PRECISIONINACTIV || !rhs.getF())
 		os << "float  : " << rhs.getF() << ".0f" << std::endl
 		   << "double : " << rhs.getD() << ".0" << std::endl;
 	else if (rhs.getCFlag() == Convert::IMPOSSIBLE)
