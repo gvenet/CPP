@@ -16,7 +16,7 @@ void *serialize(void)
 	d->s1 = genRandom();
 	d->n = rand() % INT_MAX ;
 	d->s2 = genRandom();
-	std::cout << d->s1 << d->n << d->s2 << std::endl;
+	std::cout << "before_cast : " << d->s1 << d->n << d->s2 << std::endl;
 	return reinterpret_cast<void*>(d);
 }
 
@@ -24,6 +24,6 @@ Data *deserialize(void *raw)
 {
 	Data *d = reinterpret_cast<Data*>(raw);
 
-	std::cout << d->s1 << d->n << d->s2 << std::endl;
+	std::cout << "after_cast  : " << d->s1 << d->n << d->s2 << std::endl;
 	return d;
 }
