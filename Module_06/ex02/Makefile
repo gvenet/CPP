@@ -2,13 +2,13 @@ SRC_DIR	:= srcs/
 INC_DIR	:= inc/
 OBJ_DIR	:= obj/
 BIN_DIR	:= bin/
-NAME	:= $(BIN_DIR)convert
+NAME	:= $(BIN_DIR)serialize
 
 SRC		:= $(wildcard $(SRC_DIR)*.cpp) $(wildcard $(SRC_DIR)*/*.cpp)
 OBJ		:= $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 INC		:= $(wildcard $(INC_DIR)*.hpp)
 CC		:= clang++
-CFLAGS	:= -Wall -Wextra -Werror -std=c++98 -Wno-conversion
+CFLAGS	:= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 	echo "$^ \033[32mrdy 2 use\033[0m"
