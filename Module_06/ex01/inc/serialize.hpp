@@ -6,7 +6,7 @@
 #include <cctype>
 #include <random>
 #include <ctime>
-
+#include <unistd.h>
 
 struct Data
 {
@@ -16,6 +16,6 @@ struct Data
 };
 
 void *serialize(void);
-// Data *deserialize(void *raw);
+Data *deserialize(void *raw);
 
 #endif
