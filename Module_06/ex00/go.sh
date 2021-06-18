@@ -2,7 +2,7 @@
 make
 if (($# != 1))
 then
-	./bin/E00 42.42
+	./bin/convert 42.42
 else
-	./bin/E00 $1
+	./bin/convert $1
 fi

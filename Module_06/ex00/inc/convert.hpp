@@ -5,17 +5,20 @@
 #include <cstdlib>
 #include <cctype>
 #include <exception>
+#include <cmath>
+#include <limits>
 
 class Convert
 {
 private:
-	float const _input;
-	float _fVal;
-	int _iVal;
-	double _dVal;
-	char _cVal;
-	int _precisionFlag;
-	int _cFlag;
+	float	_input;
+	float	_fVal;
+	int		_iVal;
+	double	_dVal;
+	char	_cVal;
+	int		_precisionFlag;
+	int		_cFlag;
+	std::string _str;
 	Convert();
 
 public:
@@ -24,13 +27,16 @@ public:
 	Convert &operator=(Convert const &op);
 	virtual ~Convert();
 
+	void parse(void);
 	void fillVar(void);
+
 	float getF(void) const;
 	int getI(void) const;
 	double getD(void) const;
 	char getC(void) const;
 	int getCFlag(void) const;
 	int getPrecisionFlag(void) const;
+	std::string getStr(void) const;
 
 	enum precisionFlag
 	{
@@ -42,18 +48,8 @@ public:
 	{
 		DISPLAYABLE,
 		NONDISPLAYABLE,
-		IMPOSSIBLE
-	};
-
-	class ExceptionMsg : public std::exception
-	{
-	private:
-		std::string _msg;
-
-	public:
-		ExceptionMsg(std::string const &msg) : _msg(msg) {}
-		virtual ~ExceptionMsg() throw() {}
-		virtual const char *what() const throw() { return _msg.c_str(); }
+		IMPOSSIBLE,
+		EXCEPT
 	};
 };
 
