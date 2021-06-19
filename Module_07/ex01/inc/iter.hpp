@@ -1,11 +1,12 @@
 #ifndef ITER_HPP
 #define ITER_HPP
 #include <iostream>
+#include <string>
 
 template <typename T>
 void display(T const &f)
 {
-	std::cout << f << " ";
+	std::cout << "| " << f << "\t";
 }
 
 template <typename T>

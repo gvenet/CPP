@@ -6,7 +6,15 @@ int main()
 	iter(a, 5, display);
 	std::cout << std::endl;
 	
+	float b[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
+	iter(b, 5, display);
+	std::cout << std::endl;
 	
+	std::string c[5] = {"s1", "s2", "s3", "s4", "s5"};
+	iter(c, 5, display);
+	std::cout << std::endl;
+
 	
+
 	return 0;
 }
