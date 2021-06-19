@@ -1,6 +1,7 @@
-#include "../inc/whatever.hpp"
+#include "../inc/easyfind.hpp"
 
 int main(void)
 {
+	
 	return 0;
 }
