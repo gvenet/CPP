@@ -1,14 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/12/29 18:01:14 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/29 18:49:15 by ncolomer         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 SRCS			= main.cpp MindOpen.cpp Instruction.cpp Program.cpp \
 					Instructions/Decr.cpp Instructions/Incr.cpp Instructions/DecrPtr.cpp \

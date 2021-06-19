@@ -1,14 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/12/29 19:36:38 by ncolomer          #+#    #+#              #
-#    Updated: 2020/01/09 15:50:47 by ncolomer         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 SRCS			= main.cpp Postfix.cpp Token.cpp \
 					Tokens/Num.cpp Tokens/Op.cpp Tokens/ParOpen.cpp Tokens/ParClose.cpp
