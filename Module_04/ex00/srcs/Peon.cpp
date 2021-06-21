@@ -1,42 +1,27 @@
 #include "../inc/Peon.hpp"
 
-//=================================COPLIAN=======================
-
-Peon::Peon()
+Peon::Peon(std::string const &name) : Victim(name)
 {
-	this->_name = "default";
+	std::cout << _name << " : Zogzog !" << std::endl;
 }
 
-Peon::Peon(std::string name) : Victim(name)
+Peon::Peon(Peon const &cpy) : Victim(cpy._name)
 {
-	std::cout << this->_name << ": Zogzog !" << std::endl;
+	std::cout << _name << " : Zogzog !" << std::endl;
 }
 
-Peon::Peon(Peon const &)
+Peon &Peon::operator=(Peon const &op)
 {
-}
-
-Peon &Peon::operator=(Peon const &)
-{
+	_name = op._name;
 	return *this;
 }
 
 Peon::~Peon()
 {
-	std::cout << this->_name << ": Bleuark..." << std::endl;
+	std::cout << _name << " : Bleuark..." << std::endl;
 }
-
-//==========================================GETTERS=======================================================
-
-//================================PRIVATE MEMBER FONCTION=================================================
-
-//=================================PRIVATE METHODE========================================================
-
-//=================================PUBLIC MEMBER FONCTION================================================
 
 void Peon::getPolymorphed(void) const
 {
-	std::cout << this->getName() << " has been turned into a pink pony!" << std::endl;
+	std::cout << getName() << " has been turned into a pink pony!" << std::endl;
 }
-
-//=================================PUBLIC METHODE========================================================

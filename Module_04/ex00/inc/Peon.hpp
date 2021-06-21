@@ -6,11 +6,12 @@
 
 class Peon : virtual public Victim
 {
-public:
+private:	
 	Peon();
-	Peon(std::string name); 
-	Peon(Peon const &);
-	Peon& operator=(Peon const &);
+public:
+	Peon(std::string const &name);
+	Peon(Peon const &cpy);
+	Peon& operator=(Peon const &op);
 	virtual ~Peon();
 
 	void getPolymorphed() const;

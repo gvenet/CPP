@@ -11,9 +11,9 @@ private:
 	std::string _name;
 	int _AP;
 	AWeapon *_wp;
+	Character();
 
 public:
-	Character();
 	Character(std::string const &name);
 	Character(Character const &);
 	Character &operator=(Character const &);

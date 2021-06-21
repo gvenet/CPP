@@ -2,22 +2,19 @@
 
 //=================================COPLIAN=======================
 
-Victim::Victim()
-{
-	this->_name = "default";
-}
-
-Victim::Victim(std::string name) : _name(name)
+Victim::Victim(std::string const &name) : _name(name)
 {
 	std::cout << "Some random victim called " << this->_name << " just appeared!" << std::endl;
 }
 
-Victim::Victim(Victim const &)
+Victim::Victim(Victim const & cpy) : _name(cpy._name)
 {
+	std::cout << "Some random victim called " << this->_name << " just appeared!" << std::endl;
 }
 
-Victim &Victim::operator=(Victim const &)
+Victim &Victim::operator=(Victim const & op)
 {
+	_name = op._name;
 	return *this;
 }
 
@@ -33,20 +30,12 @@ std::ostream &operator<<(std::ostream &os, const Victim &Victim)
 }
 //==========================================GETTERS=======================================================
 
-std::string Victim::getName(void) const
+std::string const &Victim::getName(void) const
 {
 	return this->_name;
 }
-
-//================================PRIVATE MEMBER FONCTION=================================================
-
-//=================================PRIVATE METHODE========================================================
-
-//=================================PUBLIC MEMBER FONCTION================================================
 
 void Victim::getPolymorphed(void) const
 {
 	std::cout << this->getName() << " has been turned into a cute little sheep!" << std::endl;
 }
-
-//=================================PUBLIC METHODE========================================================

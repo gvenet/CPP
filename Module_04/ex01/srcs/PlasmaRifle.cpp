@@ -6,12 +6,15 @@ PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21)
 {
 }
 
-PlasmaRifle::PlasmaRifle(PlasmaRifle const &)
+PlasmaRifle::PlasmaRifle(PlasmaRifle const &cpy) : AWeapon(cpy)
 {
 }
 
-PlasmaRifle &PlasmaRifle::operator=(PlasmaRifle const &)
+PlasmaRifle &PlasmaRifle::operator=(PlasmaRifle const &op)
 {
+	_name = op._name;
+	_apcost = op._apcost;
+	_damage = op._damage;
 	return *this;
 }
 

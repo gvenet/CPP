@@ -2,29 +2,26 @@
 
 //=================================COPLIAN=======================
 
-Sorcerer::Sorcerer()
+Sorcerer::Sorcerer(std::string const &name, std::string const &title) : _name(name), _title(title)
 {
-	this->_name = "default";
-	this->_title = "default";
+	std::cout << _name << ", " << _title << ", is born !" << std::endl;
 }
 
-Sorcerer::Sorcerer(std::string name, std::string title) : _name(name), _title(title)
+Sorcerer::Sorcerer(Sorcerer const &cpy) : _name(cpy._name), _title(cpy._title)
 {
-	std::cout << this->_name << ", " << this->_title << ", is born !" << std::endl;
+	std::cout << _name << ", " << _title << ", is born !" << std::endl;
 }
 
-Sorcerer::Sorcerer(Sorcerer const &)
+Sorcerer &Sorcerer::operator=(Sorcerer const &op)
 {
-}
-
-Sorcerer &Sorcerer::operator=(Sorcerer const &)
-{
+	_name = op._name;
+	_title = op._title;
 	return *this;
 }
 
 Sorcerer::~Sorcerer()
 {
-	std::cout << this->_name << ", " << this->_title << ", is dead. Consequences will never be the same !" << std::endl;
+	std::cout << _name << ", " << _title << ", is dead. Consequences will never be the same !" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, const Sorcerer &Sorcerer)
@@ -34,25 +31,19 @@ std::ostream &operator<<(std::ostream &os, const Sorcerer &Sorcerer)
 }
 //==========================================GETTERS=======================================================
 
-std::string Sorcerer::getName(void) const
+std::string const &Sorcerer::getName(void) const
 {
-	return this->_name;
+	return _name;
 }
 
-std::string Sorcerer::getTitle(void) const
+std::string const &Sorcerer::getTitle(void) const
 {
-	return this->_title;
+	return _title;
 }
 
-//================================PRIVATE MEMBER FONCTION=================================================
+//==========================================METHODS================================================
 
-//=================================PRIVATE METHODE========================================================
-
-//=================================PUBLIC MEMBER FONCTION================================================
-
-void Sorcerer::polymorph(Victim const & victim)
+void Sorcerer::polymorph(Victim const & victim) const
 {
 	victim.getPolymorphed();
 }
-
-//=================================PUBLIC METHODE========================================================

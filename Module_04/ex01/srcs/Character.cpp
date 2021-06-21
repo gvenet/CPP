@@ -2,17 +2,12 @@
 
 //=================================COPLIAN================================================================
 
-Character::Character() : _name(std::string()), _AP(0), _wp(NULL)
-{
-}
-
 Character::Character(std::string const &name) : _name(name), _AP(40), _wp(NULL)
 {
 }
 
 Character::Character(Character const &cpy) : _name(cpy._name), _AP(cpy._AP), _wp(cpy._wp)
 {
-
 }
 
 Character &Character::operator=(Character const & cpy)

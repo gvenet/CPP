@@ -7,18 +7,18 @@ class Victim
 {
 protected:
 	std::string _name;
+	Victim();
 
 public:
-	Victim();
-	Victim(std::string name);
-	Victim(Victim const &);
-	Victim& operator=(Victim const &);
+	Victim(std::string const &name);
+	Victim(Victim const &cpy);
+	Victim& operator=(Victim const &op);
 	virtual ~Victim();
 
-	std::string getName(void) const;
+	std::string const &getName(void) const;
 	virtual void getPolymorphed() const;
 };
 
-std::ostream& operator<<(std::ostream& os, const Victim& Victim);
+std::ostream& operator<<(std::ostream& os, const Victim& victim);
 
 #endif

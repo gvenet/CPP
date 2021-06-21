@@ -8,18 +8,19 @@ AWeapon::AWeapon() : _name(std::string()), _apcost(0), _damage(0)
 
 AWeapon::AWeapon(std::string const &name, int apcost, int damage) : _name(name), _apcost(apcost), _damage(damage)
 {
-	std::cout << this->_name << "\t | apcost : " << this->_apcost << " | damage : " << this->_damage << std::endl;
+	std::cout << _name << "\t | apcost : " << _apcost << " | damage : " << _damage << std::endl;
 }
 
 AWeapon::AWeapon(AWeapon const &cpy) : _name(cpy._name), _apcost(cpy._apcost), _damage(cpy._damage)
 {
+	std::cout << _name << "\t | apcost : " << _apcost << " | damage : " << _damage << std::endl;
 }
 
-AWeapon &AWeapon::operator=(AWeapon const &cpy)
+AWeapon &AWeapon::operator=(AWeapon const &op)
 {
-	this->_name = cpy._name;
-	this->_apcost = cpy._apcost;
-	this->_damage = cpy._damage;
+	_name = op._name;
+	_apcost = op._apcost;
+	_damage = op._damage;
 	return *this;
 }
 
@@ -31,15 +32,15 @@ AWeapon::~AWeapon()
 
 std::string const &AWeapon::getName() const
 {
-	return this->_name;
+	return _name;
 }
 
 int AWeapon::getAPCost() const
 {
-	return this->_apcost;
+	return _apcost;
 }
 
 int AWeapon::getDamage() const
 {
-	return this->_damage;
+	return _damage;
 }
