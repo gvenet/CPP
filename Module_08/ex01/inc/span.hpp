@@ -4,6 +4,9 @@
 #include <algorithm>
 #include <iostream>
 #include <exception>
+#include <random>
+#include <ctime>
+#include <limits>
 
 class Span
 {
@@ -11,6 +14,8 @@ private:
 	size_t _size;
 	int *_t;
 	size_t _fill;
+	Span(){}
+	void minmax(int ref, int *ret);
 
 public:
 	Span(size_t size);
@@ -18,12 +23,20 @@ public:
 	void addNumber(const int nb);
 	size_t size(void) const;
 	int &operator[](size_t index);
-	int &shortestSpan(void);
-	int &longestSpan(void);
+	int shortestSpan(void);
+	int longestSpan(void);
 	void display(void) const;
-	class SpanException : public std::exception
+	void autofill(void);
+	
+	class ExceptionMsg : public std::exception
 	{
-		virtual const char *what() const throw() { return "SpanException : already filled"; }
+	private:
+		std::string _msg;
+
+	public:
+		ExceptionMsg(std::string const &msg) : _msg(msg) {}
+		virtual ~ExceptionMsg() throw() {}
+		virtual const char *what() const throw() { return _msg.c_str(); }
 	};
 };
 
