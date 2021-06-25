@@ -1,15 +1,13 @@
 #include "Victim.hpp"
 
-Victim::Victim(std::string const &name):
-	name(name)
+Victim::Victim(std::string const &name) : name(name)
 {
-	std::cout << "Some random victim called " << this->name << " just popped"  << std::endl;
+	std::cout << "Some random victim called " << this->name << " just popped" << std::endl;
 }
 
-Victim::Victim(Victim const &other):
-	name(other.name)
+Victim::Victim(Victim const &other) : name(other.name)
 {
-	std::cout << "Some random victim called " << this->name << " just popped"  << std::endl;
+	std::cout << "Some random victim called " << this->name << " just popped" << std::endl;
 }
 
 Victim::~Victim()
