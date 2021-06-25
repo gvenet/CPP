@@ -18,6 +18,7 @@ int main()
 	ICharacter *Jenova = new Character("Jenova");
 	IMateriaSource *src = new MateriaSource();
 	std::cout << std::endl;
+
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Ultima());
@@ -58,20 +59,19 @@ int main()
 	
 	Tifa->equip(src->ComInvOut("ultima"));
 	src->displayComInv();
-	
 	for (int i = 0; i < 12; i++)
 		Tifa->use(2, *Jenova);
-	
 	Tifa->unequip(2);
 	Tifa->unequip(0);
 	Cloud->use(3, *Jenova);
 	src->displayComInv();
-	std::cout << std::endl;
 
+	std::cout << std::endl;
+	
+	delete src;
 	delete Cloud;
 	delete Tifa;
 	delete Jenova;
-	delete src;
 
 	return (0);
 }

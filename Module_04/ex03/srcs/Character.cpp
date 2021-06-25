@@ -28,6 +28,7 @@ Character::~Character()
 		{
 			std::cout << this->_name << "\t: ";
 			delete this->_inventory[i];
+			this->_inventory[i] = nullptr;
 		}
 }
 

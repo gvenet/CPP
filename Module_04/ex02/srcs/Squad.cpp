@@ -8,11 +8,13 @@ Squad::Squad() : _count(0), _units(NULL)
 
 Squad::Squad(Squad const &cpy)
 {
+	std::cout << "//+++++copy constructor called++\\\\" << std::endl;
 	*this = cpy;
 }
 
 Squad &Squad::operator=(Squad const &op)
 {
+	std::cout << "//+++++copy operator called+++++\\\\" << std::endl;
 	if (_units)
 	{
 		for (int i = 0; i < _count; i++)
@@ -28,7 +30,7 @@ Squad &Squad::operator=(Squad const &op)
 
 Squad::~Squad()
 {
-	for(int i=0; i < _count; i++)
+	for (int i = 0; i < _count; i++)
 		delete _units[i];
 	delete _units;
 }
@@ -67,7 +69,7 @@ int Squad::push(ISpaceMarine *unit)
 	else
 	{
 		_count++;
-		_units = new ISpaceMarine *[_count];
+		_units = new ISpaceMarine *[1];
 		_units[0] = unit;
 	}
 	return _count;

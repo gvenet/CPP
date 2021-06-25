@@ -1,22 +1,9 @@
 #include "../inc/AMateria.hpp"
 
-//============================================================COPLIAN============================================================
+//============================================================COPLIEN============================================================
 
 AMateria::AMateria(std::string const &type) : _type(type), _xp(0), _equiped(0)
 {
-}
-
-AMateria::AMateria(AMateria const &cpy) : _type(cpy._type), _xp(cpy._xp), _equiped(cpy._equiped)
-{
-	*this = cpy;
-}
-
-AMateria &AMateria::operator=(AMateria const &op)
-{
-	this->_equiped = op._equiped;
-	this->_type = op._type;
-	this->_xp = op._xp;
-	return *this;
 }
 
 AMateria::~AMateria()

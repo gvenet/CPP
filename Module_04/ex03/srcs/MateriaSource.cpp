@@ -26,11 +26,13 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &op)
 MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < this->_sizeComInv; i++)
+	{
 		if (!this->_comInv[i]->getEquiped())
 		{
 			std::cout << "comInv\t: ";
 			delete this->_comInv[i];
 		}
+	}
 	delete this->_comInv;
 }
 

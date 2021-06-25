@@ -14,10 +14,10 @@ int main()
 	vlc->push(jim);
 	vlc->push(jim);
 	vlc->push(NULL);
-	std::cout << std::endl;
+	std::cout << "________________________LOOP__________________________" << std::endl;
 	for (int i = 0; i < vlc->getCount(); ++i)
 	{
-		std::cout << "______________________INDEX " << i << "________________________=" << std::endl;
+		std::cout << "______________________INDEX " << i << "_________________________" << std::endl;
 		ISpaceMarine *cur = vlc->getUnit(i);
 		if (cur)
 		{
@@ -26,13 +26,31 @@ int main()
 			cur->meleeAttack();
 		}
 		else
-			std::cout << "| NULL pushed                                        |" << std::endl;
-		std::cout << std::endl;
+			std::cout << "NULL pushed" << std::endl;
 	}
 	std::cout << "____________________DESSTRUCTION______________________" << std::endl;
 	delete vlc;
-	
-	
-	
+	std::cout << std::endl
+			  << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+			  << std::endl
+			  << std::endl;
+
+	std::cout << "____________________CONSTRUCTION______________________" << std::endl;
+	Squad *test1 = new Squad;
+	test1->push(new TacticalMarine);
+	Squad test2;
+	test2 = *test1;
+	Squad test3 = Squad(test2);
+
+	std::cout << "________________________LOOP__________________________" << std::endl;
+	test1->getUnit(0)->battleCry();
+	std::cout << "____________________DESSTRUCTION_TEST1________________" << std::endl;
+	delete test1;
+	std::cout << "________________________LOOP__________________________" << std::endl;
+	test2.getUnit(0)->battleCry();
+	test3.getUnit(0)->battleCry();
+
+	std::cout << "____________________DESSTRUCTION_TEST_2_3_____________" << std::endl;
+
 	return 0;
 }

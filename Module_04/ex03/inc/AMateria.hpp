@@ -7,6 +7,9 @@ class ICharacter;
 
 class AMateria
 {
+private:
+	AMateria();
+
 protected:
 	std::string _type;
 	unsigned int _xp;
@@ -16,8 +19,6 @@ public:
 	//============================================================COPLIAN============================================================
 
 	AMateria(std::string const &type);
-	AMateria(AMateria const &cpy);
-	AMateria &operator=(AMateria const &op);
 	virtual ~AMateria();
 	
 	//============================================================GETTERS============================================================
