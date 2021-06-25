@@ -1,12 +1,10 @@
 #include "Squad.hpp"
 
-Squad::Squad():
-	count(0), units(nullptr)
+Squad::Squad() : count(0), units(nullptr)
 {
 }
 
-Squad::Squad(Squad const &other):
-	count(0), units(nullptr)
+Squad::Squad(Squad const &other) : count(0), units(nullptr)
 {
 	this->count = 0;
 	for (int i = 0; i < other.getCount(); i++)
@@ -43,7 +41,7 @@ int Squad::getCount(void) const
 	return (this->count);
 }
 
-ISpaceMarine* Squad::getUnit(int index) const
+ISpaceMarine *Squad::getUnit(int index) const
 {
 	if (this->count == 0 || index < 0 || index >= count)
 		return (nullptr);
@@ -59,7 +57,7 @@ int Squad::push(ISpaceMarine *unit)
 		for (int i = 0; i < this->count; i++)
 			if (this->units[i] == unit)
 				return (this->count);
-		ISpaceMarine **cpy = new ISpaceMarine*[this->count + 1];
+		ISpaceMarine **cpy = new ISpaceMarine *[this->count + 1];
 		for (int i = 0; i < this->count; i++)
 			cpy[i] = this->units[i];
 		delete[] this->units;
@@ -69,7 +67,7 @@ int Squad::push(ISpaceMarine *unit)
 	}
 	else
 	{
-		this->units = new ISpaceMarine*[1];
+		this->units = new ISpaceMarine *[1];
 		this->units[0] = unit;
 		this->count = 1;
 	}

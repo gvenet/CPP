@@ -6,11 +6,13 @@
 
 class TacticalMarine : public ISpaceMarine
 {
+private:
+
 public:
 	TacticalMarine();
-	TacticalMarine(TacticalMarine const &);
-	TacticalMarine &operator=(TacticalMarine const &);
-	~TacticalMarine();
+	TacticalMarine(TacticalMarine const &cpy);
+	TacticalMarine &operator=(TacticalMarine const &op);
+	virtual ~TacticalMarine();
 
 	TacticalMarine *clone() const;
 	void battleCry() const;

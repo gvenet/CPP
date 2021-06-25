@@ -6,62 +6,69 @@ Squad::Squad() : _count(0), _units(NULL)
 {
 }
 
-Squad::Squad(Squad const &cpy) : _count(cpy._count), _units(cpy._units)
+Squad::Squad(Squad const &cpy)
 {
+	*this = cpy;
 }
 
 Squad &Squad::operator=(Squad const &op)
 {
-	this->_count = op._count;
-	this->_units = op._units;
-	return *this;
+	if (_units)
+	{
+		for (int i = 0; i < _count; i++)
+			delete _units[i];
+		delete _units;
+		_units = nullptr;
+	}
+	_count = 0;
+	for (int i = 0; i < op.getCount(); i++)
+		this->push(op.getUnit(i)->clone());
+	return (*this);
 }
 
 Squad::~Squad()
 {
-	for(int i=0; i < this->_count; i++)
-		delete this->_units[i];
-	delete this->_units;
+	for(int i=0; i < _count; i++)
+		delete _units[i];
+	delete _units;
 }
 
 //==========================================GETTERS=======================================================
 
 int Squad::getCount() const
 {
-	return this->_count;
+	return _count;
 }
 
 ISpaceMarine *Squad::getUnit(int nThUnit) const
 {
-	if (!this->_count || nThUnit < 0 || nThUnit >= this->_count)
+	if (!_count || nThUnit < 0 || nThUnit >= _count)
 		return (NULL);
-	return (this->_units[nThUnit]);
+	return (_units[nThUnit]);
 }
 
 //=========================================METHODES=======================================================
 
 int Squad::push(ISpaceMarine *unit)
 {
-	if (!unit)
-		return (this->_count);
-	if (this->_units)
+	if (_units)
 	{
-		for (int i = 0; i < this->_count; i++)
-			if (this->_units[i] == unit)
-				return this->_count;
-		ISpaceMarine **units = new ISpaceMarine *[this->_count + 1];
-		for (int i = 0; i < this->_count; i++)
-			units[i] = this->_units[i];
-		delete[] this->_units;
-		this->_units = units;
-		this->_units[this->_count] = unit;
-		this->_count++;
+		for (int i = 0; i < _count; i++)
+			if (_units[i] == unit)
+				return _count;
+		ISpaceMarine **units = new ISpaceMarine *[_count + 1];
+		for (int i = 0; i < _count; i++)
+			units[i] = _units[i];
+		delete[] _units;
+		_units = units;
+		_units[_count] = unit;
+		_count++;
 	}
 	else
 	{
-		this->_count++;
-		this->_units = new ISpaceMarine *[this->_count];
-		this->_units[0] = unit;
+		_count++;
+		_units = new ISpaceMarine *[_count];
+		_units[0] = unit;
 	}
-	return this->_count;
+	return _count;
 }

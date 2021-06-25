@@ -12,8 +12,8 @@ private:
 
 public:
 	Squad();
-	Squad &operator=(Squad const &);
-	Squad (Squad const &);
+	Squad (Squad const &cpy);
+	Squad &operator=(Squad const &op);
 	virtual ~Squad();
 
 	int getCount() const;
