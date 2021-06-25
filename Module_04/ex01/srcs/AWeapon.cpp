@@ -2,10 +2,6 @@
 
 //=================================COPLIAN================================================================
 
-AWeapon::AWeapon() : _name(std::string()), _apcost(0), _damage(0)
-{
-}
-
 AWeapon::AWeapon(std::string const &name, int apcost, int damage) : _name(name), _apcost(apcost), _damage(damage)
 {
 	std::cout << _name << "\t | apcost : " << _apcost << " | damage : " << _damage << std::endl;

@@ -1,19 +1,15 @@
 #include "Character.hpp"
 
-Character::Character():
-	name(std::string()), ap(0), weapon(NULL)
+Character::Character() : name(std::string()), ap(0), weapon(NULL)
 {
 }
 
-Character::Character(std::string const &name):
-	name(name), ap(40), weapon(NULL)
+Character::Character(std::string const &name) : name(name), ap(40), weapon(NULL)
 {
 }
 
-Character::Character(Character const &other):
-	name(other.name), ap(other.ap), weapon(other.weapon)
+Character::Character(Character const &other) : name(other.name), ap(other.ap), weapon(other.weapon)
 {
-
 }
 
 Character::~Character()
@@ -58,12 +54,12 @@ void Character::equip(AWeapon *weapon)
 void Character::attack(Enemy *enemy)
 {
 	if (!this->weapon || !enemy)
-		return ;
+		return;
 	if (this->ap < this->weapon->getAPCost())
-		return ;
+		return;
 	this->ap -= this->weapon->getAPCost();
 	std::cout << this->name << " attacks " << enemy->getType()
-			<< " with a " << this->weapon->getName() << std::endl;
+			  << " with a " << this->weapon->getName() << std::endl;
 	this->weapon->attack();
 	enemy->takeDamage(this->weapon->getDamage());
 	if (enemy->getHP() == 0)

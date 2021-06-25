@@ -9,9 +9,9 @@ protected:
 	std::string _name;
 	int _apcost;
 	int _damage;
+	AWeapon();
 
 public:
-	AWeapon();
 	AWeapon(std::string const &name, int apcost, int damage);
 	AWeapon(AWeapon const &cpy);
 	virtual ~AWeapon();

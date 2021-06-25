@@ -11,69 +11,79 @@ int main()
 	std::cout << *me;
 	AWeapon *pr = new PlasmaRifle();
 	AWeapon *pf = new PowerFist();
+
 	std::cout << "+++++++++++++++++++++++++++++" << std::endl
 			  << std::endl;
-	// Enemy *b = new RadScorpion();
-	// me->equip(pr);
-	// std::cout << *me;
-	// me->equip(pf);
-	// me->attack(b);
-	// std::cout << *me;
-	// me->equip(pr);
-	// std::cout << *me;
-	// me->attack(b);
-	// std::cout << *me;
-	// me->attack(b);
-	// std::cout << *me;
+
+	Enemy *b = new RadScorpion();
+	me->equip(pr);
+	std::cout << *me;
+	me->equip(pf);
+	me->attack(b);
+	std::cout << *me;
+	me->equip(pr);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
+
 	std::cout << "+++++++++++++++++++++++++++++" << std::endl
 			  << std::endl;
-	// Enemy *c = new SuperMutant();
-	// me->equip(pr);
-	// std::cout << *me;
-	// me->equip(pf);
-	// me->attack(c);
-	// std::cout << *me;
-	// me->equip(pr);
-	// std::cout << *me;
-	// me->attack(c);
-	// std::cout << *me;
-	// me->attack(c);
-	// std::cout << *me;
-	// me->attack(c);
-	// std::cout << *me;
-	// me->recoverAP();
-	// me->recoverAP();
-	// std::cout << *me;
-	// me->recoverAP();
-	// me->recoverAP();
-	// me->recoverAP();
-	// std::cout << *me;
-	// me->equip(pf);
-	// std::cout << *me;
-	// me->attack(c);
-	// me->attack(c);
+
+	Enemy *c = new SuperMutant();
+	me->equip(pr);
+	std::cout << *me;
+	me->equip(pf);
+	me->attack(c);
+	std::cout << *me;
+	me->equip(pr);
+	std::cout << *me;
+	me->attack(c);
+	std::cout << *me;
+	me->attack(c);
+	std::cout << *me;
+	me->attack(c);
+	std::cout << *me;
+	me->recoverAP();
+	me->recoverAP();
+	std::cout << *me;
+	me->recoverAP();
+	me->recoverAP();
+	me->recoverAP();
+	std::cout << *me;
+	me->equip(pf);
+	std::cout << *me;
+	me->attack(c);
+	me->attack(c);
+
 	std::cout << "+++++++++++++++++++++++++++++" << std::endl
 			  << std::endl;
-	// AWeapon *prCpy (static_cast<PlasmaRifle*>(pr));
+	
 	AWeapon *prCpy = NULL;
 	prCpy = pr;
+	std::cout << &prCpy << " || " << pr << std::endl; 
 	std::cout << *me; //unamerd
 	me->equip(prCpy);
 	std::cout << *me; // plaasma rifle
 	prCpy = pf;
+	std::cout << &prCpy << " || " << pr << std::endl; 
 	me->equip(prCpy); // power fist
 	std::cout << *me;
 
+	std::cout << "+++++++++++++++++++++++++++++" << std::endl
+			  << std::endl;
 
-	std::cout << "+++++++++++++++++++++++++++++" << std::endl;
+	PlasmaRifle x;
+	PlasmaRifle y = x;
+	PlasmaRifle *z = new PlasmaRifle(x);
 
-	PlasmaRifle a;
-	PlasmaRifle b = a;
-	PlasmaRifle c (a);
+	std::cout << &x <<" || " << &y << " || " << z << std::endl;
 
-	AWeapon *d (&a);
-	std::cout << d <<" || " << &a;
+	std::cout << "+++++++++++++++++++++++++++++" << std::endl
+			  << std::endl;
 
+	delete z;
 	delete me;
 	delete pr;
 	delete pf;

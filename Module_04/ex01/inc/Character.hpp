@@ -15,19 +15,19 @@ private:
 
 public:
 	Character(std::string const &name);
-	Character(Character const &);
-	Character &operator=(Character const &);
-	~Character();
+	Character(Character const &cpy);
+	Character &operator=(Character const &op);
+	virtual ~Character();
 
 	std::string const &getName() const;
 	AWeapon *getWeapon() const;
 	int getAP() const;
 
 	void recoverAP();
-	void equip(AWeapon *);
-	void attack(Enemy *);
+	void equip(AWeapon *wp);
+	void attack(Enemy *enemy);
 };
 
-std::ostream &operator<<(std::ostream &os, Character const &Character);
+std::ostream &operator<<(std::ostream &os, Character const &character);
 
 #endif
