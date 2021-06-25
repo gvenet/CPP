@@ -4,6 +4,7 @@
 
 int main()
 {
+	std::cout << "==========CONSTRUC1==========" << std::endl;
 	Sorcerer robert("Robert", "the Magnificent");
 	Victim jim("Jimmy");
 	Peon joe("Joe");
@@ -11,9 +12,10 @@ int main()
 	robert.polymorph(jim);
 	robert.polymorph(joe);
 	std::cout << std::endl
+			  << std::endl
 			  << std::endl;
 
-	std::cout << "==========CONSTRUC==========" << std::endl;
+	std::cout << "==========CONSTRUC2==========" << std::endl;
 	Sorcerer S(robert);
 	Victim V(jim);
 	Peon P(joe);
