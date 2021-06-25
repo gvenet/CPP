@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/21 19:41:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 17:19:56 by ncolomer         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "PresidentialPardonForm.hpp"
 
 std::string const &PresidentialPardonForm::name = std::string("Presidential Pardon");

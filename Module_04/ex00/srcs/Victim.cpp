@@ -7,12 +7,12 @@ Victim::Victim(std::string const &name) : _name(name)
 	std::cout << "Some random victim called " << this->_name << " just appeared!" << std::endl;
 }
 
-Victim::Victim(Victim const & cpy) : _name(cpy._name)
+Victim::Victim(Victim const &cpy) : _name(cpy._name)
 {
 	std::cout << "Some random victim called " << this->_name << " just appeared!" << std::endl;
 }
 
-Victim &Victim::operator=(Victim const & op)
+Victim &Victim::operator=(Victim const &op)
 {
 	_name = op._name;
 	return *this;
