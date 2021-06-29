@@ -13,10 +13,10 @@ int main()
 	std::cout << "=============== BOCAL FATASY ===============" << std::endl;
 
 	std::cout << std::endl;
+	IMateriaSource *src = new MateriaSource();
 	ICharacter *Cloud = new Character("Cloud");
 	ICharacter *Tifa = new Character("Tifa");
 	ICharacter *Jenova = new Character("Jenova");
-	IMateriaSource *src = new MateriaSource();
 	std::cout << std::endl;
 
 	src->learnMateria(new Ice());
@@ -69,6 +69,7 @@ int main()
 	std::cout << std::endl;
 	
 	delete src;
+
 	delete Cloud;
 	delete Tifa;
 	delete Jenova;

@@ -34,6 +34,9 @@ MateriaSource::~MateriaSource()
 		}
 	}
 	delete this->_comInv;
+	int i = -1;
+	while (_learned[++i])
+		delete _learned[i];
 }
 
 //============================================================GETTERS============================================================
