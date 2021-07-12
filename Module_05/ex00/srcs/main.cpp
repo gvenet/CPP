@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:20:26 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/12 15:23:02 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/12 15:33:24 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,15 @@ int main(void)
 	{
 		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
+
+	std::cout << std::endl;
+	Bureaucrat Toto("Toto", 50);
+	std::cout << Toto << std::endl;
+	Bureaucrat Tata(Toto);
+	std::cout << Tata << std::endl;
+	Bureaucrat Titi("Titi", 100);
+	std::cout << Titi << std::endl;
+	Titi = Toto;
+	std::cout << Titi << std::endl;
 	return 0;
 }
