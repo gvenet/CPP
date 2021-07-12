@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:33:10 by gvenet            #+#    #+#             */
-/*   Updated: 2021/06/15 14:34:59 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/12 16:00:27 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &cpy) : _name(cpy._name), _grade(cpy._gr
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &op)
 {
 	this->_name = op._name;
-	this->_name = op._grade;
+	this->_grade = op._grade;
 	return *this;
 }
 
