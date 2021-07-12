@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:39:00 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/12 16:09:04 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/12 16:51:15 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int main(void)
 			  << Dan << std::endl;
 	try
 	{
-		RobotomyRequestForm Robotomy("robot");
+		RobotomyRequestForm Robotomy("rob");
 		std::cout << Robotomy << std::endl;
 		Robotomy.execute(Dan);
 	}
@@ -87,7 +87,7 @@ int main(void)
 	std::cout << std::endl;
 	try
 	{
-		RobotomyRequestForm Robotomy("robot");
+		RobotomyRequestForm Robotomy("rob");
 		std::cout << Robotomy << std::endl;
 		Mik.signForm(Robotomy);
 		std::cout << Robotomy << std::endl;

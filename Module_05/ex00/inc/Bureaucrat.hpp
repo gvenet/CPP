@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:20:21 by gvenet            #+#    #+#             */
-/*   Updated: 2021/06/15 14:20:23 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/12 16:47:03 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Bureaucrat
 {
 private:
-	std::string _name;
+	std::string const _name;
 	int _grade;
 	Bureaucrat();
 
