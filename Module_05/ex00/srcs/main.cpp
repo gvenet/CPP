@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:20:26 by gvenet            #+#    #+#             */
-/*   Updated: 2021/06/15 14:20:27 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/12 09:24:07 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 int main(int ac, char **av)
 {
 	if (ac != 2)
+	{
+		std::cout << "need one arg" << std::endl;
 		return 1;
+	}
 	std::stringstream str;
 	str << av[1];
 	int x;
