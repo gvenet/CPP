@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:21:53 by gvenet            #+#    #+#             */
-/*   Updated: 2021/06/15 14:23:05 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/12 09:31:18 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,15 @@ void Bureaucrat::decGrade(void)
 		throw Bureaucrat::GradeTooLowException();
 }
 
-void Bureaucrat::signForm(Form &f) const
+void Bureaucrat::signForm(Form &form) const
 {
-	if (f.getSignedStatus())
-		std::cout << *this << " can't sign " << f << " because the form is already signed." << std::endl;
-	else if (f.getGradeToSign() < this->_grade)
-		std::cout << *this << " can't sign " << f << " because it's grade is too low." << std::endl;
+	if (form.getSignedStatus())
+		std::cout << *this << " can't sign " << form << " because the form is already signed." << std::endl;
+	else if (form.getGradeToSign() < this->_grade)
+		std::cout << *this << " can't sign " << form << " because it's grade is too low." << std::endl;
 	else
-		std::cout << *this << " signs " << f << std::endl;
-	f.beSigned(*this);
+		std::cout << *this << " signs " << form << std::endl;
+	form.beSigned(*this);
 }
 
 //===========================OVERLOAD<<========================
