@@ -6,32 +6,23 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:20:26 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/12 09:24:07 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/12 15:23:02 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
 #include <sstream>
 
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac != 2)
-	{
-		std::cout << "need one arg" << std::endl;
-		return 1;
-	}
-	std::stringstream str;
-	str << av[1];
-	int x;
-	str >> x; //char* to int
 	try
 	{
-		Bureaucrat Jim("Jim", x);
+		Bureaucrat Jim("Jim", 100);
 		std::cout << Jim << std::endl;
 	}
 	catch (std::exception const &e)
 	{
-		std::cout << "ERROR : " << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 	std::cout << std::endl;
 	try
@@ -46,7 +37,7 @@ int main(int ac, char **av)
 
 	catch (const std::exception &e)
 	{
-		std::cout << "ERROR : " << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 	std::cout << std::endl;
 	try
@@ -60,7 +51,7 @@ int main(int ac, char **av)
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << "ERROR : " << e.what() << std::endl;
+		std::cerr << "\e[01;31mERROR : " << e.what() << "\e[0m" << std::endl;
 	}
 	return 0;
 }
