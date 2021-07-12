@@ -2,12 +2,9 @@
 
 int main()
 {
-	srand((unsigned)time(NULL) * getpid());
+	Data ptr;
+	ptr.n = 42;
 
-	for (int i = 0; i < 10; i++)
-	{
-		deserialize(serialize());
-		std::cout << std::endl;
-	}
+	std::cout << deserialize(serialize(&ptr))->n << std::endl;
 	return 0;
 }
