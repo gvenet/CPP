@@ -4,7 +4,7 @@ Convert::Convert(char const *cc)
 	: _fVal(std::strtof(cc, NULL)), _precisionFlag(PRECISIONINACTIV), _cFlag(DISPLAYABLE)
 {
 	_str = cc;
-	if (_str == "-inff" || _str == "inff")
+	if (_str == "-inff" || _str == "inff" || _str == "nanf")
 		_str.pop_back();
 	std::string tests[3] = {"nan", "-inf", "inf"};
 	for (int i = 0; i < 3; i++)
