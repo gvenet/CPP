@@ -27,16 +27,18 @@ MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < this->_sizeComInv; i++)
 	{
-		if (!this->_comInv[i]->getEquiped())
-		{
-			std::cout << "comInv\t: ";
-			delete this->_comInv[i];
-		}
+		std::cout << "comInv\t: ";
+		delete this->_comInv[i];
 	}
 	delete this->_comInv;
-	int i = -1;
-	while (_learned[++i])
-		delete _learned[i];
+	for (int i = 0; i < 4; i++)
+	{
+		if (_learned[i] != NULL)
+		{
+			std::cout << "learned\t: ";
+			delete _learned[i];
+		}
+	}
 }
 
 //============================================================GETTERS============================================================

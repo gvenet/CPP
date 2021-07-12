@@ -67,12 +67,12 @@ int main()
 	src->displayComInv();
 
 	std::cout << std::endl;
-	
-	delete src;
 
 	delete Cloud;
 	delete Tifa;
 	delete Jenova;
+
+	delete src;
 
 	return (0);
 }

@@ -23,13 +23,6 @@ Character &Character::operator=(Character const &op)
 
 Character::~Character()
 {
-	for (int i = 0; i < 4; i++)
-		if (this->_inventory[i])
-		{
-			std::cout << this->_name << "\t: ";
-			delete this->_inventory[i];
-			this->_inventory[i] = nullptr;
-		}
 }
 
 //============================================================GETTERS============================================================
