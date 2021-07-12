@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:26:21 by gvenet            #+#    #+#             */
-/*   Updated: 2021/06/15 14:28:07 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/12 15:55:20 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ void Form::beSigned(const Bureaucrat &b)
 
 std::ostream &operator<<(std::ostream &os, Form const &rhs)
 {
-	os << rhs.getName() << " [signed <" << rhs.getSignedStatus() << ">;gradeToSign <" << rhs.getGradeToSign() << ">;gradeToExecutM <" << rhs.getGradeToExecute() << ">]";
+	os << rhs.getName() << " [signed <" << rhs.getSignedStatus() << ">; toSign <" << rhs.getGradeToSign() << ">; toExecutM <" << rhs.getGradeToExecute() << ">]";
 	return os;
 }
