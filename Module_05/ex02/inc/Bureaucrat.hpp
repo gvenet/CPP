@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 14:33:00 by gvenet            #+#    #+#             */
-/*   Updated: 2021/06/15 14:33:01 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/12 09:34:01 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public:
 	//============================METHODS==========================
 	void incGrade(void);
 	void decGrade(void);
-	void signForm(Form &f) const;
+	void signForm(Form &form) const;
 
 	//============================EXCEPTIONS=======================
 	class GradeTooHighException : public std::exception
