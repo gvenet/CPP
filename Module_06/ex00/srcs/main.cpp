@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/13 07:59:20 by gvenet            #+#    #+#             */
+/*   Updated: 2021/07/13 08:16:31 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/convert.hpp"
 
 int main(int ac, char **av)
@@ -7,7 +19,6 @@ int main(int ac, char **av)
 		std::cout << "bad argument" << std::endl;
 		return 1;
 	}
-	Convert convert = Convert(av[1]);
-	std::cout << convert << std::endl;
+	std::cout << Convert(av[1]) << std::endl;
 	return 0;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   base.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/13 07:59:32 by gvenet            #+#    #+#             */
+/*   Updated: 2021/07/13 08:32:12 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/base.hpp"
 
 Base *genA()
@@ -44,7 +56,7 @@ void identify_from_reference(Base &p)
 		std::cout << "A" << std::endl;
 		(void)a;
 	}
-	catch(const std::bad_cast &bc)
+	catch (const std::bad_cast &bc)
 	{
 	}
 	try
@@ -53,7 +65,7 @@ void identify_from_reference(Base &p)
 		std::cout << "B" << std::endl;
 		(void)b;
 	}
-	catch(const std::bad_cast &bc)
+	catch (const std::bad_cast &bc)
 	{
 	}
 	try
@@ -62,7 +74,7 @@ void identify_from_reference(Base &p)
 		std::cout << "C" << std::endl;
 		(void)c;
 	}
-	catch(const std::bad_cast &bc)
+	catch (const std::bad_cast &bc)
 	{
-	}		
+	}
 }

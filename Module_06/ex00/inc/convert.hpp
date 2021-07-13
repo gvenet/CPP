@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   convert.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/13 07:59:16 by gvenet            #+#    #+#             */
+/*   Updated: 2021/07/13 08:13:13 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONVERT_HPP
 #define CONVERT_HPP
 #include <iostream>
@@ -17,6 +29,8 @@ private:
 	int			_cFlag;
 	std::string _str;
 	Convert();
+	void parse(void);
+	void fillVar(void);
 
 public:
 	Convert(char const *str);
@@ -24,16 +38,13 @@ public:
 	Convert &operator=(Convert const &op);
 	virtual ~Convert();
 
-	void parse(void);
-	void fillVar(void);
-
-	float getF(void) const;
-	int getI(void) const;
-	double getD(void) const;
-	char getC(void) const;
-	int getCFlag(void) const;
-	int getPrecisionFlag(void) const;
-	std::string getStr(void) const;
+	float getF(void) const {return _fVal;}
+	int getI(void) const {return _iVal;}
+	double getD(void) const {return _dVal;}
+	char getC(void) const{return _cVal;}
+	int getCFlag(void) const {return _cFlag;}
+	int getPrecisionFlag(void) const {return _precisionFlag;}
+	std::string getStr(void) const {return _str;}
 
 	enum precisionFlag
 	{

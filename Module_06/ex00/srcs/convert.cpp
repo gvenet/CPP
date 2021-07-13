@@ -1,12 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   convert.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/13 07:59:19 by gvenet            #+#    #+#             */
+/*   Updated: 2021/07/13 08:12:41 by gvenet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/convert.hpp"
 
 Convert::Convert(char const *cc)
 	: _fVal(std::strtof(cc, NULL)), _precisionFlag(PRECISIONINACTIV), _cFlag(DISPLAYABLE)
 {
-	_str = cc;
-	if (_str == "-inff" || _str == "inff" || _str == "nanf")
-		_str.pop_back();
 	std::string tests[3] = {"nan", "-inf", "inf"};
+	std::string testf[3] = {"nanf", "-inff", "inff"};
+
+	_str = cc;
+	for (int i = 0; i < 3; i++)
+		if (_str == testf[i])
+			_str.pop_back();
 	for (int i = 0; i < 3; i++)
 		if (_str == tests[i])
 			_cFlag = EXCEPT;
@@ -36,38 +51,6 @@ Convert::~Convert()
 {
 }
 
-std::string Convert::getStr(void) const
-{
-	return (_str);
-}
-
-float Convert::getF(void) const
-{
-	return (_fVal);
-}
-
-int Convert::getI(void) const
-{
-	return (_iVal);
-}
-double Convert::getD(void) const
-{
-	return (_dVal);
-}
-char Convert::getC(void) const
-{
-	return (_cVal);
-}
-
-int Convert::getCFlag(void) const
-{
-	return (_cFlag);
-}
-
-int Convert::getPrecisionFlag(void) const
-{
-	return (_precisionFlag);
-}
 
 void Convert::fillVar(void)
 {
