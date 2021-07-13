@@ -5,14 +5,15 @@
 #include <vector>
 
 template <typename T>
-class MutantStack : public Stack<T>
+class MutantStack : public std::stack<T>
 {
-	private:
+public:
+	MutantStack() : std::stack<T>(){};
+	MutantStack(MutantStack<T> const &cpy) : std::stack<T>(cpy){};
+	virtual ~MutantStack() {}
 
+	MutantStack<T> &operator=(MutantStack<T> const &cpy);
 
-	public:
-		
 };
-
 
 #endif

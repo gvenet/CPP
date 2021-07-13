@@ -55,7 +55,7 @@ int Span::shortestSpan(void)
 	int tmp[2];
 
 	if (_fill < 2)
-		throw ExceptionMsg("SpanException : not enought numbers to find somme span");
+		throw ExceptionMsg("SpanException : not enought numbers");
 	minmax(-1, min);
 	minmax(min[0], tmp);
 	return (tmp[0] - min[0]);
@@ -66,7 +66,7 @@ int Span::longestSpan(void)
 	int m[2];
 
 	if (_fill < 2)
-		throw ExceptionMsg("SpanException : not enought numbers to find some span");
+		throw ExceptionMsg("SpanException : not enought numbers");
 	minmax(0, m);
 	return (m[1] - m[0]);
 }
