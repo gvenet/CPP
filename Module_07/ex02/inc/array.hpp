@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 08:33:55 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 12:10:18 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 19:36:50 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	{
 	}
 
-	Array(size_t n) : _size(n)
+	Array(size_t n) : _size(n), _tptr(NULL)
 	{
 		_tptr = new T[n]();
 	}
@@ -37,16 +37,17 @@ public:
 	{
 		if (cpy._size > 0)
 		{
-			_size = cpy._size;
-			_tptr = new T[cpy._size];
+			_tptr = new T[cpy._size]();
 			for (size_t i = 0; i < _size; i++)
 				_tptr[i] = cpy._tptr[i];
 		}
+		_size = cpy._size;
 	}
 
 	virtual ~Array()
 	{
-		delete[] _tptr;
+		if (_size > 0)
+			delete[] _tptr;
 	}
 
 	Array &operator=(Array<T> const &op)
@@ -55,7 +56,7 @@ public:
 		if (_size > 0)
 		{
 			delete[] _tptr;
-			_tptr = new T[op._size];
+			_tptr = new T[op._size]();
 			for (size_t i = 0; i < _size; i++)
 				_tptr[i] = op._tptr[i];
 		}
@@ -78,19 +79,16 @@ public:
 	{
 		virtual const char *what() const throw() { return "the array index is out of range"; }
 	};
-
-
 };
 
 template <typename T>
 std::ostream &operator<<(std::ostream &o, Array<T> const &rhs)
 {
 	o << "| ";
-		for (size_t i = 0; i < rhs.size(); i++)
-			o << rhs[i] << " | ";
+	for (size_t i = 0; i < rhs.size(); i++)
+		o << rhs[i] << " | ";
 	o << std::endl;
 	return o;
 }
-
 
 #endif

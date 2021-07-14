@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 08:33:59 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 12:11:28 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 19:40:55 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int main(void)
 
 	std::cout << "\n=============dynamic=========\n";
 	Array<int> *x = new Array<int>(5);
-	*x = a;
+	for (size_t i = 0; i < x->size(); i++)
+		x->operator[](i) = 42;
 	std::cout << "x => "<< *x;
 	delete x;
 	

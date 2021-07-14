@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 08:33:45 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 11:25:08 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 19:23:49 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void display(T const &disp)
 }
 
 template <typename T>
-void iter(T *array, size_t length, void (*f)(T const &f))
+void iter(T *array, size_t size, void (*f)(T const &f))
 {
-	for (size_t i = 0; i < length; i++)
+	for (size_t i = 0; i < size; i++)
 		(*f)(array[i]);
 }
 
