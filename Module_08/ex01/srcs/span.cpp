@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 08:58:48 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 08:58:49 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 14:20:17 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,22 @@ void Span::display(void) const
 
 void Span::minmax(int ref, int *ret)
 {
-	ret[1] = 0;
-	for (size_t i = 0; i < _fill; i++)
-		if (ret[1] < _t[i])
-			ret[1] = _t[i];
-	ret[0] = ret[1];
-	for (size_t i = 0; i < _fill; i++)
-		if (ret[0] > _t[i] && _t[i] != ref)
-			ret[0] = _t[i];
+	// ret[1] = 0;
+	// for (size_t i = 0; i < _fill; i++)
+	// 	if (ret[1] < _t[i])
+	// 		ret[1] = _t[i];
+	// ret[0] = ret[1];
+	// for (size_t i = 0; i < _fill; i++)
+	// 	if (ret[0] > _t[i] && _t[i] != ref)
+	// 		ret[0] = _t[i];
+	
+
 }
 
 int Span::shortestSpan(void)
 {
-	int min[2];
-	int tmp[2];
-
-	if (_fill < 2)
-		throw ExceptionMsg("SpanException : not enought numbers");
-	minmax(-1, min);
-	minmax(min[0], tmp);
-	return (tmp[0] - min[0]);
+	int shsp;
+	return shsp;
 }
 
 int Span::longestSpan(void)

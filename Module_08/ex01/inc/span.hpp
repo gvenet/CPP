@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 08:58:49 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 08:58:50 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 14:18:42 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <random>
 #include <ctime>
 #include <limits>
+#include <vector> 
 
 class Span
 {
