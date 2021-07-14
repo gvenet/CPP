@@ -18,4 +18,3 @@ typename MutantStack<T>::iterator MutantStack<T>::end(void)
 {
 	return *this->c.end();
 }
-

@@ -18,7 +18,6 @@ public:
 
 	iterator begin(void);
 	iterator end(void);
-
 };
 
 #endif
