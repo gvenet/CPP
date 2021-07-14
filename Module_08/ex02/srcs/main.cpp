@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 09:01:36 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 09:01:36 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 10:29:58 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int> s(mstack);
+	// std::stack<int> s(mstack);
 	return 0;
 }

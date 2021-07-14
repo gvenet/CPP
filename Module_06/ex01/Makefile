@@ -27,7 +27,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(INC)| $(OBJ_DIR)
 
 $(BIN_DIR) $(OBJ_DIR):
 	mkdir -p $@
-	echo "$(OBJ_DIR) \033[32mdir created\033[0m"
+	echo "$@ \033[32mdir created\033[0m"
 
 clean:
 	$(RM) -rf $(OBJ_DIR)

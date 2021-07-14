@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 09:01:32 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 09:01:33 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 10:16:34 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 public:
-	MutantStack();
-	MutantStack(MutantStack<T> const &cpy);
-	virtual ~MutantStack();
+	MutantStack() : std::stack<T>(){}
+	MutantStack(const &cpy) : std::stack<T>(cpy){}
+	virtual ~MutantStack(){}
 
 	MutantStack<T> &operator=(MutantStack<T> const &cpy);
 
 	typedef typename std::stack<T>::container_type::iterator iterator;
 
-	iterator begin(void);
-	iterator end(void);
+	iterator begin(void) {return this->c.begin();}
+	iterator end(void) {return this->c.end();}
 };
 
 #endif

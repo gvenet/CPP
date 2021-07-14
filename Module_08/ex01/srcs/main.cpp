@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 08:58:46 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 08:58:47 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 10:03:17 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(void)
 	try
 	{
 		sp.addNumber(5);
-		sp.addNumber(9);
+		sp.addNumber(10);
 		sp.display();
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;

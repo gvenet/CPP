@@ -8,7 +8,7 @@ SRC		:= $(wildcard $(SRC_DIR)*.cpp) $(wildcard $(SRC_DIR)*/*.cpp)
 OBJ		:= $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 INC		:= $(wildcard $(INC_DIR)*.hpp)
 CC		:= clang++
-CFLAGS	:= -Wall -Wextra -Werror -std=c++98 -Wno-conversion
+CFLAGS	:= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 	echo "$^ \033[32mrdy 2 use\033[0m"
@@ -27,7 +27,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(INC)| $(OBJ_DIR)
 
 $(BIN_DIR) $(OBJ_DIR):
 	mkdir -p $@
-	echo "$(OBJ_DIR) \033[32mdir created\033[0m"
+	echo "$@ \033[32mdir created\033[0m"
 
 clean:
 	$(RM) -rf $(OBJ_DIR)
