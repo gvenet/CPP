@@ -8,9 +8,9 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 public:
-	MutantStack() : std::stack<T>(){};
-	MutantStack(MutantStack<T> const &cpy) : std::stack<T>(cpy){};
-	virtual ~MutantStack() {}
+	MutantStack();
+	MutantStack(MutantStack<T> const &cpy);
+	virtual ~MutantStack();
 
 	MutantStack<T> &operator=(MutantStack<T> const &cpy);
 
