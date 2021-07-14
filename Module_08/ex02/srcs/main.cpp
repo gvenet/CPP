@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 09:01:36 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 19:02:01 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 19:03:30 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,10 @@ int main()
 
 	mstack.pop();
 	std::cout << "\n***************\nms pop" << "\nms top =>\t" << mstack.top() << "\ns1 top =>\t" << s1.top() << "\ns2 top =>\t" << s2.top() << "\n";
+	std::cout << "\n\n************\n\n";
+
+
+
+
 	return 0;
 }
