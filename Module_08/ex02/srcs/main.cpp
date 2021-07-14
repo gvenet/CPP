@@ -1,11 +1,10 @@
 #include "../inc/mutantstack.hpp"
 #include <stack>
 #include <iostream>
+#include <vector>
 
 int main()
 {
-	std::stack <int> test;
-
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);

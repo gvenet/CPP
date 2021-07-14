@@ -14,6 +14,11 @@ public:
 
 	MutantStack<T> &operator=(MutantStack<T> const &cpy);
 
+	typedef typename std::stack<T>::container_type::iterator iterator;
+
+	iterator begin(void);
+	iterator end(void);
+
 };
 
 #endif
