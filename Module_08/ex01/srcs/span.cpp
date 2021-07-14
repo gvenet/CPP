@@ -6,13 +6,13 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 08:58:48 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 16:59:24 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 18:32:39 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/span.hpp"
 
-Span::Span(size_t size) : _size(size)
+Span::Span(size_t size) : _size(size), _nbFill(0)
 {
 	srand((unsigned)time(NULL));
 	_t = new std::vector<int>(_size);
@@ -30,6 +30,7 @@ void Span::addNumber(const int nb)
 	if (_it == _ite)
 		throw ExceptionMsg("SpanException : already filled");
 	*_it++ = nb;
+	_nbFill++;
 }
 
 size_t Span::size(void) const
@@ -42,28 +43,38 @@ std::vector<int> *Span::getT(void) const
 	return _t;
 }
 
+size_t Span::getNbFill(void) const
+{
+	return _nbFill;
+}
+
 int Span::shortestSpan(void)
 {
+	std::vector<int> tcpy(*_t);
+	std::vector<int>::iterator it = tcpy.begin();
+	std::vector<int>::iterator ite = tcpy.begin() + _nbFill;
 	int tmp;
-	std::vector<int>::iterator it = _t->begin();
-	std::sort (_t->begin(), _t->end());
-
+	
+	std::sort (it, ite);
 	if (_size < 2)
 		throw ExceptionMsg("SpanException : not enought numbers");
-	tmp = *it - *it++;
-	while (it != _ite)
-		if (*it - *it++ > tmp)
-			tmp = (*it - 1) - *it;
+	tmp = *++it - *(it - 1);
+
+	while (it != ite - 1)
+		if (*++it - *(it - 1) < tmp)
+			tmp = *it - *(it - 1);
 	return tmp;
 }
 
 int Span::longestSpan(void)
 {
-	std::vector<int>::iterator it = _t->begin();
-	std::sort (_t->begin(), _t->end());
+	std::vector<int> tcpy(*_t);
+	std::vector<int>::iterator it = tcpy.begin();
+	std::vector<int>::iterator ite = tcpy.begin() + _nbFill;
+	std::sort (it, ite);
 	if (_size < 2)
 		throw ExceptionMsg("SpanException : not enought numbers");
-	return (*_ite - *it);
+	return (*(ite - 1) - *(it));
 }
 
 void Span::autofill(void)
@@ -75,7 +86,7 @@ void Span::autofill(void)
 std::ostream &operator<<(std::ostream &o, Span const &rhs)
 {
 	o << "| ";
-	for (std::vector<int>::iterator it = rhs.getT()->begin(); it != rhs.getT()->end(); it++)
+	for (std::vector<int>::iterator it = rhs.getT()->begin(); it != rhs.getT()->begin() + rhs.getNbFill(); it++)
 		o << *it << " | ";
 	o << std::endl;
 	return o;
