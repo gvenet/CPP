@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 08:33:45 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/13 08:33:46 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 11:25:08 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,6 @@ std::ostream &operator<<(std::ostream &o, Awesome const &rhs)
 	o << rhs.get();
 	return o;
 }
-
-template <typename T>
-void print(T const &x)
-{
-	std::cout << x << std::endl;
-	return;
-}
-
-
 
 //=================================================================
 template <typename T>

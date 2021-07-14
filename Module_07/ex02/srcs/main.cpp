@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 08:33:59 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/13 08:34:00 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 12:11:28 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,36 @@
 
 int main(void)
 {
+	std::cout << "===========int============\n";
 	Array<int> a;
-
 	Array<int> b(5);
-	a = b;
 
-	a.display();
-	std::cout << std::endl;
+	a = b;
+	std::cout << "a => " << a;
 	for (size_t i = 0; i < a.size(); i++)
 		a[i] = i;
-	a.display();
-	std::cout << std::endl;
-	b.display();
-	std::cout << std::endl
-			  << std::endl;
+	std::cout << "a => " << a << "b => "<< b << std::endl;
 
+	std::cout << "===========float============\n";
 	Array<float> c(5);
 	for (size_t i = 0; i < c.size(); i++)
 		c[i] = 4.2;
-	c.display();
-	std::cout << std::endl
-			  << std::endl;
+	
+	std::cout << "c => "<< c << std::endl;
 
+	std::cout << "===========string============\n";
 	Array<std::string> d(5);
 	std::string stab[5] = {"s1", "s2", "s3", "s4", "s5"};
 	for (size_t i = 0; i < d.size(); i++)
 		d[i] = stab[i];
-	d.display();
-	std::cout << std::endl;
+	
+	std::cout << "d => "<< d;
 
 	Array<std::string> e = d;
 	for (size_t i = 0; i < 5; i++)
 		e[i] = "ST";
-	e.display();
-	std::cout << std::endl
-			  << std::endl;
+	
+	std::cout << "e => "<< e << std::endl;
 
 	try
 	{
@@ -57,7 +52,7 @@ int main(void)
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << "\n";
 	}
 
 	try
@@ -66,8 +61,18 @@ int main(void)
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << "\n";
 	}
 
+	std::cout << "\n=============dynamic=========\n";
+	Array<int> *x = new Array<int>(5);
+	*x = a;
+	std::cout << "x => "<< *x;
+	delete x;
+	
+	Array<int> *y = new Array<int>(3);
+	std::cout << "y => "<< *y << std::endl;
+	delete y;
+	
 	return (0);
 }

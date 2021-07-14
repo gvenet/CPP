@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 08:33:55 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/13 08:33:56 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 12:10:18 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ private:
 	T *_tptr;
 
 public:
-	Array() : _size(0), _tptr(nullptr)
+	Array() : _size(0), _tptr(NULL)
 	{
 	}
 
 	Array(size_t n) : _size(n)
 	{
-		_tptr = new T[n];
+		_tptr = new T[n]();
 	}
 
 	Array(Array<T> const &cpy)
@@ -62,28 +62,16 @@ public:
 		return *this;
 	}
 
-	T &operator[](size_t i)
+	T &operator[](size_t i) const
 	{
 		if (i >= _size)
 			throw limitArrayException();
 		return _tptr[i];
 	}
 
-	void display(void)
-	{
-		std::cout << "| ";
-		for (size_t i = 0; i < _size; i++)
-			std::cout  << _tptr[i] << " | ";
-	}
-
 	size_t size(void) const
 	{
 		return _size;
-	}
-
-	T *address(void) const
-	{
-		return _tptr;
 	}
 
 	class limitArrayException : public std::exception
@@ -93,5 +81,16 @@ public:
 
 
 };
+
+template <typename T>
+std::ostream &operator<<(std::ostream &o, Array<T> const &rhs)
+{
+	o << "| ";
+		for (size_t i = 0; i < rhs.size(); i++)
+			o << rhs[i] << " | ";
+	o << std::endl;
+	return o;
+}
+
 
 #endif
