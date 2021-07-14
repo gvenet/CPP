@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 08:58:49 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 18:34:16 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 19:48:11 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ private:
 	size_t _nbFill;
 	std::vector<int> *_t;
 	std::vector<int>::iterator _it;
-	std::vector<int>::iterator _ite;
 	Span() : _size(0){}
-	void minmax(int ref, int *ret);
 
 public:
 	Span(size_t size);
@@ -39,7 +37,6 @@ public:
 	size_t size(void) const;
 	std::vector<int> *getT(void) const;
 	size_t getNbFill(void) const;
-	int &operator[](size_t index);
 	int shortestSpan(void);
 	int longestSpan(void);
 	void autofill(void);

@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 08:58:48 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 18:32:39 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 19:49:07 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ Span::Span(size_t size) : _size(size), _nbFill(0)
 {
 	srand((unsigned)time(NULL));
 	_t = new std::vector<int>(_size);
-	_ite = _t->end();
 	_it = _t->begin();
 }
 
@@ -27,7 +26,7 @@ Span::~Span()
 
 void Span::addNumber(const int nb)
 {
-	if (_it == _ite)
+	if (_it == _t->end())
 		throw ExceptionMsg("SpanException : already filled");
 	*_it++ = nb;
 	_nbFill++;
@@ -79,7 +78,7 @@ int Span::longestSpan(void)
 
 void Span::autofill(void)
 {
-	for (std::vector<int>::iterator it = _t->begin(); it != _ite; it++)
+	for (std::vector<int>::iterator it = _t->begin(); it != _t->end(); it++)
 		addNumber(rand());
 }
 
