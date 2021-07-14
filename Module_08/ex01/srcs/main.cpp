@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 08:58:46 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 10:03:17 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 17:00:55 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ int main(void)
 {
 	Span sp(5);
 
+	sp.addNumber(5);
+	sp.addNumber(2);
+	sp.addNumber(4);
+	sp.addNumber(3);
+	sp.addNumber(1);
+
+	std::cout << sp;
 	try
 	{
 		std::cout << sp.shortestSpan() << std::endl;
@@ -38,12 +45,12 @@ int main(void)
 	{
 		sp.addNumber(5);
 		sp.addNumber(10);
-		sp.display();
+		std::cout << sp;
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 		std::cout << std::endl;
 		sp.addNumber(11);
-		sp.display();
+		std::cout << sp;
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 		std::cout << std::endl;
@@ -56,14 +63,16 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << std::endl;
-	sp.display();
+		std::cout << sp;
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 	std::cout << std::endl;
 
-	Span spp(9999999);
+	Span spp(10);
 	spp.autofill();
+	std::cout << spp;
 	std::cout << spp.shortestSpan() << std::endl;
+	std::cout << spp;
 	std::cout << spp.longestSpan() << std::endl;
 	std::cout << std::endl;
 

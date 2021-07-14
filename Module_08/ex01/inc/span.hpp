@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 08:58:49 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 14:18:42 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 16:57:54 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ class Span
 {
 private:
 	size_t _size;
-	int *_t;
-	size_t _fill;
+	std::vector<int> *_t;
+	std::vector<int>::iterator _it;
+	std::vector<int>::iterator _ite;
 	Span(){}
 	void minmax(int ref, int *ret);
 
@@ -35,10 +36,10 @@ public:
 	~Span();
 	void addNumber(const int nb);
 	size_t size(void) const;
+	std::vector<int> *getT(void) const;
 	int &operator[](size_t index);
 	int shortestSpan(void);
 	int longestSpan(void);
-	void display(void) const;
 	void autofill(void);
 	
 	class ExceptionMsg : public std::exception
@@ -52,5 +53,7 @@ public:
 		virtual const char *what() const throw() { return _msg.c_str(); }
 	};
 };
+
+std::ostream &operator<<(std::ostream &o, Span const &rhs);
 
 #endif
