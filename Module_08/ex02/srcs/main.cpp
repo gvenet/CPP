@@ -6,7 +6,7 @@
 /*   By: gvenet <gvenet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 09:01:36 by gvenet            #+#    #+#             */
-/*   Updated: 2021/07/14 14:16:39 by gvenet           ###   ########.fr       */
+/*   Updated: 2021/07/14 19:02:01 by gvenet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 	std::cout << "mstack size =>\t" << mstack.size() << std::endl;
 	std::cout << "mstack top =>\t" << mstack.top() << std::endl;
 	mstack.pop();
-	std::cout << "***** mstack pop *****\n";
+	std::cout << "mstack pop\n";
 	std::cout << "mstack size =>\t" << mstack.size() << std::endl;
 	std::cout << "mstack top =>\t" << mstack.top() << std::endl
 			  << std::endl;
